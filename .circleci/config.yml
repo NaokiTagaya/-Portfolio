@@ -13,13 +13,12 @@ jobs:
       - image: circleci/mysql:5.7
         environment:
           - MYSQL_DATABASE: fitness_app01_test
-          - MYSQL_USER: root
     working_directory: ~/portfolioec
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
       - run:
           name: update bundler
@@ -28,7 +27,7 @@ jobs:
             gem install bundler:2.1.4
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
       - run: bundle exec rails db:create RAILS_ENV=test
@@ -56,7 +55,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
       - run:
           name: update bundler
@@ -65,7 +64,7 @@ jobs:
             gem install bundler:2.1.4
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
       - run: bundle exec rails db:create RAILS_ENV=test
