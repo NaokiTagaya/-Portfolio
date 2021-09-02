@@ -17,5 +17,6 @@ services:
       - db-volume:/var/lib/mysql/data
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 volumes:
   db-volume:

@@ -49,7 +49,6 @@ jobs:
       - image: circleci/mysql:5.7
         environment:
           - MYSQL_DATABASE: fitness_app01_test
-          - MYSQL_USER: root
     working_directory: ~/portfolioec
     steps:
       - checkout
