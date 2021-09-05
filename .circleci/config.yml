@@ -10,9 +10,11 @@ jobs:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           DB_USERNAME: root
+          DB_PASSWORD: ''
       - image: circleci/mysql:5.7
         environment:
-          - MYSQL_DATABASE: fitness_app01_test
+          MYSQL_ROOT_HOST: '%'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
     working_directory: ~/portfolioec
     steps:
       - checkout
