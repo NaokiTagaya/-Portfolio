@@ -8,11 +8,14 @@ jobs:
       - image: circleci/ruby:2.7.0-node-browsers
         environment:
           RAILS_ENV: test
-          DB_HOST: 127.0.0.1
+          BUNDLE_PATH: "vendor/bundle"
+          BUNDLER_VERSION: 1.16.1
           DB_USERNAME: root
-          DB_PASSWORD: ''
       - image: circleci/mysql:5.7
         environment:
+          DB_HOST: 127.0.0.1
+          MYSQL_ROOT_PASSWORD: rootroot
+          MYSQL_DATABASE: test_db
           MYSQL_ROOT_HOST: '%'
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
     working_directory: ~/portfolioec
@@ -27,7 +30,10 @@ jobs:
           command: |
             gem update --system
             gem install bundler:2.1.4
-      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
+          name: install bundle
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
