@@ -5,5 +5,5 @@ WORKDIR /portfolioec
 COPY Gemfile /portfolioec/Gemfile
 COPY Gemfile.lock /portfolioec/Gemfile.lock
 RUN gem install bundler
-RUN bundle install
+RUN gem install bundler && bundle install
 COPY . /portfolioec

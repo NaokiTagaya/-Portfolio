@@ -8,16 +8,12 @@ jobs:
       - image: circleci/ruby:2.7.0-node-browsers
         environment:
           RAILS_ENV: test
-          BUNDLE_PATH: "vendor/bundle"
-          BUNDLER_VERSION: 1.16.1
-          DB_USERNAME: root
-      - image: circleci/mysql:5.7
-        environment:
           DB_HOST: 127.0.0.1
-          MYSQL_ROOT_PASSWORD: rootroot
-          MYSQL_DATABASE: test_db
-          MYSQL_ROOT_HOST: '%'
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          DB_USERNAME: root
+      - image: circleci/mysql:5.6
+        environment:
+          - MYSQL_DATABASE: fitness_app01_test
+          - MYSQL_USER: root
     working_directory: ~/portfolioec
     steps:
       - checkout
@@ -30,10 +26,7 @@ jobs:
           command: |
             gem update --system
             gem install bundler:2.1.4
-      - run:
-          name: install bundle
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
@@ -54,9 +47,10 @@ jobs:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           DB_USERNAME: root
-      - image: circleci/mysql:5.7
+      - image: circleci/mysql:5.6
         environment:
           - MYSQL_DATABASE: fitness_app01_test
+          - MYSQL_USER: root
     working_directory: ~/portfolioec
     steps:
       - checkout
