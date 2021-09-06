@@ -12,10 +12,10 @@ jobs:
           DB_USERNAME: root
       - image: circleci/mysql:5.6
         environment:
-            MYSQL_ROOT_HOST: '%'
-            MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_DATABASE: fitness_app01_test
           - MYSQL_USER: user
+          - MYSQL_ROOT_HOST: '%'
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
     working_directory: ~/portfolioec
     steps:
       - checkout
@@ -51,10 +51,10 @@ jobs:
           DB_USERNAME: root
       - image: circleci/mysql:5.6
         environment:
-            MYSQL_ROOT_HOST: '%'
-            MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_DATABASE: fitness_app01_test
           - MYSQL_USER: user
+          - MYSQL_ROOT_HOST: '%'
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
     working_directory: ~/portfolioec
     steps:
       - checkout
