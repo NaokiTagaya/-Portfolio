@@ -16,8 +16,6 @@ default: &default
   username: root
   password: password
   host: db
-  pool: 5
-  timeout: 5000
 
 development:
   <<: *default
