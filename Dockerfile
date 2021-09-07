@@ -1,9 +1,12 @@
 FROM ruby:2.7.0
-RUN apt-get update -qq && apt-get install -y build-essential nodejs
+RUN apt-get update -qq && \
+  apt-get install -y build-essential \ 
+  libpq-dev \
+  nodejs
 RUN mkdir /portfolioec
-WORKDIR /portfolioec
-COPY Gemfile /portfolioec/Gemfile
-COPY Gemfile.lock /portfolioec/Gemfile.lock
-RUN gem install bundler
-RUN gem install bundler && bundle install
-COPY . /portfolioec
+ENV APP_ROOT /portfolioec
+WORKDIR $APP_ROOT
+COPY ./Gemfile $APP_ROOT/Gemfile
+COPY ./Gemfile.lock $APP_ROOT/Gemfile.lock
+RUN bundle install
+COPY . $APP_ROOT
