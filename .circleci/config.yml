@@ -10,7 +10,8 @@ jobs:
       environment:
         - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
         - MYSQL_ROOT_HOST: '127.0.0.1'
-
+          MYSQL_DB: portfolioec_test 
+          MYSQL_USER: root 
     working_directory: ~/portfolioec
 
     steps:
