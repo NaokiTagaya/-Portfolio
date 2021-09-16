@@ -38,7 +38,7 @@ jobs:
           name: Databasesetup
           command: |
             bin/rails db:create
-            bin/rails db:schema:load
+            bin/rails db:migrate
 
       - run:
           name: Run rspec
