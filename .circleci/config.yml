@@ -68,7 +68,7 @@ jobs:
       # CircleCI に登録した秘密鍵を呼び出す
       - add_ssh_keys:
       # CircleCI に登録した環境変数を使って SSH
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd [あなたのプロジェクトへのパス] && git pull'
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd ~/portfolioec && git pull'
 
 workflows:
     version: 2
