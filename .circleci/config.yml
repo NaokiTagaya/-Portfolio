@@ -65,23 +65,17 @@ jobs:
       image: circleci/classic:edge
     steps:
       - checkout
-      # CircleCI に登録した秘密鍵を呼び出す
       - add_ssh_keys:
-      # CircleCI に登録した環境変数を使って SSH
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /Users/tagayanaoki/Rubyworkspace/portfolioec && git pull'
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd ~/portfolioec && git pull'
 
 workflows:
     version: 2
-    # build_and_deploy ジョブ: 一番最初に呼ばれるジョブ
     build_and_deploy:
-        # build ジョブと deploy ジョブを登録する
         jobs:
             - build
             - deploy:
                 requires:
-                    # 依存性あるから deploy ジョブより先に build ジョブを実行してね、という命令
                     - build
-                # master ブランチに push された場合のみ deploy ジョブを実行する
                 filters:
                     branches:
                         only: master
