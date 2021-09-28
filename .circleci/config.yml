@@ -62,20 +62,19 @@ jobs:
 
   deploy:
     machine:
-      image: circleci/classic:edge
+      enabled: true
     steps:
-      - checkout
       - add_ssh_keys:
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd ~/portfolioec && git pull'
+          fingerprints:
+            - d6:fd:52:0c:c5:67:8a:c9:25:2a:67:03:51:0a:09:d5
+      - run: ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "/home/ec2-user/portfolioec/deploy-me.sh"
 
 workflows:
     version: 2
-    build_and_deploy:
-        jobs:
-            - build
-            - deploy:
-                requires:
-                    - build
-                filters:
-                    branches:
-                        only: master
+    deploy:
+      jobs:
+        - build
+        - deploy:
+            filters:
+              branches:
+                only: master
