@@ -66,7 +66,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - d6:fd:52:0c:c5:67:8a:c9:25:2a:67:03:51:0a:09:d5
+            - 9a:ee:95:27:f4:39:7b:ac:20:3e:a5:fc:16:77:f1:47
       - run: ssh -p $SSH_PORT $USER_NAME@$HOST_NAME "/home/ec2-user/portfolioec/deploy-me.sh"
 
 workflows:
