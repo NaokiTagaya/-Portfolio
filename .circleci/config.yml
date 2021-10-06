@@ -67,7 +67,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - 95:b5:ac:4a:00:b5:68:f8:e3:ab:43:3c:b0:53:b4:62
-      - run: ssh -p $SSH_PORT $USER_NAME@$HOST_NAME "cd /home/ec2-user/my_app/ && git pull"
+      - run: ssh -p $SSH_PORT $USER_NAME@$HOST_NAME "cd /home/ec2-user/my_app/ && git pull origin master"
 
 workflows:
     version: 2
