@@ -7,6 +7,13 @@ services:
       MYSQL_DATABASE: portfolioec_development
     ports:
       - "3306:3306"
+  webpacker:
+    build: .
+    command: bundle exec bin/webpack-dev-server
+    volumes:
+      - .:/portfolioec
+    ports:
+      - "8080:8080"
   web:
     build: .
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
