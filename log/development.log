@@ -2540,3 +2540,153 @@ Your manifest contains:
     16: </html>
   
 app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__886103501401306448_15160'
+Started GET "/" for 172.20.0.1 at 2021-10-16 09:32:56 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by RestaurantController#top as HTML
+  Rendering restaurant/top.html.erb within layouts/application
+  Rendered restaurant/top.html.erb within layouts/application (3.5ms)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+[webpack-cli] Failed to load '/portfolioec/config/webpack/development.js' config
+[webpack-cli] TypeError: Cannot read property 'plugins' of undefined
+    at Object.<anonymous> (/portfolioec/config/webpack/environment.js:5:13)
+    at Module._compile (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/portfolioec/config/webpack/development.js:3:21)
+    at Module._compile (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+
+Completed 500 Internal Server Error in 21130ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Webpacker can't find hello_vue in /portfolioec/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    11: 
+    12:   <body>
+    13:     <%= yield %>
+    14:     <%= javascript_pack_tag 'hello_vue', 'data-turbolinks-track': 'reload' %>
+    15:   </body>
+    16: </html>
+  
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__928166482013914983_15160'
+Started GET "/" for 172.20.0.1 at 2021-10-23 11:48:42 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (19.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by RestaurantController#top as HTML
+  Rendering restaurant/top.html.erb within layouts/application
+  Rendered restaurant/top.html.erb within layouts/application (12.5ms)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+[webpack-cli] Failed to load '/portfolioec/config/webpack/development.js' config
+[webpack-cli] TypeError: Cannot read property 'plugins' of undefined
+    at Object.<anonymous> (/portfolioec/config/webpack/environment.js:5:13)
+    at Module._compile (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)
+    at Module.load (node:internal/modules/cjs/loader:989:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:829:14)
+    at Module.require (node:internal/modules/cjs/loader:1013:19)
+    at require (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/portfolioec/config/webpack/development.js:3:21)
+    at Module._compile (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)
+    at Module.load (node:internal/modules/cjs/loader:989:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:829:14)
+    at Module.require (node:internal/modules/cjs/loader:1013:19)
+    at require (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WebpackCLI.tryRequireThenImport (/portfolioec/node_modules/webpack-cli/lib/webpack-cli.js:245:16)
+    at loadConfigByPath (/portfolioec/node_modules/webpack-cli/lib/webpack-cli.js:1725:30)
+
+Completed 500 Internal Server Error in 20671ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Webpacker can't find hello_vue in /portfolioec/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    11: 
+    12:   <body>
+    13:     <%= yield %>
+    14:     <%= javascript_pack_tag 'hello_vue', 'data-turbolinks-track': 'reload' %>
+    15:   </body>
+    16: </html>
+  
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__4598367340003535729_15160'
+Started GET "/" for 172.20.0.1 at 2021-10-23 11:53:38 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by RestaurantController#top as HTML
+  Rendering restaurant/top.html.erb within layouts/application
+  Rendered restaurant/top.html.erb within layouts/application (2.9ms)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+[webpack-cli] Failed to load '/portfolioec/config/webpack/development.js' config
+[webpack-cli] TypeError: Cannot read property 'plugins' of undefined
+    at Object.<anonymous> (/portfolioec/config/webpack/environment.js:5:13)
+    at Module._compile (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)
+    at Module.load (node:internal/modules/cjs/loader:989:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:829:14)
+    at Module.require (node:internal/modules/cjs/loader:1013:19)
+    at require (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/portfolioec/config/webpack/development.js:3:21)
+    at Module._compile (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)
+    at Module.load (node:internal/modules/cjs/loader:989:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:829:14)
+    at Module.require (node:internal/modules/cjs/loader:1013:19)
+    at require (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WebpackCLI.tryRequireThenImport (/portfolioec/node_modules/webpack-cli/lib/webpack-cli.js:245:16)
+    at loadConfigByPath (/portfolioec/node_modules/webpack-cli/lib/webpack-cli.js:1725:30)
+
+Completed 500 Internal Server Error in 18145ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Webpacker can't find hello_vue in /portfolioec/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    11: 
+    12:   <body>
+    13:     <%= yield %>
+    14:     <%= javascript_pack_tag 'hello_vue', 'data-turbolinks-track': 'reload' %>
+    15:   </body>
+    16: </html>
+  
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb___1721897800632194777_15160'
