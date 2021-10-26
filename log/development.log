@@ -2690,3 +2690,136 @@ Your manifest contains:
     16: </html>
   
 app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb___1721897800632194777_15160'
+Started GET "/" for 172.20.0.1 at 2021-10-26 13:27:35 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (6.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by RestaurantController#top as HTML
+  Rendering restaurant/top.html.erb within layouts/application
+  Rendered restaurant/top.html.erb within layouts/application (11.1ms)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+(node:26) ExperimentalWarning: Conditional exports is an experimental feature. This feature could change at any time
+[webpack-cli] Failed to load '/portfolioec/config/webpack/development.js' config
+[webpack-cli] TypeError: Cannot read property 'plugins' of undefined
+    at Object.<anonymous> (/portfolioec/config/webpack/environment.js:5:13)
+    at Module._compile (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/portfolioec/config/webpack/development.js:3:21)
+    at Module._compile (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WebpackCLI.tryRequireThenImport (/portfolioec/node_modules/webpack-cli/lib/webpack-cli.js:245:16)
+    at loadConfigByPath (/portfolioec/node_modules/webpack-cli/lib/webpack-cli.js:1725:30)
+
+Completed 500 Internal Server Error in 22802ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Webpacker can't find hello_vue.js in /portfolioec/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    11: 
+    12:   <body>
+    13:     <%= yield %>
+    14:     <%= javascript_pack_tag 'hello_vue', 'data-turbolinks-track': 'reload' %>
+    15:   </body>
+    16: </html>
+  
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__3634130638990050848_15160'
+Started GET "/" for 172.20.0.1 at 2021-10-26 14:12:37 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (20.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by RestaurantController#top as HTML
+  Rendering restaurant/top.html.erb within layouts/application
+  Rendered restaurant/top.html.erb within layouts/application (17.7ms)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: a69daa95ec0eba5aa1c0
+Version: webpack 4.46.0
+Time: 8244ms
+Built at: 10/26/2021 2:13:35 PM
+                                   Asset       Size     Chunks                         Chunk Names
+    js/hello_vue-ce73940d288de6235275.js   7.34 KiB  hello_vue  [emitted] [immutable]  hello_vue
+js/hello_vue-ce73940d288de6235275.js.map   3.52 KiB  hello_vue  [emitted] [dev]        hello_vue
+                           manifest.json  350 bytes             [emitted]              
+Entrypoint hello_vue = js/hello_vue-ce73940d288de6235275.js js/hello_vue-ce73940d288de6235275.js.map
+[./app/javascript/packs/hello_vue.js] 3.46 KiB {hello_vue} [built] [failed] [1 error]
+
+ERROR in ./app/javascript/packs/hello_vue.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+Error: Cannot find module './node_modules/@rails/webpacker/package/babel/preset.js'
+Require stack:
+- /portfolioec/node_modules/@babel/core/lib/config/files/plugins.js
+- /portfolioec/node_modules/@babel/core/lib/config/files/index.js
+- /portfolioec/node_modules/@babel/core/lib/index.js
+- /portfolioec/node_modules/babel-loader/lib/index.js
+- /portfolioec/node_modules/loader-runner/lib/loadLoader.js
+- /portfolioec/node_modules/loader-runner/lib/LoaderRunner.js
+- /portfolioec/node_modules/webpack/lib/NormalModule.js
+- /portfolioec/node_modules/webpack/lib/NormalModuleFactory.js
+- /portfolioec/node_modules/webpack/lib/Compiler.js
+- /portfolioec/node_modules/webpack/lib/webpack.js
+- /portfolioec/node_modules/webpack-cli/bin/utils/validate-options.js
+- /portfolioec/node_modules/webpack-cli/bin/utils/convert-argv.js
+- /portfolioec/node_modules/webpack-cli/bin/cli.js
+- /portfolioec/node_modules/webpack/bin/webpack.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+    at resolve (/portfolioec/node_modules/v8-compile-cache/v8-compile-cache.js:164:23)
+    at resolveStandardizedName (/portfolioec/node_modules/@babel/core/lib/config/files/plugins.js:111:7)
+    at resolvePreset (/portfolioec/node_modules/@babel/core/lib/config/files/plugins.js:59:10)
+    at loadPreset (/portfolioec/node_modules/@babel/core/lib/config/files/plugins.js:78:20)
+    at loadPreset.next (<anonymous>)
+    at createDescriptor (/portfolioec/node_modules/@babel/core/lib/config/config-descriptors.js:187:16)
+    at createDescriptor.next (<anonymous>)
+    at step (/portfolioec/node_modules/gensync/index.js:261:32)
+    at evaluateAsync (/portfolioec/node_modules/gensync/index.js:291:5)
+    at /portfolioec/node_modules/gensync/index.js:44:11
+    at Array.forEach (<anonymous>)
+    at Function.async (/portfolioec/node_modules/gensync/index.js:43:15)
+    at Function.all (/portfolioec/node_modules/gensync/index.js:216:13)
+    at Generator.next (<anonymous>)
+    at createDescriptors (/portfolioec/node_modules/@babel/core/lib/config/config-descriptors.js:142:41)
+    at createDescriptors.next (<anonymous>)
+    at createPresetDescriptors (/portfolioec/node_modules/@babel/core/lib/config/config-descriptors.js:134:17)
+    at createPresetDescriptors.next (<anonymous>)
+    at presets (/portfolioec/node_modules/@babel/core/lib/config/config-descriptors.js:73:26)
+    at presets.next (<anonymous>)
+    at mergeChainOpts (/portfolioec/node_modules/@babel/core/lib/config/config-chain.js:420:34)
+    at mergeChainOpts.next (<anonymous>)
+    at /portfolioec/node_modules/@babel/core/lib/config/config-chain.js:378:14
+    at Generator.next (<anonymous>)
+    at loadFileChain (/portfolioec/node_modules/@babel/core/lib/config/config-chain.js:232:24)
+    at loadFileChain.next (<anonymous>)
+    at buildRootChain (/portfolioec/node_modules/@babel/core/lib/config/config-chain.js:135:31)
+    at buildRootChain.next (<anonymous>)
+    at loadPrivatePartialConfig (/portfolioec/node_modules/@babel/core/lib/config/partial.js:103:62)
+    at loadPrivatePartialConfig.next (<anonymous>)
+    at /portfolioec/node_modules/@babel/core/lib/config/partial.js:149:25
+    at Generator.next (<anonymous>)
+    at step (/portfolioec/node_modules/gensync/index.js:269:25)
+    at /portfolioec/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/portfolioec/node_modules/gensync/index.js:223:11)
+
+
+(node:23) ExperimentalWarning: Conditional exports is an experimental feature. This feature could change at any time
+(node:23) ExperimentalWarning: Package name self resolution is an experimental feature. This feature could change at any time
+
+Completed 200 OK in 57386ms (Views: 57332.5ms | ActiveRecord: 0.0ms)
+
+
