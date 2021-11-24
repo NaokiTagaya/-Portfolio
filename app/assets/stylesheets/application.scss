@@ -1,0 +1,161 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "bootstrap";
+
+body {
+  margin: 0;
+  background: #f3f3f3;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  margin-top: 25px;
+  padding-top: 30px;
+  background-color: #83CCD2;
+  box-sizing: border-box;
+  color: #fff;
+  text-align: center;
+}
+
+.header-logo {
+  width: 180px;
+  margin-right: 30px;
+}
+
+.navbar-color {
+  background-color: #83CCD2;
+}
+
+.main-visual {
+  background-image: image-url("top_image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #d3d3d3;
+  background-blend-mode: soft-light;
+  text-align: center;
+  height: 600px;
+}
+
+.main-visual h5 {
+  padding-top: 50px;
+  font-size: 18pt;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.main-visual h6 {
+  padding-top: 80px;
+  padding-bottom: 25px;
+  font-size: 15pt;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.main-visual img {
+  height: auto;
+}
+
+.form-top {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.main-visual form {
+  width: 100%;
+}
+
+.form-column {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.pd-right0 {
+  padding-right: 0%;
+}
+
+.pd-left0 {
+  padding-left: 0%;
+}
+
+.btn-color {
+  color: #fff;
+  background-color: #006666;
+  border-color: #006666;
+}
+
+.container-square {
+  border-radius: 15px;
+  padding: 45px;
+  margin-top: 30px;
+  background: white;
+}
+
+.container-square p {
+  text-align: center;
+  margin: 0;
+}
+
+.container-square h4 {
+  font-size: 25px;
+  letter-spacing: -1px;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 15px;
+  font-weight: normal;
+  border-bottom: 2px solid #006666;
+}
+
+.square-parts {
+  font-weight: bold;
+}
+
+.square-parts h4 {
+  color: #006666;
+}
+
+.square-parts p {
+  line-height: 50px;
+}
+
+.square-parts-img {
+  width: 160px;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.martop-30 {
+  margin-top: 30px;
+}
+
+.margbot-30 {
+  margin-bottom: 30px;
+}
+
+.marginlg-5 {
+  margin: 0px 5px;
+}
