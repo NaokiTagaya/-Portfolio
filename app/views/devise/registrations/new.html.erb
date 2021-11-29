@@ -15,7 +15,7 @@
     <div class="field">
       <%= f.label :age, '年齢' %>
       <br>
-      <%= f.number_field :age, class: "form-control font-14" ,autofocus: true, autocomplete: "age" %>
+      <%= f.number_field :age, class: "form-control font-14", min: 0, max: 100, autofocus: true, autocomplete: "age" %>
       <br>
     </div>
 

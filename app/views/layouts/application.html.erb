@@ -34,7 +34,7 @@
           <% if user_signed_in? %>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item marginlg-5">
-                <a class="nav-link active clr-white" aria-current="page" href="#">ホーム</a>
+                <%= link_to "ホーム", "/", class: "nav-link active fnt-size-16" %>
               </li>
               <li class="nav-item marginlg-5">
                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
@@ -58,7 +58,7 @@
           <% else %>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item marginlg-5">
-                <a class="nav-link active fnt-size-16" aria-current="page" href="#">ホーム</a>
+                <%= link_to "ホーム", "/", class: "nav-link active fnt-size-16" %>
               </li>
               <li class="nav-item marginlg-5">
                 <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-color" %>
