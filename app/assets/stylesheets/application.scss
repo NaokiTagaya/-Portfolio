@@ -13,9 +13,14 @@
  */
 @import "bootstrap";
 
+a {
+  color: #2f3337;
+}
+
 body {
   margin: 0;
   background: #f3f3f3;
+  font-size: 14px;
 }
 
 footer {
@@ -37,6 +42,10 @@ footer {
 
 .navbar-color {
   background-color: #83CCD2;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
 }
 
 .main-visual {
@@ -106,6 +115,12 @@ footer {
   border-color: #006666;
 }
 
+.btn-color:hover {
+  color: #fff;
+  background-color: #003333;
+  border-color: #006666;
+}
+
 .container-square {
   border-radius: 15px;
   padding: 45px;
@@ -158,4 +173,42 @@ footer {
 
 .marginlg-5 {
   margin: 0px 5px;
+}
+
+.form-square {
+  border-radius: 15px;
+  background: white;
+  padding: 45px 100px;
+}
+
+.account-regi h3 {
+  font-size: 3em;
+  letter-spacing: -1px;
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
+}
+
+.account-regi label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.form-submit {
+  background-color: #006666;
+  border: none;
+  border-radius: 3px;
+  margin: 0 auto;
+  cursor: pointer;
+  color: white;
+}
+
+.form-submit:hover {
+  background-color: #003333;
 }
