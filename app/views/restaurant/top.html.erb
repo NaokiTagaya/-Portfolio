@@ -18,6 +18,11 @@
   <div class="container-square square-parts">
     <h4>「フジノキ」とは？</h4>
     <br>
+     <div class="row mx-auto margbot-30">
+      <div class="col">
+        <%= image_tag 'food_takeout_woman.png', :class=>"square-parts-img img-fluid d-block mx-auto", :alt => 'テイクアウトイラスト' %>
+      </div>
+    </div>
     <p>
       昨今新型コロナウイルスが蔓延する中、人との接触を控えるようになりました。
       <br>
@@ -37,10 +42,10 @@
     <br>
     <div class="row mx-auto margbot-30">
       <div class="col">
-        <%= image_tag 'review_man_star5.png', :class=>"square-parts-img img-fluid d-block float-right", :alt => '星5男性' %>
+        <%= image_tag 'review_man_star5.png', :class=>"square-parts-img img-fluid d-block float-right", :alt => '星5男性イラスト' %>
       </div>
       <div class="col">
-        <%= image_tag 'review_woman_star5.png', :class=>"square-parts-img img-fluid d-block float-left", :alt => '星5女性' %>
+        <%= image_tag 'review_woman_star5.png', :class=>"square-parts-img img-fluid d-block float-left", :alt => '星5女性イラスト' %>
       </div>
     </div>
     <p>
@@ -50,7 +55,7 @@
       <br>
     </p>
     <div class="martop-30 txt-center">
-      <button type="button" class="btn btn-color btn-lg">今すぐ登録</button>
+      <%= link_to "今すぐ登録", new_user_registration_path, class: "btn btn-color btn-lg" %>
     </div>
   </div>
 </div>
