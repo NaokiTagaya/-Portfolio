@@ -27,6 +27,7 @@ ja:
         updated_at: 更新日
         user_name: 名前
         age: 年齢
+        password_confirm: パスワード（確認用）
     models:
       user: ユーザー
   devise:

@@ -48,7 +48,7 @@
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                       <li><a class="dropdown-item" href="#">マイページ</a></li>
                       <li><a class="dropdown-item" href="#">店舗登録</a></li>
-                      <li><a class="dropdown-item" href="#">ログアウト</a></li>
+                      <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: "delete" %></li>
                     </ul>
                   </li>
                 </ul>

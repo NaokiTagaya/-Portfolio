@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable
 
   # パスワード変更機能
   def update_without_current_password(params, *options)
@@ -29,9 +29,17 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
 
   # バリデーション
-  validates :user_name, presence: true, length: { maximum: 30 }
-  validates :age, presence: true, numericality: true
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, presence: true, length: { minimum: 7 }, format: { with: VALID_PASSWORD_REGEX }, on: :create
-  validates :password_confirmation, presence: true, length: { minimum: 7 }, format: { with: VALID_PASSWORD_REGEX }, on: :create
+  validates :user_name, presence: true
+  validates :user_name, length: { maximum: 30 }, allow_blank: true
+  validates :age, presence: true
+  validates :age, numericality: true, allow_blank: true
+  validates :email, presence: true
+  validates :email, uniqueness: true, allow_blank: true
+  validates :email, format: { with: VALID_EMAIL_REGEX }, allow_blank: true
+  validates :password, presence: true, on: :create
+  validates :password, length: { minimum: 6 }, allow_blank: true, on: :create
+  validates :password, format: { with: VALID_PASSWORD_REGEX }, allow_blank: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
+  validates :password_confirmation, length: { minimum: 6 }, allow_blank: true, on: :create
+  validates :password_confirmation, format: { with: VALID_PASSWORD_REGEX }, allow_blank: true, on: :create
 end
