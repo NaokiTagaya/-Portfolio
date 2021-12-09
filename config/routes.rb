@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations',
+                                    sessions: 'users/sessions' }
   devise_scope :user do
     get '/users', to: redirect("/users/sign_up")
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  get 'restaurant/top'
+  get 'restaurants/top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root :to => 'restaurant#top'
+  root :to => 'restaurants#top'
+  get 'users/profile' => 'users#show'
 end

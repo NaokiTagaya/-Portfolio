@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   # 正規表現を定義
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-z\d]+\z/i
 
   # バリデーション
   validates :user_name, presence: true
