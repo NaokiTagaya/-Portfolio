@@ -54,8 +54,10 @@
       是非会員登録して頂き、店舗の情報やレビューを他の方に共有してみましょう！
       <br>
     </p>
+    <% unless user_signed_in? %>
     <div class="martop-30 txt-center">
       <%= link_to "今すぐ登録", new_user_registration_path, class: "btn btn-color btn-lg" %>
     </div>
+    <% end %>
   </div>
 </div>
