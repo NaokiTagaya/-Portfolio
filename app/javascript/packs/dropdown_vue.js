@@ -12,7 +12,7 @@ document.addEventListener('turbolinks:load', () => {
                 name: 'メニュー',
                 children: [
                     {
-                        url: '#',
+                        url: '/users/profile',
                         name: 'マイページ'
                     },
                     {

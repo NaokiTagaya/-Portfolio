@@ -52,7 +52,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-      flash[:success] = "新規登録完了しました。" 
       users_profile_path
   end
 
