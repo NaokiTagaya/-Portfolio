@@ -13,8 +13,8 @@
           <li v-if="isActive === 1">
             <div class="row">
                 <div class="col margin-bottom50">
-                  <% if user_signed_in? %>
-                    <%= image_tag "default_icon.png", alt: "ユーザーアイコン", class: "profile-image d-block mx-auto" %>
+                  <% if @user.image? %>
+                    <%= image_tag @user.image.url, alt: "ユーザーアイコン", class: "profile-image d-block mx-auto" %>
                   <% else %>
                     <%= image_tag "default_icon.png", alt: "ユーザーアイコン", class: "profile-image d-block mx-auto" %>
                   <% end %>
@@ -24,31 +24,38 @@
             <div class="row profile-margin">
               <div class="col profile-col">
                 <label class="text-left mx-auto float-left">名前：</label>
-                <span class="text-left mx-auto float-left">名前</span>
+                <span class="text-left mx-auto float-left"><%= @user.user_name %></span>
               </div>
             </div>
             <br>
             <div class="row profile-margin">
               <div class="col profile-col">
                 <label class="text-left mx-auto float-left">年齢：</label>
-                <span class="text-left mx-auto float-left">年齢</span>
+                <span class="text-left mx-auto float-left"><%= @user.age %></span>
               </div>
             </div>
             <br>
             <div class="row profile-margin">
               <div class="col profile-col">
                 <label class="text-left mx-auto float-left">性別：</label>
-                <span class="text-left mx-auto float-left">性別</span>
+                <% if @user.sex = 0 %>
+                  <span class="text-left mx-auto float-left">男性</span>
+                <% else %>
+                  <span class="text-left mx-auto float-left">女性</span>
+                <% end %>
               </div>
             </div>
             <br>
             <div class="row profile-margin">
               <div class="col profile-col col-auto me-auto">
                 <label class="text-left mx-auto float-left">メールアドレス：</label>
-                <span class="text-left mx-auto float-left">メールアドレス</span>
+                <span class="text-left mx-auto float-left"><%= @user.email %></span>
               </div>
             </div>
             <br>
+            <div class="martop-50 txt-center">
+              <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-color width-25" %>
+            </div>
           </li>
           <li v-else-if="isActive === 2">散る桜残る桜も散る桜</li>
         </ul>

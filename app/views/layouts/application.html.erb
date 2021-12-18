@@ -8,7 +8,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'dropdown_vue' %>
     <%= javascript_pack_tag 'tab_vue' %>
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -39,27 +38,16 @@
                 <%= link_to "ホーム", "/", class: "nav-link active fnt-size-16" %>
               </li>
               <li class="nav-item marginlg-5">
-                <div id="nav">
-                  <ul>
-                    <li v-for="item in items">
-                      <a :href="item.url" v-if="!item.children">
-                        <img src="/assets/default_icon.png" class="mxｰ3 p-1 host-icon hover-opacity" alt="ヘッダーアイコン">
-                      </a>
-                      <span v-else
-                            v-on:click="open">
-                              <img src="/assets/default_icon.png" class="mxｰ3 p-1 host-icon hover-opacity" alt="ヘッダーアイコン">
-                        <ul class="dropdown"
-                            :class="{ isOpen }">
-                          <li class="hover-opacity" v-for="child in item.children">
-                            <a :href="child.url">
-                              {{ child.name }}
-                            </a>
-                          </li>
-                        </ul>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
+                <%= link_to "マイページ", users_profile_path, class: "nav-link active fnt-size-16" %>
+              </li>
+              <li class="nav-item marginlg-5">
+                <%= link_to "店舗登録", "/", class: "nav-link active fnt-size-16" %>
+              </li>
+              <li class="nav-item marginlg-5">
+                <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link active fnt-size-16" %>
+              </li>
+              <li class="nav-item marginlg-5">
+                <img src="/assets/default_icon.png" class="mxｰ3 p-1 host-icon" alt="ヘッダーアイコン">
               </li>
             </ul>
           <% else %>
