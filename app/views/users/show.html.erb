@@ -1,6 +1,58 @@
 <div class="container margin-top-20">
-  <div class="col-sm-6 offset-md-3 txt-center form-square border-bottom">
+  <div class="col-sm-12 offset-md txt-center form-square border-bottom">
     <h3>プロフィール</h3>
     <br>
+    <div id="tab">
+      <div class="tab">
+        <ul class="tab_title">
+          <li @click="activate(1)" :class="{'active' : isActive === 1}">ユーザー情報</li>
+          <li @click="activate(2)" :class="{'active' : isActive === 2}">投稿レビュー一覧</li>
+        </ul>
+        <br>
+        <ul class="tab_content">
+          <li v-if="isActive === 1">
+            <div class="row">
+                <div class="col margin-bottom50">
+                  <% if user_signed_in? %>
+                    <%= image_tag "default_icon.png", alt: "ユーザーアイコン", class: "profile-image d-block mx-auto" %>
+                  <% else %>
+                    <%= image_tag "default_icon.png", alt: "ユーザーアイコン", class: "profile-image d-block mx-auto" %>
+                  <% end %>
+                </div>
+            </div>
+            <br>
+            <div class="row profile-margin">
+              <div class="col profile-col">
+                <label class="text-left mx-auto float-left">名前：</label>
+                <span class="text-left mx-auto float-left">名前</span>
+              </div>
+            </div>
+            <br>
+            <div class="row profile-margin">
+              <div class="col profile-col">
+                <label class="text-left mx-auto float-left">年齢：</label>
+                <span class="text-left mx-auto float-left">年齢</span>
+              </div>
+            </div>
+            <br>
+            <div class="row profile-margin">
+              <div class="col profile-col">
+                <label class="text-left mx-auto float-left">性別：</label>
+                <span class="text-left mx-auto float-left">性別</span>
+              </div>
+            </div>
+            <br>
+            <div class="row profile-margin">
+              <div class="col profile-col col-auto me-auto">
+                <label class="text-left mx-auto float-left">メールアドレス：</label>
+                <span class="text-left mx-auto float-left">メールアドレス</span>
+              </div>
+            </div>
+            <br>
+          </li>
+          <li v-else-if="isActive === 2">散る桜残る桜も散る桜</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

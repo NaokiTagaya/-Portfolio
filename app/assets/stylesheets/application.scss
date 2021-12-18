@@ -358,8 +358,76 @@ footer {
   margin: 0px;
 }
 
-.border-bottom {
+.border-bottom h3 {
+  font-size: 30px;
   padding-bottom: 15px;
   font-weight: normal;
   border-bottom: 2px solid #006666;
+}
+
+#tab {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+}
+
+#tab ul {
+  list-style: none;
+}
+
+#tab ul.tab_title {
+  display: flex;
+  justify-content: center;
+  padding-left: 0px;
+}
+
+#tab ul.tab_title li {
+  text-align: center;
+  width: 23.333%;
+  margin: 0 1.5%;
+  padding: 0.5em;
+  border: 1px solid #eee;
+  border-radius: 30px;
+}
+
+#tab ul.tab_title li.active {
+  background: #006666;
+  color: #fff;
+}
+
+#tab ul.tab_content {
+  margin: 30px 0;
+  padding: 1em;
+  text-align: center;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.margin-bottom50 {
+  margin-bottom: 50px;
+}
+
+.profile-margin {
+  margin: 0px 150px;
+}
+
+.profile-col {
+  width: 100%;
+  border-bottom: 1px solid #006666;
+}
+
+
+.profile-col label {
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+.profile-col span {
+  font-size: 12pt;
 }
