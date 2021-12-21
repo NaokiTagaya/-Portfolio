@@ -15,7 +15,7 @@
     <div class="field">
       <%= f.label :age, '年齢' %>
       <br>
-      <%= f.number_field :age, class: "form-control font-14", min: 0, max: 100, autofocus: true, autocomplete: "age" %>
+      <%= f.number_field :age, class: "form-control age-form font-14", min: 0, max: 100, autofocus: true, autocomplete: "age" %>
       <br>
     </div>
 
@@ -29,7 +29,6 @@
     </div>
 
     <div class="field">
-      <br>
       <%= f.label :email, 'メールアドレス' %>
       <br>
       <%= f.email_field :email, class: "form-control font-14" ,autofocus: true, autocomplete: "email" %>
@@ -38,7 +37,6 @@
 
     <div class="field">
       <%= f.label :password, 'パスワード（半角英数字6文字以上）' %>
-      <br>
       <% if @minimum_password_length %>
       <% end %>
       <%= f.password_field :password, class: "form-control font-14" ,autocomplete: "new-password" %>

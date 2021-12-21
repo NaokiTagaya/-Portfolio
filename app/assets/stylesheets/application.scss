@@ -196,6 +196,11 @@ footer {
   margin-bottom: 30px;
 }
 
+.margbot-15 {
+  margin-bottom: 15px;
+}
+
+
 .marginlg-5 {
   margin: 0px 5px;
 }
@@ -450,4 +455,39 @@ footer {
 
 .width-25 {
   width: 25%;
+}
+
+.age-form {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.edit-regi-h6 {
+  text-align: center;
+  margin: 0px 0px 20px 0px;
+  font-weight: normal;
+  padding-bottom: 1px;
+  position: relative;
+}
+
+.edit-regi-h6::after {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 3px;
+  background-color: #006666;
+  position: absolute;
+  bottom: -7px;
+  left: 40%;
+}
+
+.btn-outline-color {
+  color: #006666;
+  border-color: #006666;
+}
+
+.btn-outline-color:hover {
+  color: #fff;
+  background-color: #003333;
+  border-color: #003333;
 }
