@@ -22,7 +22,7 @@ class User < ApplicationRecord
   enum sex: { male: 0, female: 1}
 
   # 画像アップロード
-  #mount_uploader :image, ImageUploader
+  mount_uploader :image, ImageUploader
 
   # 正規表現を定義
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

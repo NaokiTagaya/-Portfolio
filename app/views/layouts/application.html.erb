@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'tab_vue' %>
+    <%= javascript_pack_tag 'image_preview_vue' %>
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
@@ -47,7 +48,11 @@
                 <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link active fnt-size-16" %>
               </li>
               <li class="nav-item marginlg-5">
+              <% if current_user.image? %>
+                <%= image_tag current_user.image.url, alt: "ヘッダーアイコン", class: "mxｰ3 p-1 host-icon" %>
+              <% else %>
                 <img src="/assets/default_icon.png" class="mxｰ3 p-1 host-icon" alt="ヘッダーアイコン">
+              <% end %>
               </li>
             </ul>
           <% else %>
