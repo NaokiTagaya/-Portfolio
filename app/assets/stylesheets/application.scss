@@ -130,6 +130,10 @@ footer {
   padding-left: 0%;
 }
 
+.pd-bottom30 {
+  padding-bottom: 30px;
+}
+
 .btn-color {
   color: #fff;
   background-color: #006666;
@@ -205,6 +209,10 @@ footer {
   margin: 0px 5px;
 }
 
+.marginlg-5p {
+  margin: 0% 5%;
+}
+
 .container {
   padding: 0;
 }
@@ -224,6 +232,25 @@ footer {
   padding-bottom: 15px;
   border-bottom: 2px solid #006666;
   line-height: 1.5;
+}
+
+.page-label h3 {
+  font-size: 3em;
+  letter-spacing: -1px;
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #006666;
+  line-height: 1.5;
+}
+
+.page-label label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 @media screen and (max-width: 767px) {
@@ -431,6 +458,11 @@ footer {
   border-radius: 100px;
 }
 
+.restaurant-img {
+  height: 450px;
+  object-fit: cover;
+}
+
 .margin-bottom50 {
   margin-bottom: 50px;
 }
@@ -452,6 +484,10 @@ footer {
 
 .profile-col span {
   font-size: 12pt;
+}
+
+.width-15 {
+  width: 15%;
 }
 
 .width-25 {
@@ -491,4 +527,50 @@ footer {
   color: #fff;
   background-color: #003333;
   border-color: #003333;
+}
+
+.restaurant-top-label {
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+  font-weight: normal;
+  padding-bottom: 1px;
+  position: relative;
+}
+
+.restaurant-top-label::after {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 3px;
+  background-color: #006666;
+  position: absolute;
+  bottom: -7px;
+  left: -5%;
+}
+
+.restaurant-img-parts {
+  padding-top: 10px;
+}
+
+.restaurant-info-parts {
+  margin-top: 30px;
+}
+
+.border-line {
+  position: relative;
+}
+
+.border-line::before {
+  content: "";
+  display: inline-block;
+  width: 150px;
+  height: 3px;
+  background-color: #006666;
+  position: absolute;
+  bottom: -7px;
+  left: 42%;
+}
+
+.restaurant-info-parts .col-md-3 {
+  padding-top: 5px;
 }
