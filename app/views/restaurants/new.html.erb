@@ -1,39 +1,39 @@
 <div class="container margin-top-20">
-    <div class="txt-center form-square page-label">
+  <div class="txt-center form-square page-label">
     <h3>店舗登録</h3>
-      <%= form_with model: @restaurant do |r| %>
-        <div class="field martop-30" id="img_field" @change="onFileChange($event)">
-          <label class="restaurant-top-label">店舗画像</label>
-          <div class="restaurant-img-parts">
-            <img :src="imageData" v-if="imageData" class="restaurant-img d-block mx-auto">
-            <img src="/assets/no_image.jpg" v-else class="restaurant-img d-block mx-auto">
-          </div>
-          <%= r.file_field :restaurant_image, id: "file-input", accept: 'image/jpeg,image/gif,image/png', class: "mbｰ4", placeholder: "店舗画像をアップロード" %>
+    <%= form_with model: @restaurant do |r| %>
+      <div class="field martop-30" id="img_field" @change="onFileChange($event)">
+        <label class="restaurant-top-label">店舗画像</label>
+        <div class="restaurant-img-parts">
+          <img :src="imageData" v-if="imageData" class="restaurant-img d-block mx-auto">
+          <img src="/assets/no_image.jpg" v-else class="restaurant-img d-block mx-auto">
         </div>
-        <div class="border-line pd-bottom30"></div>
-        <div class="restaurant-info-parts martop-30">
-          <div class="row">
-            <label class="col-md-3">店舗名</label>
-            <%= r.text_field :restaurant_name, class: "form-control mb-4 col-md-7" %>
-          </div>
-          <div class="row">
-            <label class="col-md-3">郵便番号</label>
-            <%= r.text_field :zipcode, class: "form-control mb-4 col-md-2" %>
-          </div>
-          <div class="row">
-            <label class="col-md-3">所在地</label>
-            <%= r.text_field :address, class: "form-control mb-4 col-md-7" %>
-          </div>
-          <div class="row">
-            <label class="col-md-3">電話番号</label>
-            <%= r.text_field :tel, class: "form-control mb-md-5 col-md-2" %>
-          </div>
-          <%= r.hidden_field :registered_user_id, value: current_user.id %>
-          <div class="row justify-content-center">
-              <%= r.submit "登録", class: "btn btn-color btn-lg marginlg-5p width-15" %>
-              <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
-          </div>
+        <%= r.file_field :restaurant_image, id: "file-input", accept: 'image/jpeg,image/gif,image/png', class: "mbｰ4", placeholder: "店舗画像をアップロード" %>
+      </div>
+      <div class="border-line pd-bottom30"></div>
+      <div class="restaurant-info-parts martop-30">
+        <div class="row">
+          <label class="col-md-3">店舗名</label>
+          <%= r.text_field :restaurant_name, class: "form-control mb-4 col-md-7" %>
         </div>
-      <% end %>
-    </div>
+        <div class="row">
+          <label class="col-md-3">郵便番号</label>
+          <%= r.text_field :zipcode, class: "form-control mb-4 col-md-2" %>
+        </div>
+        <div class="row">
+          <label class="col-md-3">所在地</label>
+          <%= r.text_field :address, class: "form-control mb-4 col-md-7" %>
+        </div>
+        <div class="row">
+          <label class="col-md-3">電話番号</label>
+          <%= r.text_field :tel, class: "form-control mb-md-5 col-md-2" %>
+        </div>
+        <%= r.hidden_field :registered_user_id, value: current_user.id %>
+        <div class="row justify-content-center">
+            <%= r.submit "登録", class: "btn btn-color btn-lg marginlg-5p width-15" %>
+            <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

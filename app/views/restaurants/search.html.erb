@@ -1,0 +1,31 @@
+<div class="container margin-top-20">
+  <div class="txt-center form-square page-label">
+    <div class="search-result">
+      <p>検索結果：<%= @recordcount %>件</p>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">店舗名</th>
+          <th scope="col">所在地</th>
+          <th scope="col">評価</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @restaurants.each do |r| %>
+        <tr>
+          <% if r.restaurant_image? %>
+            <th><%= link_to image_tag(r.restaurant_image.url, class:"room-image") %></th>
+          <% else %>
+            <th><%= link_to image_tag("/assets/no_image.jpg", class:"room-image") %></th>
+          <% end %>
+          <td><%= r.restaurant_name %></td>
+          <td><%= r.address %></td>
+          <td></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

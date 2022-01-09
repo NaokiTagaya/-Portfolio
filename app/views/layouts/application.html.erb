@@ -10,7 +10,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'tab_vue' %>
     <%= javascript_pack_tag 'image_preview_vue' %>
-    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
 
@@ -21,17 +20,19 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <form class="d-flex">
-            <div class="input-group-sm">
-              <input class="form-control me-2 input-sm" type="search" placeholder="エリア" aria-label="Search">
-            </div>
-            <div class="input-group-sm">
-              <input class="form-control me-2 input-sm" type="search" placeholder="キーワード" aria-label="Search">
-            </div>
-            <button class="btn btn-color btn-sm" type="submit">検索</button>
-          </form>
-        </div>
+        <%= form_with url: restaurants_search_path, method: :get, local: true do |r| %>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="d-flex">
+              <div class="input-group-sm">
+                <%= r.text_field :area, placeholder: "エリア", class: "form-control me-2 input-sm" %>
+              </div>
+              <div class="input-group-sm">
+                <%= r.text_field :keyword, placeholder: "キーワード", class: "form-control me-2 input-sm" %>
+              </div>
+              <%= submit_tag '検索', class: "btn btn-color btn-sm" %>
+            </form>
+          </div>
+        <% end %>
         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarTogglerDemo01">
           <% if user_signed_in? %>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">

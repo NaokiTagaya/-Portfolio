@@ -2,17 +2,17 @@
   <h5>テイクアウトショップ共有サイト</h5>
   <%= image_tag 'topmain_logo.png', :class=>"img-fluid", :alt => 'トップ画面のメインロゴ' %>
   <h6>エリア・キーワードからテイクアウトのお店を探してみましょう。</h6>
-<form class="form-inline">
+<%= form_with url: restaurants_search_path, class: 'form-inline', method: :get, local: true do |r| %>
   <div class="row mx-auto">
     <div class="col pd-right0 input-group-lg">
-      <input type="text" class="form-control" placeholder="エリア">
+      <%= r.text_field :area, placeholder: "エリア", class: "form-control" %>
     </div>
     <div class="col pd-left0 pd-right0 input-group-lg">
-      <input type="text" class="form-control" placeholder="キーワード">
+      <%= r.text_field :keyword, placeholder: "キーワード", class: "form-control" %>
     </div>
-    <button type="submit" class="btn btn-color btn-lg">検索</button>
+    <%= submit_tag '検索', class: "btn btn-color btn-lg" %>
   </div>
-</form>
+<% end %>
 </div>
 <div class="container">
   <div class="container-square square-parts">
