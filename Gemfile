@@ -42,6 +42,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'webpacker', '~> 5.0'
 gem 'rails-i18n'
 gem 'pry-rails'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
