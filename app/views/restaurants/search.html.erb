@@ -10,24 +10,24 @@
           <th scope="col">店舗名</th>
           <th scope="col">所在地</th>
           <th scope="col">評価</th>
+          <th scope="col"></th>
         </tr>
       </thead>
-      <tbody>
-      <% @restaurants.each do |r| %>
-        <%= link_to restaurant_path(r.id) do %>
-        <tr>
-          <% if r.restaurant_image? %>
-            <th class="text-left"><%= image_tag r.restaurant_image.url, class: "search-image" %></th>
-          <% else %>
-            <th class="text-left"><%= image_tag "/assets/no_image.jpg", class: "search-image" %></th>
-          <% end %>
-          <td class="text-left"><%= r.restaurant_name %></td>
-          <td class="text-left"><%= r.address %></td>
-          <td></td>
-        </tr>
-        <% end %>
-      <% end %>
-      </tbody>
+          <tbody>
+            <% @restaurants.each do |r| %>
+              <tr>
+                <% if r.restaurant_image? %>
+                  <th class="text-left"><%= image_tag r.restaurant_image.url, class: "search-image" %></th>
+                <% else %>
+                  <th class="text-left"><%= image_tag "/assets/no_image.jpg", class: "search-image" %></th>
+                <% end %>
+                <td class="text-left"><%= r.restaurant_name %></td>
+                <td class="text-left"><%= r.address %></td>
+                <td></td>
+                <td><%= link_to "詳細", restaurant_path(r.id), class: "btn btn-color btn-sm" %></td>
+              </tr>
+            <% end %>
+          </tbody>
     </table>
   </div>
 </div>

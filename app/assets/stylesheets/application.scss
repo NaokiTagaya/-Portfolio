@@ -199,6 +199,10 @@ footer {
   text-align: center;
 }
 
+.martop-15 {
+  margin-top: 15px;
+}
+
 .martop-30 {
   margin-top: 30px;
 }
@@ -622,4 +626,28 @@ footer {
   border-radius: 15px;
   background: white;
   padding: 45px 10px;
+}
+
+.restaurant-name-title {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.restaurant-detail-info {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  word-break: break-all;
+}
+
+.detail-info-text {
+  background-color: #83CCD2;
+  color: #006666;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 2px;
+  padding: 9px;
 }
