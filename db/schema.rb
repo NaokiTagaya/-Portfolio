@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_083742) do
+ActiveRecord::Schema.define(version: 2022_01_14_060437) do
 
   create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "restaurant_name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_083742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "restaurant_image"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
