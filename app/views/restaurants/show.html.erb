@@ -1,0 +1,38 @@
+<div class="container margin-top-20">
+<%= render "shared/error", obj: @restaurant %>
+  <div class="txt-center form-square page-label">
+    <h3>店舗詳細</h3>
+      <div class="field martop-30" id="img_field" @change="onFileChange($event)">
+        <label class="restaurant-top-label">店舗画像</label>
+        <div class="restaurant-img-parts">
+          <% if @restaurant.restaurant_image? %>
+            <%= image_tag @restaurant.restaurant_image.url, class: "host-icon" %>
+          <% else %>
+            <img src="/assets/no_image.jpg" class="host-icon">
+          <% end %>
+        </div>
+      </div>
+      <div class="border-line pd-bottom30"></div>
+      <div class="restaurant-info-parts martop-30">
+        <div class="row">
+          <label class="col-md-3">店舗名</label>
+          <p class="form-control mb-4 col-md-7"><%= @restaurant.restaurant_name %></p>
+        </div>
+        <div class="row">
+          <label class="col-md-3">郵便番号</label>
+          <p class="form-control mb-4 col-md-2"><%= @restaurant.zipcode %></p>
+        </div>
+        <div class="row">
+          <label class="col-md-3">所在地</label>
+          <p class="form-control mb-4 col-md-7"><%= @restaurant.address %></p>
+        </div>
+        <div class="row">
+          <label class="col-md-3">電話番号</label>
+          <p class="form-control mb-md-5 col-md-2"><%= @restaurant.tel %></p>
+        </div>
+        <div class="row justify-content-center">
+            <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
+        </div>
+      </div>
+  </div>
+</div>

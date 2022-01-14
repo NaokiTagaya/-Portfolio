@@ -591,3 +591,35 @@ footer {
   font-size: 16px;
   text-align: left;
 }
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.alert-back {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.alert-back ul {
+  list-style-type: circle;
+  font-size: 13px;
+  text-align: left;
+}
+
+.alert-back li {
+  color: #dc143c;
+  margin: 0;
+}
+
+.search-image {
+  height: 135px;
+  object-fit: cover;
+}
+
+.form-square-search {
+  border-radius: 15px;
+  background: white;
+  padding: 45px 10px;
+}

@@ -1,7 +1,8 @@
 <div class="container margin-top-20">
   <div class="txt-center form-square page-label">
     <h3>店舗登録</h3>
-    <%= form_with model: @restaurant do |r| %>
+    <%= render "shared/error", obj: @restaurant %>
+    <%= form_with model: @restaurant, local: true do |r| %>
       <div class="field martop-30" id="img_field" @change="onFileChange($event)">
         <label class="restaurant-top-label">店舗画像</label>
         <div class="restaurant-img-parts">
@@ -26,7 +27,7 @@
         </div>
         <div class="row">
           <label class="col-md-3">電話番号</label>
-          <%= r.text_field :tel, class: "form-control mb-md-5 col-md-2" %>
+          <%= r.text_field :tel, class: "form-control mb-md-5 col-md-3" %>
         </div>
         <%= r.hidden_field :registered_user_id, value: current_user.id %>
         <div class="row justify-content-center">

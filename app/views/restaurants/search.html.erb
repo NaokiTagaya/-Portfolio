@@ -1,12 +1,12 @@
 <div class="container margin-top-20">
-  <div class="txt-center form-square page-label">
+  <div class="txt-center form-square-search page-label">
     <div class="search-result">
       <p>検索結果：<%= @recordcount %>件</p>
     </div>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col"></th>
           <th scope="col">店舗名</th>
           <th scope="col">所在地</th>
           <th scope="col">評価</th>
@@ -14,16 +14,18 @@
       </thead>
       <tbody>
       <% @restaurants.each do |r| %>
+        <%= link_to restaurant_path(r.id) do %>
         <tr>
           <% if r.restaurant_image? %>
-            <th><%= link_to image_tag(r.restaurant_image.url, class:"room-image") %></th>
+            <th class="text-left"><%= image_tag r.restaurant_image.url, class: "search-image" %></th>
           <% else %>
-            <th><%= link_to image_tag("/assets/no_image.jpg", class:"room-image") %></th>
+            <th class="text-left"><%= image_tag "/assets/no_image.jpg", class: "search-image" %></th>
           <% end %>
-          <td><%= r.restaurant_name %></td>
-          <td><%= r.address %></td>
+          <td class="text-left"><%= r.restaurant_name %></td>
+          <td class="text-left"><%= r.address %></td>
           <td></td>
         </tr>
+        <% end %>
       <% end %>
       </tbody>
     </table>

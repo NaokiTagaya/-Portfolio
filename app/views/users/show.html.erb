@@ -7,6 +7,7 @@
         <ul class="tab_title">
           <li @click="activate(1)" :class="{'active' : isActive === 1}">ユーザー情報</li>
           <li @click="activate(2)" :class="{'active' : isActive === 2}">投稿レビュー一覧</li>
+          <li @click="activate(3)" :class="{'active' : isActive === 3}">投稿店舗一覧</li>
         </ul>
         <br>
         <ul class="tab_content">
@@ -57,7 +58,58 @@
               <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-color width-25" %>
             </div>
           </li>
-          <li v-else-if="isActive === 2">散る桜残る桜も散る桜</li>
+          <li v-else-if="isActive === 2">
+          <% if @reviews.present? %>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">店舗名</th>
+                  <th scope="col">評価</th>
+                  <th scope="col">レビューコメント</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @reviews.each do |rv| %>
+                  <tr>
+                    <th><%= rv.restaurant_name %></th>
+                    <td><%= rv.rate %></td>
+                    <td><%= rv.comment %></td>
+                    <td></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <p class="font-weight-bold">投稿したレビューはありません</p>
+          <% end %>
+          </li>
+          <li v-else-if="isActive === 3">
+          <% if @restaurants.present? %>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">店舗名</th>
+                  <th scope="col">郵便番号</th>
+                  <th scope="col">所在地</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @restaurants.each do |r| %>
+                  <tr>
+                    <th><%= r.restaurant_name %></th>
+                    <td><%= r.zipcode %></td>
+                    <td><%= r.address %></td>
+                    <td><%= link_to "詳細", restaurant_path(r.id), class: "btn btn-color" %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <p class="font-weight-bold">登録した店舗はありません</p>
+          <% end %>
+          </li>
         </ul>
       </div>
     </div>
