@@ -651,3 +651,53 @@ footer {
   margin: 2px;
   padding: 9px;
 }
+
+.info-inner {
+  padding: 14px;
+}
+
+.info-table {
+  width: 100%;
+  float: left;
+}
+
+.basic-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0 solid #dbdbdb;
+  border-width: 0 1px 1px 0;
+  line-height: 1.2;
+  table-layout: fixed;
+  width: 100%;
+  word-break: break-all;
+}
+
+.info-table th {
+  text-align: left;
+  width: 130px;
+}
+
+.basic-table th {
+  background: #efefef;
+  border: 0 solid #dbdbdb;
+  border-width: 1px 0 0 1px;
+  padding: 10px 12px;
+  vertical-align: top;
+  font-weight: 700;
+}
+
+.basic-table td {
+  background: #fff;
+  border: 0 solid #dbdbdb;
+  border-width: 1px 0 0 1px;
+  padding: 10px 12px;
+}
+
+.info-table p {
+  line-height: 1.4;
+}
+
+#map {
+  height: 150px;
+  width: 100%;
+}

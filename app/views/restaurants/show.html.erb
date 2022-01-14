@@ -1,3 +1,33 @@
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15, 
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @restaurant.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC7_ZUnL4RHvUzDNUgUdes9-_dxAyQpu7w&callback=initMap">
+</script>
+
 <div class="container margin-top-20">
 <%= render "shared/error", obj: @restaurant %>
   <div class="txt-center form-square page-label">
@@ -24,27 +54,40 @@
           <br>
           <ul class="tab_content">
             <li v-if="isActive === 1">
-              <div class="restaurant-detail-info">
-                <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 基本情報</h2>
-                <div class="row">
-                  <label class="col-md-3">店舗名</label>
-                  <p class="mb-4 col-md-7"><%= @restaurant.restaurant_name %></p>
+              <section>
+                <div class="restaurant-detail-info text-left">
+                  <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 基本情報</h2>
+                  <div class="info-inner">
+                    <div class="info-table">
+                      <table class="basic-table">
+                        <tbody>
+                          <tr>
+                            <th>店舗名</th>
+                            <td>
+                              <p id="info-name"><%= @restaurant.restaurant_name %></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>電話番号</th>
+                            <td>
+                              <p><%= @restaurant.tel %></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>住所</th>
+                            <td>
+                              <p>〒<%= @restaurant.zipcode %> <%= @restaurant.address %></p>
+                              <div id="map"></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
-                <div class="row">
-                  <label class="col-md-3">郵便番号</label>
-                  <p class="mb-4 col-md-2"><%= @restaurant.zipcode %></p>
-                </div>
-                <div class="row">
-                  <label class="col-md-3">所在地</label>
-                  <p class="mb-4 col-md-7"><%= @restaurant.address %></p>
-                </div>
-                <div class="row">
-                  <label class="col-md-3">電話番号</label>
-                  <p class="mb-md-5 col-md-2"><%= @restaurant.tel %></p>
-                </div>
-                <div class="row justify-content-center">
-                    <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
-                </div>
+              </section>
+              <div class="row justify-content-center">
+                <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
               </div>
             </li>
             <li v-if="isActive === 2">
