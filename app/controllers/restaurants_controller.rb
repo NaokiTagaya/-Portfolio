@@ -31,7 +31,6 @@ class RestaurantsController < ApplicationController
 
   # 店舗登録処理
   def create
-    binding.pry
     @restaurant = Restaurant.new(restaurant_param)
     if @restaurant.save
       flash[:notice] = "店舗情報を登録しました"
