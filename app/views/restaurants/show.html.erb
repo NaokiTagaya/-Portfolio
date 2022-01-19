@@ -83,12 +83,17 @@
                         </tbody>
                       </table>
                     </div>
+                    <div class="row justify-content-center pad-updown-20">
+                      <% if @restaurant.registered_user_id = current_user.id %>
+                        <%= link_to "編集", edit_restaurant_path(@restaurant.id), class: "btn btn-color btn-sm marginlg-2p" %>
+                        <%= link_to '店舗を削除する', restaurant_path(@restaurant.id), method: :delete, class: "btn btn-outline-danger btn-sm marginlg-2p", data: { confirm: "投稿されたレビューを含めてこちらの店舗情報を削除します。本当によろしいですか？"} %>
+                      <% else %>
+                        <div class=""></div>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </section>
-              <div class="row justify-content-center">
-                <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
-              </div>
             </li>
             <li v-if="isActive === 2">
               地図表示
@@ -97,6 +102,9 @@
               レビュー表示
             </li>
           </ul>
+          <div class="row justify-content-center">
+            <%= link_to "戻る", :back, class: "btn btn-outline-color marginlg-5p width-15" %>
+          </div>
         </div>
       </div>
   </div>

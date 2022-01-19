@@ -45,6 +45,32 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
+  # 店舗情報編集
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  # 店舗情報編集処理
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    if @restaurant.update(restaurant_param)
+      flash[:notice] = "店舗情報を編集しました"
+      redirect_to request.referer
+    else
+      render :edit
+    end
+  end
+
+  # 削除処理
+  def destroy
+    restaurant = Restaurant.find(params[:id])
+    if restaurant.registered_user_id = current_user.id
+      restaurant.destroy
+      flash[:notice] = "店舗情報の削除が完了しました"
+      redirect_to root_path
+    end
+  end
+
   private
   # 店舗登録パラメータ
   def restaurant_param
