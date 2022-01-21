@@ -203,6 +203,10 @@ footer {
   margin-top: 15px;
 }
 
+.martop-20 {
+  margin-top: 20px;
+}
+
 .martop-30 {
   margin-top: 30px;
 }
@@ -708,4 +712,25 @@ footer {
 
 .pad-updown-20 {
   padding: 20px, auto;
+}
+
+.review-title {
+  position: relative;
+}
+
+.review-title::after {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 3px;
+  background-color: #006666;
+  position: absolute;
+  bottom: -7px;
+  left: 47%;
+}
+
+.review-restaurant-img {
+  height: 200px;
+  width: auto;
+  object-fit: cover;
 }

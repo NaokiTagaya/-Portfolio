@@ -4,24 +4,38 @@
     <%= render "shared/error", obj: @review %>
     <%= form_with model: @restaurant, local: true do |rv| %>
       <div class="field martop-30" >
-        <h4>レビュー対象店舗</h4>
-        <% if @restaurant.restaurant_image? %>
-          <%= image_tag @restaurant.restaurant_image.url, class: "restaurant-img d-block mx-auto" %>
-        <% else %>
-          <img src="/assets/no_image.jpg" class="restaurant-img d-block mx-auto">
-        <% end %>
-        <h5><%= @restaurant.restaurant_name %></h5>
+        <div class="row d-block mx-auto martop-20">
+          <div class="review-title">
+            <h6>レビュー対象店舗</h6>
+          </div>
+          <div class="col martop-15">
+            <% if @restaurant.restaurant_image? %>
+              <%= image_tag @restaurant.restaurant_image.url, class: "review-restaurant-img" %>
+            <% else %>
+              <img src="/assets/no_image.jpg" class="review-restaurant-img">
+            <% end %>
+          </div>
+          <div class="col martop-15">
+            <h5 class="text-center"><%= @restaurant.restaurant_name %></h5>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <label class="col-md-3">評価</label>
-
+      <div class="martop-20">
+        <div class="row">
+          <label class="col-md-3">評価</label>
+          <div id="star">
+            <star-rating v-model="rating"></star-rating>
+          </div>
+        </div>
+        <div class="row martop-15">
+          <label class="col-md-3">コメント</label>
+          <%= rv.text_area :comment, class: "form-control mb-5 col-md-7" %>
+        </div>
       </div>
-      <div class="row">
-        <label class="col-md-3">コメント</label>
-        <%= rv.text_area :comment, class: "form-control mb-4 col-md-7" %>
+      <div class="row justify-content-center">
+        <%= rv.submit "投稿する", class: "btn btn-color btn-lg marginlg-5p width-15", data: { confirm: "下記内容にてレビューを投稿します。よろしいですか？"} %>
+        <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
       </div>
-      <%= rv.submit "投稿する", class: "btn btn-color btn-lg marginlg-5p width-15" %>
-      <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
     <% end %>
   </div>
 </div>
