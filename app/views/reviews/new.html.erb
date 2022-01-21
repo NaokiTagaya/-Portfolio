@@ -1,0 +1,27 @@
+<div class="container margin-top-20">
+  <div class="txt-center form-square page-label">
+    <h3>レビュー投稿</h3>
+    <%= render "shared/error", obj: @review %>
+    <%= form_with model: @restaurant, local: true do |rv| %>
+      <div class="field martop-30" >
+        <h4>レビュー対象店舗</h4>
+        <% if @restaurant.restaurant_image? %>
+          <%= image_tag @restaurant.restaurant_image.url, class: "restaurant-img d-block mx-auto" %>
+        <% else %>
+          <img src="/assets/no_image.jpg" class="restaurant-img d-block mx-auto">
+        <% end %>
+        <h5><%= @restaurant.restaurant_name %></h5>
+      </div>
+      <div class="row">
+        <label class="col-md-3">評価</label>
+
+      </div>
+      <div class="row">
+        <label class="col-md-3">コメント</label>
+        <%= rv.text_area :comment, class: "form-control mb-4 col-md-7" %>
+      </div>
+      <%= rv.submit "投稿する", class: "btn btn-color btn-lg marginlg-5p width-15" %>
+      <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
+    <% end %>
+  </div>
+</div>

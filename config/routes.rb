@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'restaurants/search' => 'restaurants#search'
   resources :restaurants
   get 'users/profile' => 'users#show'
+  resources :reviews, only: [:index, :create, :new, :destroy]
 end

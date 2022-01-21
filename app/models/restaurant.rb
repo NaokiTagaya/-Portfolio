@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   belongs_to :user, optional: true
-  has_many :reviews
+  has_many :reviews, foreign_key: 'restaurant_id'
 
   # 店舗位置情報表示
   geocoded_by :address

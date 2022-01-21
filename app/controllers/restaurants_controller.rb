@@ -43,6 +43,7 @@ class RestaurantsController < ApplicationController
   # 店舗詳細
   def show
     @restaurant = Restaurant.find(params[:id])
+    @reviews = Review.where(restaurant_id: @restaurant.id)
   end
 
   # 店舗情報編集
