@@ -223,6 +223,9 @@ footer {
   margin-bottom: 15px;
 }
 
+.margbot-10 {
+  margin-bottom: 10px;
+}
 
 .marginlg-5 {
   margin: 0px 5px;
@@ -733,4 +736,17 @@ footer {
   height: 200px;
   width: auto;
   object-fit: cover;
+}
+
+.link-inactive {
+  pointer-events: none;
+}
+
+.reminder-text {
+  font-size: 12px;
+}
+
+.reminder-link {
+  color: blue;
+  text-decoration: underline;
 }
