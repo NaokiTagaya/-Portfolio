@@ -27,7 +27,7 @@
                 <div class="restaurant-detail-info text-left">
                   <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 基本情報</h2>
                   <div class="info-inner">
-                    <div class="info-table">
+                    <div class="info-table margbot-30">
                       <table class="basic-table">
                         <tbody>
                           <tr>
@@ -46,18 +46,17 @@
                             <th>住所</th>
                             <td>
                               <p>〒<%= @restaurant.zipcode %> <%= @restaurant.address %></p>
-                              <div id="map"></div>
                             </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                    <div class="row justify-content-center pad-updown-20">
+                    <div class="row justify-content-center">
                       <% if @restaurant.registered_user_id = current_user.id %>
                         <%= link_to "編集", edit_restaurant_path(@restaurant.id), class: "btn btn-color btn-sm marginlg-2p" %>
                         <%= link_to '店舗を削除する', restaurant_path(@restaurant.id), method: :delete, class: "btn btn-outline-danger btn-sm marginlg-2p", data: { confirm: "投稿されたレビューを含めてこちらの店舗情報を削除します。本当によろしいですか？"} %>
                       <% else %>
-                        <div class=""></div>
+                        <div></div>
                       <% end %>
                     </div>
                   </div>
@@ -65,7 +64,16 @@
               </section>
             </li>
             <li v-if="isActive === 2">
-              地図表示
+              <section>
+                <div class="restaurant-detail-info text-left">
+                  <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 所在地</h2>
+                  <div class="info-inner">
+                    <div class="info-table">
+                      <div id="map"></div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </li>
             <li v-if="isActive === 3">
               <% if @reviews.present? %>
