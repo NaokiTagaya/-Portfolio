@@ -2,7 +2,7 @@
   <div class="txt-center form-square page-label">
     <h3>レビュー投稿</h3>
     <%= render "shared/error", obj: @review %>
-    <%= form_with model: @restaurant, local: true do |rv| %>
+    <%= form_with model: @review, local: true do |rv| %>
       <div class="field martop-30" >
         <div class="row d-block mx-auto martop-20">
           <div class="review-title">
@@ -22,9 +22,19 @@
       </div>
       <div class="martop-20">
         <div class="row">
-          <label class="col-md-3">評価</label>
-          <div id="star">
-            <star-rating v-model="rating"></star-rating>
+          <%= rv.label :rate, "評価", class: "col-md-3" %>
+          <div class="field" id="star">
+            <%= rv.hidden_field :rate, id: :review_star %>
+            <script>
+              $('#star').raty({
+                size     : 36,
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                scoreName: 'post[evaluation]',
+                half: true,
+              });
+            </script>
           </div>
         </div>
         <div class="row martop-15">
@@ -32,6 +42,8 @@
           <%= rv.text_area :comment, class: "form-control mb-5 col-md-7" %>
         </div>
       </div>
+      <%= rv.hidden_field :restaurant_id, value: @restaurant.id %>
+      <%= rv.hidden_field :user_id, value: current_user.id %>
       <div class="row justify-content-center">
         <%= rv.submit "投稿する", class: "btn btn-color btn-lg marginlg-5p width-15", data: { confirm: "下記内容にてレビューを投稿します。よろしいですか？"} %>
         <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
