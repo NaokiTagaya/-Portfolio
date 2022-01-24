@@ -76,7 +76,7 @@
                     <th><%= rv.restaurant.restaurant_name %></th>
                     <td><%= rv.rate %></td>
                     <td><%= rv.comment %></td>
-                    <td></td>
+                    <td><%= link_to "詳細", restaurant_path(rv.restaurant_id), class: "btn btn-color btn-sm" %></td>
                     <td><%= link_to 'レビューを削除', review_path(rv.id), method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: "こちらのレビューを削除しますか？"} %></td>
                   </tr>
                 <% end %>
