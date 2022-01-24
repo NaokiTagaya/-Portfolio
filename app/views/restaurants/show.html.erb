@@ -85,6 +85,19 @@
             </li>
             <li v-if="isActive === 3">
               <% if @reviews.present? %>
+                <p class="customer-rate-label margbot-10">カスタマーレビュー</p>
+                <div class="average-review-rating" data-score=<%= @average_rate %>></div>
+                <script>
+                  $('.average-review-rating').raty({
+                    readOnly: true,
+                    path: '/assets/',
+                    score: function() {
+                      return $(this).attr('data-score')
+                    }
+                  });
+                </script>
+                <p class="customer-rate-label margbot-5"><%= @average_rate %></p>
+                <p><%= @reviews_count %>件のレビュー</p>
                 <table class="table table-striped v-align-mid">
                   <thead>
                     <tr>
@@ -104,7 +117,21 @@
                         <% end %>
                         <span><%= rv.user.user_name %></span>
                         </th>
-                        <td><%= rv.rate %></td>
+                        <td>
+                          <span id="star-rate-<%= rv.id %>"></span>
+                          <script>
+                            $('#star-rate-<%= rv.id %>').raty({
+                              size: 24,
+                              starOff: "<%= asset_path('star-off.png') %>",
+                              starOn: "<%= asset_path('star-on.png') %>",
+                              starHalf: "<%= asset_path('star-half.png') %>",
+                              half: true,
+                              readOnly: true,
+                              score: <%= rv.rate %>,
+                            });
+                          </script>
+                          <span><%= rv.rate %></span>
+                        </td>
                         <td><%= rv.comment %></td>
                       </tr>
                     <% end %>

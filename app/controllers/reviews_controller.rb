@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
   # レビュー削除処理
   def destroy
     review = Review.find(params[:id])
-    if review.user_id = current_user.id
+    if review.user_id == current_user.id
       review.destroy
       flash[:notice] = "投稿したレビューを削除しました"
       redirect_to root_path

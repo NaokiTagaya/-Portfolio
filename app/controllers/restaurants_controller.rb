@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
   # 店舗検索
   def search
     # エリアとキーワード両方入力された場合
-    if params[:area].present? && params[:keyword].present? 
+    if params[:area].present? && params[:keyword].present?
       @restaurants = Restaurant.where('address LIKE(?) and restaurant_name LIKE(?) or address LIKE(?)', "%#{params[:area]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
       @recordcount = Restaurant.where('address LIKE(?) and restaurant_name LIKE(?) or address LIKE(?)', "%#{params[:area]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%").count
     # エリアのみが入力された場合
@@ -44,6 +44,8 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = Review.where(restaurant_id: @restaurant.id)
+    @average_rate = @reviews.average(:rate).round(2)
+    @reviews_count = Review.where(restaurant_id: @restaurant.id).count
   end
 
   # 店舗情報編集
@@ -65,7 +67,7 @@ class RestaurantsController < ApplicationController
   # 削除処理
   def destroy
     restaurant = Restaurant.find(params[:id])
-    if restaurant.registered_user_id = current_user.id
+    if restaurant.registered_user_id == current_user.id
       restaurant.destroy
       flash[:notice] = "店舗情報の削除が完了しました"
       redirect_to root_path

@@ -73,7 +73,21 @@
                 <% @reviews.each do |rv| %>
                   <tr>
                     <th><%= rv.restaurant.restaurant_name %></th>
-                    <td><%= rv.rate %></td>
+                    <td class="star-rate">
+                      <span id="star-rate-<%= rv.id %>"></span>
+                      <script>
+                        $('#star-rate-<%= rv.id %>').raty({
+                          size: 24,
+                          starOff: "<%= asset_path('star-off.png') %>",
+                          starOn: "<%= asset_path('star-on.png') %>",
+                          starHalf: "<%= asset_path('star-half.png') %>",
+                          half: true,
+                          readOnly: true,
+                          score: <%= rv.rate %>,
+                        });
+                      </script>
+                      <span><%= rv.rate %></span>
+                    </td>
                     <td><%= rv.comment %></td>
                     <td>
                       <%= link_to "店舗詳細", restaurant_path(rv.restaurant_id), class: "btn btn-color btn-sm" %>
