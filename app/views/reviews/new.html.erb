@@ -1,7 +1,7 @@
 <div class="container margin-top-20">
   <div class="txt-center form-square page-label">
     <h3>レビュー投稿</h3>
-    <%= render "shared/error", obj: @review %>
+    <%= render "shared/error_message_flash" %>
     <%= form_with model: @review, local: true do |rv| %>
       <div class="field martop-30" >
         <div class="row d-block mx-auto martop-20">
@@ -25,16 +25,6 @@
           <%= rv.label :rate, "評価", class: "col-md-3" %>
           <div class="field" id="star">
             <%= rv.hidden_field :rate, id: :review_star %>
-            <script>
-              $('#star').raty({
-                size     : 36,
-                starOff: '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                scoreName: 'post[evaluation]',
-                half: true,
-              });
-            </script>
           </div>
         </div>
         <div class="row martop-15">
@@ -51,3 +41,14 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  $('#star').raty({
+    size     : 36,
+    starOff: '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'review[rate]',
+    half: true,
+  });
+</script>
