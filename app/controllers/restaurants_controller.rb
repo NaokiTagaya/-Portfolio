@@ -44,7 +44,11 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = Review.where(restaurant_id: @restaurant.id)
-    @average_rate = @reviews.average(:rate).round(2)
+    if @reviews.blank?
+      @average_rate = 0
+    else
+      @average_rate = @reviews.average(:rate).round(2)
+    end
     @reviews_count = Review.where(restaurant_id: @restaurant.id).count
   end
 
@@ -58,7 +62,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     if @restaurant.update(restaurant_param)
       flash[:notice] = "店舗情報を編集しました"
-      redirect_to request.referer
+      redirect_to restaurant_path(id: @restaurant)
     else
       render :edit
     end
