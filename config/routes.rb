@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     sessions: 'users/sessions' }
   devise_scope :user do
@@ -9,7 +10,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => 'restaurants#top'
   get 'restaurants/search' => 'restaurants#search'
-  resources :restaurants
+  resources :restaurants do
+    resources :favorites, only: [:create, :destroy]
+  end
   get 'users/profile' => 'users#show'
   resources :reviews, only: [:index, :create, :new, :destroy]
 end

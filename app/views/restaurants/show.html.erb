@@ -3,6 +3,9 @@
   <div class="txt-center form-square page-label">
     <h3>店舗詳細</h3>
     <h4 class="restaurant-name-title"><%= @restaurant.restaurant_name %></h4>
+      <div class='star-btn text-right' id="favorite_<%= @restaurant.id %>">
+        <%= render "favorites/favorite", restaurant: @restaurant %>
+      </div>
       <div class="field martop-15" id="img_field" @change="onFileChange($event)">
         <div class="restaurant-img-parts">
           <% if @restaurant.restaurant_image? %>

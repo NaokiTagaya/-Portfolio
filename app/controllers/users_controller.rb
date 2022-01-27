@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     @user = current_user
     @restaurants = Restaurant.where(registered_user_id: current_user.id)
     @reviews = Review.where(user_id: current_user.id)
+    favorites = Favorite.where(user_id: current_user.id).order(created_at: :desc).pluck(:restaurant_id)
+    @favorites = Favorite.find(favorites)
   end
 
   private

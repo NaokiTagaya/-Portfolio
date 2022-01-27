@@ -6,8 +6,9 @@
       <div class="tab">
         <ul class="tab_title">
           <li @click="activate(1)" :class="{'active' : isActive === 1}">ユーザー情報</li>
-          <li @click="activate(2)" :class="{'active' : isActive === 2}">投稿レビュー一覧</li>
-          <li @click="activate(3)" :class="{'active' : isActive === 3}">投稿店舗一覧</li>
+          <li @click="activate(2)" :class="{'active' : isActive === 2}">お気に入り一覧</li>
+          <li @click="activate(3)" :class="{'active' : isActive === 3}">投稿レビュー一覧</li>
+          <li @click="activate(4)" :class="{'active' : isActive === 4}">投稿店舗一覧</li>
         </ul>
         <br>
         <ul class="tab_content">
@@ -59,6 +60,52 @@
             </div>
           </li>
           <li v-else-if="isActive === 2">
+            <% if @favorites.present? %>
+              <ul class="relative-post-lists">
+                <% @favorites.each do |favorite| %>
+                  <li class='post-list'>
+                    <%= link_to restaurant(favorite.id) do %>
+                    <div class='post-img-content'>
+                      <%= image_tag favorite.image, class: "post-img" %>
+                    </div>
+                      <div class='relative-post-name'>
+                        商品名：<%= favorite.name %>
+                      </div>
+                      <div class='relative-item-price'>
+                        <span><%= favorite.price %>円(税込み)</span>
+                      </div>
+                      <div class="relative-post-evaluation">
+                        <span>評価：</span>
+                          <span id="star-rate-<%= favorite.id %>"></span>
+                          <script>
+                            $('#star-rate-<%= favorite.id %>').raty({
+                              size: 36,
+                              starOff: "<%= asset_path('star-off.png') %>",
+                              starOn: "<%= asset_path('star-on.png') %>",
+                              starHalf: "<%= asset_path('star-half.png') %>",
+                              half: true,
+                              readOnly: true,
+                              score: <%= favorite.rate %>,
+                            });
+                          </script>
+                          <%= favorite.rate %>
+                      </div>
+                      <div class='user-img-content'>
+                        <%= image_tag favorite.user.image ,class:"mini-img" if favorite.user.image.attached? %>
+                        <%= link_to favorite.user.user_name, user_path(favorite.user.id) %>
+                      </div>
+                      <div class="relative-post-date">
+                        更新日時：<%= favorite.created_at.strftime("%Y.%m.%d") %>
+                      </div>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+              <% else %>
+                <span class="font-weight-bold">追加されたお気に入りはありません</span>
+              <% end %>
+          </li>
+          <li v-else-if="isActive === 3">
           <% if @reviews.present? %>
             <table class="table table-striped">
               <thead>
@@ -77,7 +124,7 @@
                       <span id="star-rate-<%= rv.id %>"></span>
                       <script>
                         $('#star-rate-<%= rv.id %>').raty({
-                          size: 24,
+                          size: 22,
                           starOff: "<%= asset_path('star-off.png') %>",
                           starOn: "<%= asset_path('star-on.png') %>",
                           starHalf: "<%= asset_path('star-half.png') %>",
@@ -101,7 +148,7 @@
             <p class="font-weight-bold">投稿したレビューはありません</p>
           <% end %>
           </li>
-          <li v-else-if="isActive === 3">
+          <li v-else-if="isActive === 4">
           <% if @restaurants.present? %>
             <table class="table table-striped v-align-mid">
               <thead>
