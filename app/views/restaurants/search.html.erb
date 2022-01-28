@@ -9,7 +9,6 @@
           <th scope="col"></th>
           <th scope="col">店舗名</th>
           <th scope="col">所在地</th>
-          <th scope="col">評価</th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -22,8 +21,7 @@
               <th class="text-left"><%= image_tag "/assets/no_image.jpg", class: "search-image" %></th>
             <% end %>
             <td class="text-left"><%= r.restaurant_name %></td>
-            <td class="text-left"><%= r.address %></td>
-            <td></td>
+            <td class="text-left">〒<%= r.zipcode %>　<%= r.address %></td>
             <td><%= link_to "詳細", restaurant_path(r.id), class: "btn btn-color btn-sm" %></td>
           </tr>
         <% end %>
