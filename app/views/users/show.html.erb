@@ -61,49 +61,39 @@
           </li>
           <li v-else-if="isActive === 2">
             <% if @favorites.present? %>
-              <ul class="relative-post-lists">
-                <% @favorites.each do |favorite| %>
-                  <li class='post-list'>
-                    <%= link_to restaurant(favorite.id) do %>
-                    <div class='post-img-content'>
-                      <%= image_tag favorite.image, class: "post-img" %>
-                    </div>
-                      <div class='relative-post-name'>
-                        商品名：<%= favorite.name %>
-                      </div>
-                      <div class='relative-item-price'>
-                        <span><%= favorite.price %>円(税込み)</span>
-                      </div>
-                      <div class="relative-post-evaluation">
-                        <span>評価：</span>
-                          <span id="star-rate-<%= favorite.id %>"></span>
-                          <script>
-                            $('#star-rate-<%= favorite.id %>').raty({
-                              size: 36,
-                              starOff: "<%= asset_path('star-off.png') %>",
-                              starOn: "<%= asset_path('star-on.png') %>",
-                              starHalf: "<%= asset_path('star-half.png') %>",
-                              half: true,
-                              readOnly: true,
-                              score: <%= favorite.rate %>,
-                            });
-                          </script>
-                          <%= favorite.rate %>
-                      </div>
-                      <div class='user-img-content'>
-                        <%= image_tag favorite.user.image ,class:"mini-img" if favorite.user.image.attached? %>
-                        <%= link_to favorite.user.user_name, user_path(favorite.user.id) %>
-                      </div>
-                      <div class="relative-post-date">
-                        更新日時：<%= favorite.created_at.strftime("%Y.%m.%d") %>
-                      </div>
-                    <% end %>
-                  </li>
-                <% end %>
-              </ul>
-              <% else %>
-                <span class="font-weight-bold">追加されたお気に入りはありません</span>
-              <% end %>
+              <table class="table table-striped v-align-mid">
+                <thead>
+                  <tr>
+                    <th scope="col" class="col-mid"></th>
+                    <th scope="col" class="col-mid">店舗名</th>
+                    <th scope="col" class="col-mid">所在地</th>
+                    <th scope="col" class="col-mid">お気に入り<br>登録日</th>
+                    <th scope="col" class="col-mid"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @favorites.each do |favorite| %>
+                    <tr>
+                      <th>
+                        <% if favorite.restaurant_image? %>
+                          <%= image_tag favorite.restaurant_image.url, class: "search-image mx-auto" %>
+                        <% else %>
+                          <img src="/assets/no_image.jpg" class="search-image mx-auto">
+                        <% end %>
+                      </th>
+                        <td><%= favorite.restaurant_name %></td>
+                        <td>〒<%= favorite.zipcode %>  <%= favorite.address %></td>
+                        <td><%= favorite.created_at.strftime("%Y.%m.%d") %></td>
+                        <td>
+                          <%= link_to "店舗詳細", restaurant_path(favorite.id), class: "btn btn-color btn-sm" %>
+                        </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            <% else %>
+              <span class="font-weight-bold">お気に入り登録した店舗はありません</span>
+            <% end %>
           </li>
           <li v-else-if="isActive === 3">
           <% if @reviews.present? %>
@@ -155,7 +145,7 @@
                 <tr>
                   <th scope="col">店舗名</th>
                   <th scope="col">郵便番号</th>
-                  <th scope="col">所在地</th>
+                  <th scope="col">住所</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -174,7 +164,7 @@
               </tbody>
             </table>
           <% else %>
-            <p class="font-weight-bold">登録した店舗はありません</p>
+            <p class="font-weight-bold">投稿した店舗はありません</p>
           <% end %>
           </li>
         </ul>

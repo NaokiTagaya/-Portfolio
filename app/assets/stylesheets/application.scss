@@ -766,6 +766,11 @@ footer {
   vertical-align: middle;
 }
 
+.v-align-mid thead .col-mid {
+  vertical-align: middle;
+  border-bottom: 2px solid #006666;
+}
+
 .star-rate {
   width: auto;
 }
@@ -773,4 +778,17 @@ footer {
 .customer-rate-label {
   font-weight: bold;
   font-size: 22px;
+}
+
+.favorite-btn-part {
+  border: 1px solid #006666;
+  border-radius: 30px;
+  margin-left: 80%;
+  padding: 2px 2% 2px 0%;
+  background-color: #e6ffff;
+}
+
+.favorite-btn:hover {
+  text-decoration:none;
+  color: #006666;
 }

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     sessions: 'users/sessions' }
   devise_scope :user do
@@ -14,5 +13,8 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
   get 'users/profile' => 'users#show'
+  resources :users, only: [:show] do
+    get :favorites, on: :collection
+  end
   resources :reviews, only: [:index, :create, :new, :destroy]
 end

@@ -1,14 +1,21 @@
 class FavoritesController < ApplicationController
+  before_action :set_restaurant
+  before_action :authenticate_user!
+
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
     if @restaurant.registered_user_id != current_user.id
       @favorite = Favorite.create(user_id: current_user.id, restaurant_id: @restaurant.id)
     end
   end
 
   def destroy
-    @Restaurant = Restaurant.find(params[:restaurant_id])
     @favorite = Favorite.find_by(user_id: current_user.id, restaurant_id: @restaurant.id)
     @favorite.destroy
   end
+
+private
+def set_restaurant
+  @restaurant = Restaurant.find(params[:restaurant_id])
+end
+
 end

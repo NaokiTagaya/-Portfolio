@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
 
   # レビュー投稿
   def new

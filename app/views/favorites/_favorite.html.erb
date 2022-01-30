@@ -1,11 +1,15 @@
 <% if !Favorite.exists?(user_id: current_user.id, restaurant_id: restaurant.id) %>
-  <%= link_to restaurant_favorites_path(restaurant.id), method: :restaurant, remote: true, class:"like-btn" do %>
-    <span>お気に入り登録☆</span>
+<div class="favorite-btn-part">
+  <%= link_to restaurant_favorites_path(restaurant.id), method: :post, remote: true, class:"favorite-btn" do %>
+    <span>お気に入り登録  </span><i class="far fa-star"></i>
   <% end %>
-  <span class="star-count1"><%= restaurant.favorites.count %></span>
+  <span class="star-count1">：<%= restaurant.favorites.count %></span>
+</div>
 <% else %>
-  <%= link_to restaurant_favorite_path(restaurant_id: restaurant.id, id: restaurant.favorites[0].id), method: :delete, remote: true, class:"like-btn" do %>
-    <span>お気に入り解除★</span>
+<div class="favorite-btn-part">
+  <%= link_to restaurant_favorite_path(restaurant_id: restaurant.id, id: restaurant.favorites[0].id), method: :delete, remote: true, class:"favorite-btn" do %>
+    <span>お気に入り解除  </span><i class="fas fa-star"></i>
   <% end %>
-  <span class="star-count2"><%= restaurant.favorites.count %></span>
+  <span class="star-count2">：<%= restaurant.favorites.count %></span>
+</div>
 <% end %>
