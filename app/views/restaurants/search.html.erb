@@ -3,7 +3,7 @@
     <div class="search-result">
       <p>検索結果：<%= @recordcount %>件</p>
     </div>
-    <table class="table table-striped">
+    <table class="table">
       <thead>
         <tr>
           <th scope="col"></th>
@@ -21,7 +21,7 @@
               <th class="text-left"><%= image_tag "/assets/no_image.jpg", class: "search-image" %></th>
             <% end %>
             <td class="text-left"><%= r.restaurant_name %></td>
-            <td class="text-left">〒<%= r.zipcode %>　<%= r.address %></td>
+            <td class="text-left">〒<%= r.zipcode %>  <%= r.address %></td>
             <td><%= link_to "詳細", restaurant_path(r.id), class: "btn btn-color btn-sm" %></td>
           </tr>
         <% end %>
