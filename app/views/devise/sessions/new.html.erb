@@ -1,9 +1,9 @@
+<%= render partial: 'layouts/notifications' %>
 <div class="container margin-top-20">
   <div class="col-sm-6 offset-md-3 txt-center form-square account-regi">
     <h3>ログイン</h3>
     <br>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field">
         <%= f.label :email, 'メールアドレス' %>
         <br>
