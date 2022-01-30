@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_084856) do
+ActiveRecord::Schema.define(version: 2022_01_30_153105) do
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "user_id"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2022_01_25_084856) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_name"
-    t.string "nickname"
     t.integer "sex"
     t.integer "age"
     t.string "image"
