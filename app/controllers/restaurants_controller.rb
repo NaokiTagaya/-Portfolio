@@ -81,7 +81,7 @@ class RestaurantsController < ApplicationController
   private
   # 店舗登録パラメータ
   def restaurant_param
-    params.require(:restaurant).permit(:restaurant_name, :tel, :zipcode, :address, :restaurant_image, :registered_user_id)
+    params.require(:restaurant).permit(:restaurant_name, :tel, :zipcode, :address, :restaurant_image, :registered_user_id, :latitude, :longitude)
   end
 
 end

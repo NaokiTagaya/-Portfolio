@@ -1,3 +1,30 @@
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap">
+</script>
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15, 
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+    var contentString = '住所：<%= @restaurant.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+}
+</script>
 <%= render partial: 'layouts/notifications' %>
 <div class="container margin-top-20">
   <div class="txt-center form-square page-label">
@@ -83,6 +110,7 @@
               <section>
                 <div class="restaurant-detail-info text-left">
                   <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 所在地</h2>
+                  <p><%= @restaurant.latitude %><%= @restaurant.longitude %></p>
                   <div class="info-inner">
                     <div class="info-table">
                       <div id="map"></div>
@@ -171,33 +199,3 @@
       </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  function initMap() {
-    var test ={lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>};
-    var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 15, 
-              center: test
-              });
-    var transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
-
-    var contentString = '住所：<%= @restaurant.address %>';
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-
-    var marker = new google.maps.Marker({
-                  position:test,
-                  map: map,
-                  title: contentString
-                 });
-
-     marker.addListener('click', function() {
-       infowindow.open(map, marker);
-     });
-  }
-</script>
-<script async defer
-              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC7_ZUnL4RHvUzDNUgUdes9-_dxAyQpu7w&callback=initMap">
-</script>

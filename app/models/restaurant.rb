@@ -19,5 +19,6 @@ class Restaurant < ApplicationRecord
   validates :zipcode, format: { with: VALID_POSTAL_CODE_REGEX }, allow_blank: true
   validates :address, presence: true
 
+  # 店舗画像アップローダー
   mount_uploader :restaurant_image, RestaurantImageUploader
 end
