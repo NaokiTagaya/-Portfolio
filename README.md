@@ -1,24 +1,52 @@
-# README
+# フジノキ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+フジノキはポテパンキャンプ様にてカリキュラムを学んだ後、ポートフォリオとして作成したものです。
 
-Things you may want to cover:
+# 特徴
 
-* Ruby version
+フジノキはRuby On Railsをベースに、下記Gemを使用しております。
+  ・Vue.js
+  ・JQuery
+  ・bootstrap
+  ・carrierwave
+  ・devise
+  ・geocoder
 
-* System dependencies
+フジノキでは、ユーザーがテイクアウトの店舗をサイトに登録し、他のユーザに共有することができます。
+また登録された店舗に対してレビューを付けることができたり、気に入った店舗があればお気に入りに追加することができます。
 
-* Configuration
+# 要件
 
-* Database creation
+●使用環境
+Ruby 2.7.0
+Rails 5.2.6
+webpacker 5.4.3
+mysql2 0.5.3
+jquery-rails 4.4.0
+bootstrap 4.3.1
+carrierwave 2.2.2
+devisae 4.8.0
+geocoder 1.7.2
 
-* Database initialization
+●開発環境
+MacOS Monterey バージョン12.1
+Docker Version 4.4.2
+Visual Studio Code 1.63.2 (Universal)
 
-* How to run the test suite
+# 閲覧方法
 
-* Services (job queues, cache servers, search engines, etc.)
+1. 下記URLへアクセスしてください。
 
-* Deployment instructions
+2. 新規登録していただくか、もしくは以下ユーザー・パスワードを使用してログインしてください。
 
-* ...
+# ノート
+
+・パスワードは半角英数字6文字以上で入力してください。
+
+・テストや動作確認はMac環境にて行いました。
+
+# 著者
+
+・多賀谷直樹
+・ポテパンキャンプ
+・Mail：nao.tagaya.k05@gmail.com
