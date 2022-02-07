@@ -32,166 +32,161 @@
         </div>
       <% end %>
     <% end %>
-      <div class="field martop-15" id="img_field" @change="onFileChange($event)">
-        <div class="restaurant-img-parts">
-          <% if @restaurant.restaurant_image? %>
-            <%= image_tag @restaurant.restaurant_image.url, class: "restaurant-img d-block mx-auto" %>
-          <% else %>
-            <img src="/assets/no_image.jpg" class="restaurant-img d-block mx-auto">
-          <% end %>
-        </div>
+    <div class="field martop-15" id="img_field" @change="onFileChange($event)">
+      <div class="restaurant-img-parts">
+        <% if @restaurant.restaurant_image? %>
+          <%= image_tag @restaurant.restaurant_image.url, class: "restaurant-img d-block mx-auto" %>
+        <% else %>
+          <img src="/assets/no_image.jpg" class="restaurant-img d-block mx-auto">
+        <% end %>
       </div>
-      <div class="border-line pd-bottom30"></div>
-      <br>
-      <div id="tab">
-        <div class="tab">
-          <ul class="tab_title">
-            <li @click="activate(1)" :class="{'active' : isActive === 1}">基本情報</li>
-            <li @click="activate(2)" :class="{'active' : isActive === 2}">地図</li>
-            <li @click="activate(3)" :class="{'active' : isActive === 3}">評価・レビュー</li>
-          </ul>
-          <br>
-          <ul class="tab_content">
-            <li v-if="isActive === 1">
-              <section>
-                <div class="restaurant-detail-info text-left">
-                  <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 基本情報</h2>
-                  <div class="info-inner">
-                  <% if user_signed_in? %>
-                    <% if @restaurant.registered_user_id == current_user.id %>
-                    <div class="info-table margbot-30">
-                    <% else %>
-                    <div class="info-table margbot-10">
-                    <% end %>
-                  <% else %>
-                    <div class="info-table margbot-10">
-                  <% end %>
-                      <table class="basic-table">
-                        <tbody>
-                          <tr>
-                            <th>店舗名</th>
-                            <td>
-                              <p id="info-name"><%= @restaurant.restaurant_name %></p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th>電話番号</th>
-                            <td>
-                              <p><%= @restaurant.tel %></p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th>住所</th>
-                            <td>
-                              <p>〒<%= @restaurant.zipcode %> <%= @restaurant.address %></p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="row justify-content-center">
-                    <% if user_signed_in? %>
-                      <% if @restaurant.registered_user_id == current_user.id %>
-                        <%= link_to "編集", edit_restaurant_path(@restaurant.id), class: "btn btn-color btn-sm marginlg-2p" %>
-                        <%= link_to '店舗を削除する', restaurant_path(@restaurant.id), method: :delete, class: "btn btn-outline-danger btn-sm marginlg-2p", data: { confirm: "投稿されたレビューを含めてこちらの店舗情報を削除します。本当によろしいですか？"} %>
-                      <% end %>
-                    <% end %>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </li>
-            <li v-if="isActive === 2">
-              <section>
-                <div class="restaurant-detail-info text-left">
-                  <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 所在地</h2>
-                  <p><%= @restaurant.latitude %><%= @restaurant.longitude %></p>
-                  <div class="info-inner">
-                    <div class="info-table">
-                      <div id="map"></div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </li>
-            <li v-if="isActive === 3">
-              <% if @reviews.present? %>
-                <p class="customer-rate-label margbot-10">カスタマーレビュー</p>
-                <div class="average-review-rating" data-score=<%= @average_rate %>></div>
-                <script type="application/javascript">
-                  $('.average-review-rating').raty({
-                    readOnly: true,
-                    path: '/assets/',
-                    score: function() {
-                      return $(this).attr('data-score')
-                    }
-                  });
-                </script>
-                <p class="customer-rate-label margbot-5"><%= @average_rate %></p>
-                <p><%= @reviews_count %>件のレビュー</p>
-                <table class="table table-striped v-align-mid">
-                  <thead>
-                    <tr>
-                      <th scope="col">ユーザー名</th>
-                      <th scope="col">評価</th>
-                      <th scope="col">レビューコメント</th>
-                    </tr>
-                  </thead>
+    </div>
+    <div class="border-line pd-bottom30"></div>
+    <br>
+    <ul class="tab-list list-unstyled">
+      <li class="tab-restaurant tab-active">基本情報</li>
+      <li class="tab-restaurant">地図</li>
+      <li class="tab-restaurant">評価・レビュー</li>
+    </ul>
+    <br>
+    <div class="tabbox-contents">
+      <div class="tabbox box-show">
+        <section>
+          <div class="restaurant-detail-info text-left">
+            <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 基本情報</h2>
+            <div class="info-inner">
+            <% if user_signed_in? %>
+              <% if @restaurant.registered_user_id == current_user.id %>
+              <div class="info-table margbot-30">
+              <% else %>
+              <div class="info-table margbot-10">
+              <% end %>
+            <% else %>
+              <div class="info-table margbot-10">
+            <% end %>
+                <table class="basic-table">
                   <tbody>
-                    <% @reviews.each do |rv| %>
-                      <tr>
-                        <th>
-                        <% if rv.user.image? %>
-                          <%= image_tag rv.user.image.url, alt: "ヘッダーアイコン", class: "mxｰ3 p-1 host-icon" %>
-                        <% else %>
-                          <img src="/assets/default_icon.png" class="mxｰ3 p-1 host-icon" alt="ヘッダーアイコン">
-                        <% end %>
-                        <span><%= rv.user.user_name %></span>
-                        </th>
-                        <td>
-                          <span id="star-rate-<%= rv.id %>"></span>
-                          <script type="application/javascript">
-                            $('#star-rate-<%= rv.id %>').raty({
-                              size: 24,
-                              starOff: "<%= asset_path('star-off.png') %>",
-                              starOn: "<%= asset_path('star-on.png') %>",
-                              starHalf: "<%= asset_path('star-half.png') %>",
-                              half: true,
-                              readOnly: true,
-                              score: <%= rv.rate %>,
-                            });
-                          </script>
-                          <span><%= rv.rate %></span>
-                        </td>
-                        <td><%= rv.comment %></td>
-                      </tr>
-                    <% end %>
+                    <tr>
+                      <th>店舗名</th>
+                      <td>
+                        <p id="info-name"><%= @restaurant.restaurant_name %></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>電話番号</th>
+                      <td>
+                        <p><%= @restaurant.tel %></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>住所</th>
+                      <td>
+                        <p>〒<%= @restaurant.zipcode %> <%= @restaurant.address %></p>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
-                <% if user_signed_in? %>
-                  <%= link_to "レビュー投稿する", new_review_path(id: @restaurant.id), class: "btn btn-color marginlg-2p" %>
-                <% else %>
-                  <a class="link-inactive btn btn-color marginlg-2p">レビュー投稿する</a>
-                  <p class="reminder-text martop-15">レビュー投稿は会員のみご利用できます。</p>
-                  <p class="reminder-text">会員登録は<%= link_to "こちら", new_user_registration_path, class: "reminder-link" %></p>
-                <% end %>
-              <% else %>
-                <p class="font-weight-bold margbot-30">こちらの店舗のレビューはありません</p>
-                <% if user_signed_in? %>
-                  <%= link_to "レビュー投稿する", new_review_path(id: @restaurant.id), class: "btn btn-color marginlg-2p" %>
-                <% else %>
-                  <a class="link-inactive btn btn-color marginlg-2p">レビュー投稿する</a>
-                  <p class="reminder-text martop-15">レビュー投稿は会員のみご利用できます。</p>
-                  <p class="reminder-text">会員登録は<%= link_to "こちら", new_user_registration_path, class: "reminder-link" %></p>
+              </div>
+              <div class="row justify-content-center">
+              <% if user_signed_in? %>
+                <% if @restaurant.registered_user_id == current_user.id %>
+                  <%= link_to "編集", edit_restaurant_path(@restaurant.id), class: "btn btn-color btn-sm marginlg-2p" %>
+                  <%= link_to '店舗を削除する', restaurant_path(@restaurant.id), method: :delete, class: "btn btn-outline-danger btn-sm marginlg-2p", data: { confirm: "投稿されたレビューを含めてこちらの店舗情報を削除します。本当によろしいですか？"} %>
                 <% end %>
               <% end %>
-            </li>
-          </ul>
-          <div class="row justify-content-center">
-            <%= link_to "戻る", :back, class: "btn btn-outline-color marginlg-5p width-15" %>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
+      <div class="tabbox">
+        <section>
+          <div class="restaurant-detail-info text-left">
+            <h2 class="detail-info-text"><%= @restaurant.restaurant_name %> 所在地</h2>
+            <div class="info-inner">
+              <div class="info-table">
+                <div id="map"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="tabbox">
+        <% if @reviews.present? %>
+          <p class="customer-rate-label margbot-10">カスタマーレビュー</p>
+          <div class="average-review-rating" data-score=<%= @average_rate %>></div>
+          <script type="application/javascript">
+            $('.average-review-rating').raty({
+              readOnly: true,
+              path: '/assets/',
+              score: function() {
+                return $(this).attr('data-score')
+              }
+            });
+          </script>
+          <p class="customer-rate-label margbot-5"><%= @average_rate %></p>
+          <p><%= @reviews_count %>件のレビュー</p>
+          <table class="table table-striped v-align-mid">
+            <thead>
+              <tr>
+                <th scope="col">ユーザー名</th>
+                <th scope="col">評価</th>
+                <th scope="col">レビューコメント</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @reviews.each do |rv| %>
+                <tr>
+                  <th>
+                  <% if rv.user.image? %>
+                    <%= image_tag rv.user.image.url, alt: "ヘッダーアイコン", class: "mxｰ3 p-1 host-icon" %>
+                  <% else %>
+                    <img src="/assets/default_icon.png" class="mxｰ3 p-1 host-icon" alt="ヘッダーアイコン">
+                  <% end %>
+                  <span><%= rv.user.user_name %></span>
+                  </th>
+                  <td>
+                    <span id="star-rate-<%= rv.id %>"></span>
+                    <script type="application/javascript">
+                      $('#star-rate-<%= rv.id %>').raty({
+                        size: 24,
+                        starOff: "<%= asset_path('star-off.png') %>",
+                        starOn: "<%= asset_path('star-on.png') %>",
+                        starHalf: "<%= asset_path('star-half.png') %>",
+                        half: true,
+                        readOnly: true,
+                        score: <%= rv.rate %>,
+                      });
+                    </script>
+                    <span><%= rv.rate %></span>
+                  </td>
+                  <td><%= rv.comment %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <% if user_signed_in? %>
+            <%= link_to "レビュー投稿する", new_review_path(id: @restaurant.id), class: "btn btn-color marginlg-2p" %>
+          <% else %>
+            <a class="link-inactive btn btn-color marginlg-2p">レビュー投稿する</a>
+            <p class="reminder-text martop-15">レビュー投稿は会員のみご利用できます。</p>
+            <p class="reminder-text">会員登録は<%= link_to "こちら", new_user_registration_path, class: "reminder-link" %></p>
+          <% end %>
+        <% else %>
+          <p class="font-weight-bold margbot-30">こちらの店舗のレビューはありません</p>
+          <% if user_signed_in? %>
+            <%= link_to "レビュー投稿する", new_review_path(id: @restaurant.id), class: "btn btn-color marginlg-2p" %>
+          <% else %>
+            <a class="link-inactive btn btn-color marginlg-2p">レビュー投稿する</a>
+            <p class="reminder-text martop-15">レビュー投稿は会員のみご利用できます。</p>
+            <p class="reminder-text">会員登録は<%= link_to "こちら", new_user_registration_path, class: "reminder-link" %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <%= link_to "戻る", :back, class: "btn btn-outline-color marginlg-5p width-15" %>
+    </div>
   </div>
 </div>
 <script async defer

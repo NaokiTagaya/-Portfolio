@@ -466,13 +466,14 @@ footer {
 }
 
 #tab ul.tab_title li:hover {
-  background: #006666;
-  color: #fff;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
 }
 
 #tab ul.tab_title li.active {
   background: #006666;
   color: #fff;
+  transition: all 0.2s ease-in-out;
 }
 
 #tab ul.tab_content {
@@ -598,7 +599,7 @@ footer {
   background-color: #006666;
   position: absolute;
   bottom: -7px;
-  left: 42%;
+  left: 40%;
 }
 
 .restaurant-info-parts .col-md-3 {
@@ -791,4 +792,45 @@ footer {
 .favorite-btn:hover {
   text-decoration:none;
   color: #006666;
+}
+
+.tab-list {
+  display: flex;
+  justify-content: center;
+  padding-left: 0px;
+}
+
+.tab-restaurant {
+  text-align: center;
+  width: 23.333%;
+  margin: 0 1.5%;
+  padding: 0.5em;
+  border: 1px solid #eee;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.tab-restaurant:first-child {
+  border-left: none;
+}
+
+.tab-active {
+  background: #006666;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabbox {
+  display: none;
+  padding-bottom: 30px;
+}
+
+.box-show {
+  display: block;
+}
+
+.tab-restaurant:hover{
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
 }
