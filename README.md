@@ -25,7 +25,7 @@ mysql2 0.5.3
 jquery-rails 4.4.0
 bootstrap 4.3.1
 carrierwave 2.2.2
-devisae 4.8.0
+devise 4.8.0
 geocoder 1.7.2
 
 ●開発環境
