@@ -834,3 +834,16 @@ footer {
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-1px);
 }
+
+.host-icon-hamb {
+  width: 8.5rem;
+  height: 8.5rem;
+  object-fit: cover;
+  border-radius: 70px;
+}
+
+.navbar-user-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
