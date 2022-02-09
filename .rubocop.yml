@@ -1,7 +1,6 @@
+inherit_from: .rubocop_todo.yml
+
 require:
-  - rubocop-minitest
-  - rubocop-packaging
-  - rubocop-performance
   - rubocop-rails
 
 AllCops:
@@ -13,12 +12,11 @@ AllCops:
   Exclude:
     - '**/tmp/**/*'
     - '**/templates/**/*'
-    - 'vendor/**/*'
+    - '**/vendor/**/*'
     - 'actionpack/lib/action_dispatch/journey/parser.rb'
     - 'actionmailbox/test/dummy/**/*'
     - 'actiontext/test/dummy/**/*'
-    - 'node_modules/**/*'
-    - 'bin/**/*'
+    - '**/node_modules/**/*'
 
 Performance:
   Exclude:
@@ -43,6 +41,9 @@ Rails/IndexWith:
 # Prefer &&/|| over and/or.
 Style/AndOr:
   Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
 
 # Align `when` with `case`.
 Layout/CaseIndentation:
