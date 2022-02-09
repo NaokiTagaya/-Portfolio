@@ -13,7 +13,7 @@ AllCops:
   Exclude:
     - '**/tmp/**/*'
     - '**/templates/**/*'
-    - 'vendor/**/*'
+    - '**/vendor/**/*'
     - 'actionpack/lib/action_dispatch/journey/parser.rb'
     - 'actionmailbox/test/dummy/**/*'
     - 'actiontext/test/dummy/**/*'
