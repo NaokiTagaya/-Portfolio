@@ -255,6 +255,3 @@ Style/ColonMethodCall:
 
 Style/TrivialAccessors:
   Enabled: true
-
-Minitest/UnreachableAssertion:
-  Enabled: true
