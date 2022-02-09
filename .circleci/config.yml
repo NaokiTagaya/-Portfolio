@@ -103,11 +103,10 @@ jobs:
 
 workflows:
     version: 2
-    deploy:
-      jobs:
-        - build
-        - rubocop
-        - deploy:
-            filters:
-              branches:
-                only: master
+    jobs:
+      - build
+      - rubocop
+      - deploy:
+          filters:
+            branches:
+              only: master
