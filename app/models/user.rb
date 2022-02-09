@@ -9,20 +9,20 @@ class User < ApplicationRecord
 
   # パスワード変更機能
   def update_without_current_password(params, *options)
-  params.delete(:current_password)
+    params.delete(:current_password)
 
     if params[:password].blank? && params[:password_confirmation].blank?
-        params.delete(:password)
-        params.delete(:password_confirmation)
+      params.delete(:password)
+      params.delete(:password_confirmation)
     end
-    
-  result = update(params, *options)
-  clean_up_passwords
-  result
+      
+    result = update(params, *options)
+    clean_up_passwords
+    result
   end
 
   # 性別値
-  enum sex: { male: 0, female: 1}
+  enum sex: { male: 0, female: 1 }
 
   # 画像アップロード
   mount_uploader :image, ImageUploader

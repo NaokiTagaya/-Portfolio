@@ -54,7 +54,6 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails'
   gem 'rspec-rails', '~>3.8'
-
 end
 
 group :development do

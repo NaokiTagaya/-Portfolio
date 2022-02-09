@@ -13,9 +13,8 @@ class FavoritesController < ApplicationController
     @favorite.destroy
   end
 
-private
-def set_restaurant
-  @restaurant = Restaurant.find(params[:restaurant_id])
-end
-
+  private
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
 end
