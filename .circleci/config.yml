@@ -106,6 +106,7 @@ workflows:
     deploy:
       jobs:
         - build
+        - rubocop
         - deploy:
             filters:
               branches:
