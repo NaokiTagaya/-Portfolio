@@ -5,12 +5,12 @@
 # 特徴
 
 フジノキはRuby On Railsをベースに、下記Gemを使用しております。<br>
-  ・Vue.js
-  ・JQuery
-  ・bootstrap
-  ・carrierwave
-  ・devise
-  ・geocoder
+  - Vue.js
+  - JQuery
+  - bootstrap
+  - carrierwave
+  - devise
+  - geocoder
 
 フジノキでは、ユーザーがテイクアウトの店舗をサイトに登録し、他のユーザに共有することができます。<br>
 また登録された店舗に対してレビューを付けることができたり、気に入った店舗があればお気に入りに追加することができます。
@@ -38,8 +38,8 @@ Visual Studio Code 1.63.2 (Universal)
 1. 下記URLへアクセスしてください。
 
 2. 新規登録していただくか、もしくは以下メールアドレス・パスワードを使用してログインしてください。<br>
-  ・メールアドレス：potepan@test.com
-  ・パスワード：potepantaro225
+  - メールアドレス：potepan@test.com
+  - パスワード：potepantaro225
 
 # ノート
 
@@ -49,6 +49,6 @@ Visual Studio Code 1.63.2 (Universal)
 
 # 著者
 
-・多賀谷直樹
-・ポテパンキャンプ
-・Mail：nao.tagaya.k05@gmail.com
+- 多賀谷直樹
+- ポテパンキャンプ
+- Mail：nao.tagaya.k05@gmail.com
