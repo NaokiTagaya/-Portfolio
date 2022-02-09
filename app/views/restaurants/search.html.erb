@@ -2,6 +2,10 @@
   <div class="txt-center form-square-search page-label">
     <div class="search-result">
       <p>検索結果：<%= @recordcount %>件</p>
+      <% if @recordcount == 0 %>
+        <p class="text-center">該当するお店が見つかりませんでした。</p>
+        <p class="text-center">検索条件をご確認の上、再度お試しください。</p>
+      <% end %>
     </div>
     <table class="table">
       <thead>
