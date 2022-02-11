@@ -9,14 +9,6 @@ RSpec.describe 'POST /users', type: :request do
       post '/users', params: { email: 'test@rspec.com', user_name: 'rspecテスト', sex: '1', age: '32', password: 'hogehoge', password_confirmation: 'hogehoge' }, headers: { 'ACCEPT' => 'application/json' }
       expect(response).to be_successful
     end
-
-    it 'ユーザーを登録する' do
-      expect do
-        post '/users', params: { email: 'test@rspec.com', user_name: 'rspecテスト', sex: '1', age: '32', password: 'hogehoge', password_confirmation: 'hogehoge' }, headers: { 'ACCEPT' => 'application/json' }
-       end.change(User, :count).by(1)
-       expect(User.find_by(email: 'test@rspec.com')).to have_attributes(password: 'hogehoge')
-      end
-    end
   end
 
   context 'メールアドレスが不足している場合' do
