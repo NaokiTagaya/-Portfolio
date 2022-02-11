@@ -143,7 +143,13 @@ workflows:
         - rubocop:
             requires:
               - build
+        - rspec:
+            requires:
+              - rubocop
         - deploy:
+            requires:
+              - rubocop
+              - rspec
             filters:
               branches:
                 only: master
