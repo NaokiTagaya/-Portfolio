@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User_model', type: :model do
   describe 'userモデル処理チェック' do
-    context '正常ケース' do
+    context '正常ケースチェック' do
       it '必須パラメータを全て入力し、登録できる' do
         expect(FactoryBot.create(:user)).to be_valid
       end
@@ -28,7 +28,6 @@ RSpec.describe 'User_model', type: :model do
       it 'パスワード（確認用）が未入力の場合、登録できない' do
         expect(FactoryBot.build(:user, password_confirmation: "")).to_not be_valid
       end
-
     end
 
     context 'モデルのバリデーションチェック' do
@@ -40,12 +39,12 @@ RSpec.describe 'User_model', type: :model do
         expect(FactoryBot.build(:user, age: "てす")).to_not be_valid
       end
 
-      it 'メールアドレスがフォーマット通りでない場合、登録できない' do
-        user1 = FactoryBot.build(:user, user_name: "taro", email: "taro@example.com")
+      it 'メールアドレスが重複していた場合、登録できない' do
+        user1 = FactoryBot.create(:user_taro)
         expect(FactoryBot.build(:user, user_name: "ziro", email: user1.email)).to_not be_valid
       end
 
-      it 'メールアドレスが重複していた場合、登録できない' do
+      it 'メールアドレスがフォーマット通りでない場合、登録できない' do
         expect(FactoryBot.build(:user, email: "testaiueo")).to_not be_valid
       end
 
