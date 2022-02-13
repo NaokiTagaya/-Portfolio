@@ -4,7 +4,9 @@ RSpec.describe 'Review_model', type: :model do
   describe 'reviewモデル処理チェック' do
     context '正常ケースチェック' do
       it '必須パラメータを全て入力し、登録できる' do
-        expect(FactoryBot.build(:review, rate: 5, comment: "Rpsecコメント")).to be_valid
+        user = FactoryBot.create(:user)
+        restaurant = FactoryBot.create(:restaurant)
+        expect(FactoryBot.build(:review, user_id: user.id, restaurant_id: restaurant.id).to be_valid
       end
     end
 
