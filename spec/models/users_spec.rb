@@ -41,7 +41,7 @@ RSpec.describe 'User_model', type: :model do
       end
 
       it 'メールアドレスがフォーマット通りでない場合、登録できない' do
-        user1 = FactoryBot.build(user_name: "taro", email: "taro@example.com")
+        user1 = FactoryBot.build(:user, user_name: "taro", email: "taro@example.com")
         except(FactoryBot.build(:user, user_name: "ziro", email: user1.email)).to_not be_valid
       end
 
