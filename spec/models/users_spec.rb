@@ -61,7 +61,7 @@ RSpec.describe 'User_model', type: :model do
       end
 
       it 'パスワードとパスワード（確認用）が一致しない場合、登録できない' do
-        expect(FactoryBot.build(:user, password: "password", password_confirmation: "passward")).to_not be_valid 
+        expect(FactoryBot.build(:user, password: "password", password_confirmation: "passward")).to_not be_valid
       end
     end
   end
