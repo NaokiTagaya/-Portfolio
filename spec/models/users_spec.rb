@@ -40,8 +40,8 @@ RSpec.describe 'User_model', type: :model do
       end
 
       it 'メールアドレスが重複していた場合、登録できない' do
-        user1 = FactoryBot.create(:user_taro)
-        expect(FactoryBot.build(:user, user_name: "ziro", email: user1.email)).to_not be_valid
+        user1 = FactoryBot.create(:user, user_name: "太郎", sex: 1, age: 25, email: "taro@example.com", password: "hogehoge1234", password_confirmation: "hogehoge1234")
+        expect(FactoryBot.build(:user, user_name: "次郎", email: user1.email)).to_not be_valid
       end
 
       it 'メールアドレスがフォーマット通りでない場合、登録できない' do
