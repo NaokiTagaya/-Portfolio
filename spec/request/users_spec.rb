@@ -18,11 +18,6 @@ RSpec.describe 'Users', type: :request, js: true do
           post user_registration_path, params: { id: test_user }
         end.to change(User, :count).by 1
       end
-
-      it 'リダイレクトされること' do
-        post user_registration_path, params: { id: test_user }
-        expect(response).to redirect_to User.last
-      end
     end
   end
 end
