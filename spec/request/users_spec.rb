@@ -40,18 +40,13 @@ RSpec.describe 'Users', type: :request, js: true do
     end
   end
 
-  describe 'GET #edit' do
-    subject { get edit_user_registration_path }
+  describe 'GET #show' do
     before do
-      @user = create(:user)
+      @user = FactoryBot.create(:user)
+      sign_in @user
     end
-    context 'ログインしている場合' do
-      before do
-        sign_in @user
-      end
-      it 'リクエストが成功すること' do
-        expect(response).to have_http_status(200)
-      end
+    it 'リクエストが成功すること' do
+      expect(response).to have_http_status(200)
     end
   end
 end
