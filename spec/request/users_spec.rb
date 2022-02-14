@@ -57,7 +57,6 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'POST /users/sign_in' do
-    let(:login_user) { FactoryBot.create :login_user }
     let(:req_params) { { session_form: { email: "rspec@test.com", password: input_pass } } }
     context '登録されたユーザー' do
       let(:input_pass) { "hogohoge1234" }

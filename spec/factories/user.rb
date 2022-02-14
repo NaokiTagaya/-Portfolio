@@ -16,13 +16,4 @@ FactoryBot.define do
     password { "hogohoge1234" }
     password_confirmation { "hogehoge1234" }
   end
-
-  factory :login_user, class: User do
-    user_name { "ログインユーザー" }
-    age { 25 }
-    sex { 2 }
-    email { "rspeclogin@test.com" }
-    password { "hogohoge1234" }
-    password_confirmation { "hogehoge1234" }
-  end
 end
