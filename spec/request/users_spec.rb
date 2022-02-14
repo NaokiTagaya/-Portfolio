@@ -76,14 +76,14 @@ RSpec.describe 'Users', type: :request, js: true do
 
   describe 'GET /users/profile' do
     it 'プロフィール詳細画面の表示に成功すること' do
-      get users_profile_path
+      get users_profile_path、params: { id: test_user }
       expect(response).to have_http_status(200)
     end
   end
 
   describe 'GET /users/edit' do
     it 'プロフィール編集画面の表示に成功すること' do
-      get edit_user_registration_path
+      get edit_user_registration_path、params: { id: test_user }
       expect(response).to have_http_status(200)
     end
   end
