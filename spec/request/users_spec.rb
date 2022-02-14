@@ -39,4 +39,17 @@ RSpec.describe 'Users', type: :request, js: true do
       end
     end
   end
+
+  describe 'GET #edit' do
+    subject { get edit_user_registration_path }
+    context 'ログインしている場合' do
+      before do
+        user.confirm
+        sign_in user
+      end
+      it 'リクエストが成功すること' do
+        is_expected.to eq 200
+      end
+    end
+  end
 end
