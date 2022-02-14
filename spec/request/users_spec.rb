@@ -21,7 +21,7 @@ RSpec.describe 'Users', type: :request, js: true do
       end
     end
 
-    context 'パラメータが不正な場合' do
+    context 'パラメータにユーザー名が無い場合' do
       it '400 Bad Requestを返すこと' do
         post user_registration_path, params: { id: fail_user }
         expect(response).to have_http_status(400)
@@ -35,7 +35,7 @@ RSpec.describe 'Users', type: :request, js: true do
 
       it 'エラーが表示されること' do
         post user_registration_path, params: { id: fail_user }
-        expect(response.body).to include 'prohibited this user from being saved'
+        expect(response.body).to include '名前を入力してください'
       end
     end
   end
