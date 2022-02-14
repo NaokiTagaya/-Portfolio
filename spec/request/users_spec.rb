@@ -4,7 +4,7 @@ RSpec.describe 'Users', type: :request, js: true do
     let(:fail_user) { attributes_for(:user, user_name: "") }
 
     context 'すべてのパラメータが揃っている場合' do
-      it '200 OKを返すこと' do
+      it 'リクエストが成功すること' do
         post user_registration_path, params: { id: test_user }
         expect(response).to have_http_status(200)
       end
@@ -22,9 +22,9 @@ RSpec.describe 'Users', type: :request, js: true do
     end
 
     context 'パラメータにユーザー名が無い場合' do
-      it '400 Bad Requestを返すこと' do
+      it 'リクエストが成功すること' do
         post user_registration_path, params: { id: fail_user }
-        expect(response).to have_http_status(400)
+        expect(response).to have_http_status(200)
       end
 
       it 'ユーザー登録が失敗すること' do
