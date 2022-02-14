@@ -1,4 +1,4 @@
-RSpec.describe 'Users', type: :request do
+RSpec.describe 'Users', type: :request, js: true do
   describe 'POST #create' do
     let(:test_user) { FactoryBot.create :test_user }
 
