@@ -47,11 +47,10 @@ RSpec.describe 'Users', type: :request, js: true do
     end
     context 'ログインしている場合' do
       before do
-        @user.confirm
         sign_in @user
       end
       it 'リクエストが成功すること' do
-        is_expected.to eq 200
+        expect(response).to have_http_status(200)
       end
     end
   end
