@@ -39,6 +39,11 @@ jobs:
           command: |
             bin/rails db:create
             bin/rails db:migrate
+      - run:
+          name: yarn Install
+          command: yarn install
+
+      - run: bundle exec bin/webpack
 
       - run:
           name: Run rspec
