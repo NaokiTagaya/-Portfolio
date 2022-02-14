@@ -21,7 +21,7 @@ RSpec.describe 'Users', type: :request, js: true do
 
       it 'リダイレクトされること' do
         post user_registration_path, params: { id: test_user }
-        expect(response).to redirect_to users_path
+        expect(response).to redirect_to User.last
       end
     end
   end
