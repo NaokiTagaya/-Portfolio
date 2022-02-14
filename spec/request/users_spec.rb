@@ -63,14 +63,14 @@ RSpec.describe 'Users', type: :request, js: true do
       let(:input_pass) { "hogohoge1234" }
       it 'ログインに成功すること' do
         post user_session_path, params: req_params
-        expect(response).to redirect_to root_path
+        expect(response.status).to eq 302
       end
     end
     context '未登録のユーザー' do
       let(:input_pass) { "hogohoge5678" }
       it 'ログインに失敗すること' do
         post user_session_path, params: req_params
-        expect(response.body).to include '失敗しました。'
+        expect(response.body).to include 'メールアドレスまたはパスワードが違います'
       end
     end
   end
