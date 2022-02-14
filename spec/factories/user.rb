@@ -13,7 +13,7 @@ FactoryBot.define do
     age { 32 }
     sex { 1 }
     email { "rspec@test.com" }
-    password { "hogohoge1234"}
-    password_confirmation { 'hogehoge1234' }
+    password { "hogohoge1234" }
+    password_confirmation { "hogehoge1234" }
   end
 end
