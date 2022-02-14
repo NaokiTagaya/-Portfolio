@@ -108,6 +108,11 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
+    factory_bot (6.2.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     ffi (1.15.4)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -342,6 +347,7 @@ DEPENDENCIES
   data-confirm-modal
   devise
   dotenv-rails
+  factory_bot_rails
   geocoder
   http
   jbuilder (~> 2.5)
