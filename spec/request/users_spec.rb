@@ -52,14 +52,14 @@ RSpec.describe 'Users', type: :request, js: true do
     context '登録されたユーザー' do
       let (:input_pass) { "hogohoge1234" }
       it 'ログインに成功すること' do
-        post new_user_registration_path, params: req_params
+        post session_path, params: req_params
         expect(response).to redirect_to root_path
       end
     end
     context '未登録のユーザー' do
       let (:input_pass) { "hogohoge5678" }
       it 'ログインに失敗すること' do
-        post new_user_registration_path, params: req_params
+        post session_path, params: req_params
         expect(response.body).to include '失敗しました。'
       end
     end
