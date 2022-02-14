@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe 'Users', type: :request, js: true do
   describe 'GET /users/sign_up' do
     it '会員登録画面の表示に成功すること' do
