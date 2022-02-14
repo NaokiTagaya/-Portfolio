@@ -41,10 +41,26 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'GET /users/sign_in' do
-    context 'すべてのパラメータが問題ない場合' do
-      it 'ログインが成功すること' do
-        get new_user_session_path
-        expect(response).to have_http_status(200)
+    it 'ログイン画面の表示に成功すること' do
+      get new_user_session_path
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'POST /users/sign_in' do
+    let (:req_params) { { session_form: { email: "rspec@test.com", password: input_pass } } }
+    context '登録されたユーザー' do
+      let (:input_pass) { "hogohoge1234" }
+      it 'ログインに成功すること' do
+        post new_user_registration_path, params: req_params
+        expect(response).to redirect_to root_path
+      end
+    end
+    context '未登録のユーザー' do
+      let (:input_pass) { "hogohoge5678" }
+      it 'ログインに失敗すること' do
+        post new_user_registration_path, params: req_params
+        expect(response.body).to include '失敗しました。'
       end
     end
   end
