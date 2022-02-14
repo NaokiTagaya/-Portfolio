@@ -40,13 +40,12 @@ RSpec.describe 'Users', type: :request, js: true do
     end
   end
 
-  describe 'GET #show' do
-    before do
-      @request.env['devise.mapping'] = Devise.mappings[:customer]
-      @user = FactoryGirl.create(:user, password: "password", email: "rspeclogin@rspec.com")
-    end
-    it '値が取得できること' do
-      expect(response.body).to eq(user.user_name)
+  describe 'GET /users/sign_in' do
+    context 'すべてのパラメータが問題ない場合' do
+      it 'ログインが成功すること' do
+        get new_user_session_path
+        expect(response).to have_http_status(200)
+      end
     end
   end
 end
