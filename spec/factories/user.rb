@@ -18,7 +18,7 @@ FactoryBot.define do
   end
 
   factory :login_user, class: User do
-    user_name { "ログインユーザー" }
+    user_name { "Rpsecログインユーザー" }
     age { 25 }
     sex { 2 }
     email { "rspeclogin@test.com" }
@@ -27,7 +27,7 @@ FactoryBot.define do
   end
 
   factory :profile_user, class: User do
-    user_name { "プロフィールユーザー" }
+    user_name { "Rspecプロフィールユーザー" }
     age { 25 }
     sex { 1 }
     email { "profile@test.com" }
