@@ -25,4 +25,13 @@ FactoryBot.define do
     password { "hogohoge1234" }
     password_confirmation { "hogehoge1234" }
   end
+
+  factory :profile_user, class: User do
+    user_name { "ログインユーザー" }
+    age { 25 }
+    sex { 1 }
+    email { "profile@test.com" }
+    password { "hogohoge4567" }
+    password_confirmation { "hogehoge4567" }
+  end
 end
