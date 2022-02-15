@@ -81,7 +81,7 @@ RSpec.describe 'Users', type: :request, js: true do
       get users_profile_path、params: { id: user }
       expect(response).to have_http_status(200)
     end
-  endß
+  end
 
   describe 'GET /users/edit' do
     let(:profile_user) { FactoryBot.create :profile_user }
