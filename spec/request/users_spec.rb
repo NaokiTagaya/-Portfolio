@@ -57,7 +57,8 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'POST /users/sign_in' do
-    let(:req_params) { { session_form: { email: "rspec@test.com", password: input_pass } } }
+    let(:login_user) { FactoryBot.create :login_user }
+    let(:req_params) { { session_form: { email: "rspeclogin@test.com", password: input_pass } } }
     context '登録されたユーザー' do
       let(:input_pass) { "hogohoge1234" }
       it 'ログインに成功すること' do
@@ -76,14 +77,14 @@ RSpec.describe 'Users', type: :request, js: true do
 
   describe 'GET /users/profile' do
     it 'プロフィール詳細画面の表示に成功すること' do
-      get users_profile_path、params: { id: test_user }
+      get users_profile_path、params: { id: user }
       expect(response).to have_http_status(200)
     end
   end
 
   describe 'GET /users/edit' do
     it 'プロフィール編集画面の表示に成功すること' do
-      get edit_user_registration_path、params: { id: test_user }
+      get edit_user_registration_path、params: { id: user }
       expect(response).to have_http_status(200)
     end
   end
