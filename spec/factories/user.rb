@@ -27,7 +27,7 @@ FactoryBot.define do
   end
 
   factory :profile_user, class: User do
-    user_name { "ログインユーザー" }
+    user_name { "プロフィールユーザー" }
     age { 25 }
     sex { 1 }
     email { "profile@test.com" }
