@@ -58,9 +58,9 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'POST /users/sign_in' do
-    @user = FactoryBot.create(:user)
-    sign_in @user
     context '登録されたユーザー' do
+      @user = FactoryBot.create(:user)
+      sign_in @user
       it 'ログインに成功すること' do
         post user_session_path
         expect(response.status).to eq 302
@@ -76,10 +76,10 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'GET /users/profile' do
+    profile_user = FactoryBot.create(:profile_user)
+    restaurant = FactoryBot.create(:restaurant)
+    get users_profile_path、params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
     it 'プロフィール詳細画面の表示に成功すること' do
-      profile_user = FactoryBot.create(:profile_user)
-      restaurant = FactoryBot.create(:restaurant)
-      get users_profile_path、params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
     end
   end
