@@ -12,7 +12,6 @@ RSpec.describe 'Users', type: :request, js: true do
   describe 'POST #create' do
     let(:test_user) { FactoryBot.create :test_user }
     let(:fail_user) { attributes_for(:user, user_name: "") }
-
     context 'すべてのパラメータが揃っている場合' do
       it 'リクエストが成功すること' do
         post user_registration_path, params: { id: test_user }
@@ -58,18 +57,18 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'POST /users/sign_in' do
+    let(:login_user) { FactoryBot.create :login_user }
+    let(:login_fail_user) { attributes_for(:login_user, password: "hogohoge5678") }
     context '登録されたユーザー' do
       it 'ログインに成功すること' do
-        @user = FactoryBot.create(:user)
-        sign_in @user
+        sign_in login_user
         post user_session_path
         expect(response.status).to eq 302
       end
     end
     context '未登録のユーザー' do
       it 'ログインに失敗すること' do
-        @user = FactoryBot.create(:user)
-        sign_in @user
+        sign_in login_fail_user
         post user_session_path
         expect(response.body).to include 'メールアドレスまたはパスワードが違います'
       end
@@ -80,7 +79,7 @@ RSpec.describe 'Users', type: :request, js: true do
     it 'プロフィール詳細画面の表示に成功すること' do
       profile_user = FactoryBot.create(:profile_user)
       restaurant = FactoryBot.create(:restaurant)
-      get users_profile_path、params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
+      get users_profile_path, params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
     end
   end
@@ -89,7 +88,7 @@ RSpec.describe 'Users', type: :request, js: true do
     let(:profile_user) { FactoryBot.create :profile_user }
     let(:restaurant) { FactoryBot.create :restaurant }
     it 'プロフィール編集画面の表示に成功すること' do
-      get edit_user_registration_path、params:  { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
+      get edit_user_registration_path, params:  { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
     end
   end
