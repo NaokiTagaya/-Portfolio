@@ -68,9 +68,10 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'GET /users/profile' do
+    let(:profile_user) { FactoryBot.create :profile_user }
+    let(:restaurant) { FactoryBot.create :restaurant }
     it 'プロフィール詳細画面の表示に成功すること' do
-      profile_user = FactoryBot.create(:profile_user)
-      get users_profile_path, params: { id: profile_user, registered_user_id: profile_user.id, user_id: profile_user.id }
+      get users_profile_path, params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
     end
   end
