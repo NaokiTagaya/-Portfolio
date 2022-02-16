@@ -91,7 +91,7 @@ RSpec.describe 'Users', type: :request, js: true do
     it '削除処理が成功すること' do
       sign_in delete_user
       expect {
-        delete registration_path, params: { id: delete_user }
+        delete :destroy, params: { id: delete_user }
       }.to change{ User.count }.by(-1)
       expect(response.status).to eq 204
       expect(response).to redirect_to(root_url)
