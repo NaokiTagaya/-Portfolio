@@ -26,22 +26,22 @@ RSpec.describe 'Restaurants', type: :request, js: true do
   end
 
   describe 'POST #create' do
-    let(:input) { ActionController::Parameters.new(restaurant: param_restaurant) }
-    let(:param_restaurant) { { restaurant_name: 'レストランRspec', tel: '03-1234-5678', zipcode: '150-0000', address: '東京都渋谷区渋谷２丁目', registered_user_id: 1 } }
+    let!(:create_restaurant) { FactoryBot.build(:create_restaurant) }
+    let!(:param_restaurant) { { restaurant_name: create_restaurant.restaurant_name, tel: create_restaurant.tel, zipcode: create_restaurant.zipcode, address: create_restaurant.address, registered_user_id: create_restaurant.registered_user_id } }
     context 'すべてのパラメータが揃っている場合' do
       it 'リクエストが成功すること' do
-        post restaurants_path, params: { id: input }
+        post restaurants_path, restaurant: param_restaurant
         expect(response).to have_http_status(200)
       end
 
       it '接続に成功すること' do
-        post restaurants_path, params: { id: input }
+        post restaurants_path, restaurant: param_restaurant
         expect(response).to be_successful
       end
 
       it '店舗登録が成功すること' do
         expect do
-          post restaurants_path, params: { id: input }
+          post restaurants_path, restaurant: param_restaurant
         end.to change(Restaurant, :count).by 1
       end
     end
