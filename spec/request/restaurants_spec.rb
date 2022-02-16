@@ -26,7 +26,7 @@ RSpec.describe 'Restaurants', type: :request, js: true do
   end
 
   describe 'POST #create' do
-    let(:test_restaurant) { FactoryBot.create :test_restaurant }
+    let(:test_restaurant) { FactoryBot.create (:test_restaurant) }
     context 'すべてのパラメータが揃っている場合' do
       it 'リクエストが成功すること' do
         post restaurants_path, params: { id: test_restaurant }
