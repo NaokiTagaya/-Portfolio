@@ -63,6 +63,10 @@ RSpec.describe 'Users', type: :request, js: true do
         post user_session_path
         expect(response.status).to eq 302
       end
+
+      it 'ログインしたユーザー名が表示されること' do
+        expect(response.body).to include login_user.user_name
+      end
     end
   end
 
@@ -74,6 +78,10 @@ RSpec.describe 'Users', type: :request, js: true do
       get users_profile_path, params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
     end
+
+    it 'ユーザー情報が表示されること' do
+      expect(assigns(:profile_user)).to match_array profile_user
+    end
   end
 
   describe 'GET /users/edit' do
@@ -83,6 +91,10 @@ RSpec.describe 'Users', type: :request, js: true do
       sign_in profile_user
       get edit_user_registration_path, params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
+    end
+
+    it 'ユーザー情報が表示されること' do
+      expect(assigns(:profile_user)).to match_array profile_user
     end
   end
 end
