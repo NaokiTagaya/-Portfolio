@@ -34,4 +34,13 @@ FactoryBot.define do
     password { "hogohoge4567" }
     password_confirmation { "hogehoge4567" }
   end
+
+  factory :delete_user, class: User do
+    user_name { "削除太郎" }
+    age { 28 }
+    sex { 0 }
+    email { "deleteuser@test.com" }
+    password { "hogohoge4567" }
+    password_confirmation { "hogehoge4567" }
+  end
 end

@@ -62,7 +62,7 @@ RSpec.describe 'Users', type: :request, js: true do
         sign_in login_user
         post user_session_path
         expect(response.status).to eq 302
-        expect(response.body).to include login_user.user_name
+        expect(JSON.parse(response.body)).to match(login_user.user_name)
       end
     end
   end
@@ -84,6 +84,16 @@ RSpec.describe 'Users', type: :request, js: true do
       sign_in profile_user
       get edit_user_registration_path, params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'DELETE /users' do
+    let(:delete_user) { FactoryBot.create :delete_user }
+    it '削除処理が成功すること' do
+      expect {
+        delete "/users" + "/" + delete_user.id.to_s
+      }.to change{ User.count }.by(-1)
+      expect(response.status).to eq 204
     end
   end
 end
