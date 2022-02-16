@@ -20,7 +20,7 @@ FactoryBot.define do
   factory :login_user, class: User do
     user_name { "Rpsecログインユーザー" }
     age { 25 }
-    sex { 2 }
+    sex { 0 }
     email { "rspeclogin@test.com" }
     password { "hogohoge1234" }
     password_confirmation { "hogehoge1234" }
@@ -29,7 +29,7 @@ FactoryBot.define do
   factory :profile_user, class: User do
     user_name { "Rspecプロフィールユーザー" }
     age { 25 }
-    sex { 1 }
+    sex { 0 }
     email { "profile@test.com" }
     password { "hogohoge4567" }
     password_confirmation { "hogehoge4567" }
