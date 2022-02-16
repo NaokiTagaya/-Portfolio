@@ -58,19 +58,18 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'POST /users/sign_in' do
-    let(:login_user) { FactoryBot.create :login_user }
-    let(:req_params) { { session_form: { email: "rspeclogin@test.com", password: input_pass } } }
+    @user = FactoryBot.create(:user)
+    sign_in @user
     context '登録されたユーザー' do
-      let(:input_pass) { "hogohoge1234" }
       it 'ログインに成功すること' do
-        post user_session_path, params: req_params
+        post user_session_path
         expect(response.status).to eq 302
       end
     end
     context '未登録のユーザー' do
       let(:input_pass) { "hogohoge5678" }
       it 'ログインに失敗すること' do
-        post user_session_path, params: req_params
+        post user_session_path
         expect(response.body).to include 'メールアドレスまたはパスワードが違います'
       end
     end
