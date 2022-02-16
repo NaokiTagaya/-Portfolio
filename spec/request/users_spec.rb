@@ -77,18 +77,22 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'GET /users/profile' do
+    context '登録されたユーザー' do
     let(:profile_user) { FactoryBot.create :profile_user }
-    it 'プロフィール詳細画面の表示に成功すること' do
-      get users_profile_path、params: { id: profile_user }
-      expect(response).to have_http_status(200)
+      it 'プロフィール詳細画面の表示に成功すること' do
+        get users_profile_path
+        expect(response).to have_http_status(200)
+      end
     end
   end
 
   describe 'GET /users/edit' do
-    let(:profile_user) { FactoryBot.create :profile_user }
-    it 'プロフィール編集画面の表示に成功すること' do
-      get edit_user_registration_path、params: { id: profile_user }
-      expect(response).to have_http_status(200)
+    context '登録されたユーザー' do
+      let(:profile_user) { FactoryBot.create :profile_user }
+      it 'プロフィール編集画面の表示に成功すること' do
+        get edit_user_registration_path
+        expect(response).to have_http_status(200)
+      end
     end
   end
 end
