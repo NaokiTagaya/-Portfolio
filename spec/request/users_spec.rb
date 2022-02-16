@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request, js: true do
 
   before do
-    let(:login_user) { FactoryBot.create :login_user }
-    sign_in login_user
+    @login_user = FactoryBot.create(:login_user)
+    sign_in @login_user
   end
   
   describe 'GET /users/sign_up' do
