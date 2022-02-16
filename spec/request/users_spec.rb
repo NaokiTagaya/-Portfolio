@@ -85,16 +85,4 @@ RSpec.describe 'Users', type: :request, js: true do
       expect(response).to have_http_status(200)
     end
   end
-
-  describe 'DELETE /users' do
-    let(:delete_user) { FactoryBot.create :delete_user }
-    it '削除処理が成功すること' do
-      sign_in delete_user
-      expect {
-        delete :destroy, params: { id: delete_user }
-      }.to change{ User.count }.by(-1)
-      expect(response.status).to eq 204
-      expect(response).to redirect_to(root_url)
-    end
-  end
 end
