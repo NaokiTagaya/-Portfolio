@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Restaurants', type: :request, js: true do
   describe 'GET /restaurants/search' do
+    before do
+      @user = FactoryBot.create(:user)
+      sign_in @user
+    end
+    
     it '検索一覧画面の表示に成功すること' do
       get restaurants_search_path
       expect(response).to have_http_status(200)
@@ -17,11 +22,6 @@ RSpec.describe 'Restaurants', type: :request, js: true do
   end
 
   describe 'POST #create' do
-    before do
-      @user = FactoryBot.create(:user)
-      sign_in @user
-    end
-
     let(:restaurant) { FactoryBot.create :restaurant }
     let(:fail_restaurant) { attributes_for(:restaurant, restaurant_name: "") }
     context 'すべてのパラメータが揃っている場合' do
