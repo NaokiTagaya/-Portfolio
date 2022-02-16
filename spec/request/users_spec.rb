@@ -1,11 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request, js: true do
-
-  before do
-    @login_user = FactoryBot.create(:login_user)
-    sign_in @login_user
-  end
   
   describe 'GET /users/sign_up' do
     it '会員登録画面の表示に成功すること' do
@@ -62,8 +57,10 @@ RSpec.describe 'Users', type: :request, js: true do
   end
 
   describe 'POST /users/sign_in' do
+    let(:login_user) { FactoryBot.create :login_user }
     context '登録されたユーザー' do
       it 'ログインに成功すること' do
+        sign_in login_user
         post user_session_path
         expect(response.status).to eq 302
       end
@@ -74,6 +71,7 @@ RSpec.describe 'Users', type: :request, js: true do
     let(:profile_user) { FactoryBot.create :profile_user }
     let(:restaurant) { FactoryBot.create :restaurant }
     it 'プロフィール詳細画面の表示に成功すること' do
+      sign_in profile_user
       get users_profile_path, params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
     end
@@ -83,6 +81,7 @@ RSpec.describe 'Users', type: :request, js: true do
     let(:profile_user) { FactoryBot.create :profile_user }
     let(:restaurant) { FactoryBot.create :restaurant }
     it 'プロフィール編集画面の表示に成功すること' do
+      sign_in profile_user
       get edit_user_registration_path, params:  { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
     end
