@@ -81,7 +81,7 @@ RSpec.describe 'Users', type: :request, js: true do
     let(:restaurant) { FactoryBot.create :restaurant }
     it 'プロフィール編集画面の表示に成功すること' do
       sign_in profile_user
-      get edit_user_registration_path, params:  { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
+      get edit_user_registration_path, params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
     end
   end
