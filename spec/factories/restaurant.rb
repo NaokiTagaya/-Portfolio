@@ -5,7 +5,5 @@ FactoryBot.define do
     zipcode { "150-0000" }
     address { "東京都渋谷区渋谷２丁目" }
     registered_user_id { 1 }
-    latitude { 11111 }
-    longitude { 11111 }
   end
 end
