@@ -59,16 +59,17 @@ RSpec.describe 'Users', type: :request, js: true do
 
   describe 'POST /users/sign_in' do
     context '登録されたユーザー' do
-      @user = FactoryBot.create(:user)
-      sign_in @user
       it 'ログインに成功すること' do
+        @user = FactoryBot.create(:user)
+        sign_in @user
         post user_session_path
         expect(response.status).to eq 302
       end
     end
     context '未登録のユーザー' do
-      let(:input_pass) { "hogohoge5678" }
       it 'ログインに失敗すること' do
+        @user = FactoryBot.create(:user)
+        sign_in @user
         post user_session_path
         expect(response.body).to include 'メールアドレスまたはパスワードが違います'
       end
