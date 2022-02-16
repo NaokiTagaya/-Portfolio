@@ -80,7 +80,6 @@ RSpec.describe 'Users', type: :request, js: true do
     it 'プロフィール詳細画面の表示に成功すること' do
       profile_user = FactoryBot.create(:profile_user)
       restaurant = FactoryBot.create(:restaurant)
-      review = FactoryBot.create(:review)
       favorite = FactoryBot.create(:favorite)
       get users_profile_path、params: { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
       expect(response).to have_http_status(200)
@@ -90,7 +89,6 @@ RSpec.describe 'Users', type: :request, js: true do
   describe 'GET /users/edit' do
     let(:profile_user) { FactoryBot.create :profile_user }
     let(:restaurant) { FactoryBot.create :restaurant }
-    let(:review) { FactoryBot.create :review }
     let(:favorite) { FactoryBot.create :favorite }
     it 'プロフィール編集画面の表示に成功すること' do
       get edit_user_registration_path、params:  { id: profile_user, registered_user_id: profile_user, user_id: profile_user }
