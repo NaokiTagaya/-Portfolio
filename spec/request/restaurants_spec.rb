@@ -10,7 +10,6 @@ RSpec.describe 'Restaurants', type: :request, js: true do
     it '検索一覧画面の表示に成功すること' do
       get restaurants_search_path
       expect(response).to have_http_status(200)
-      expect(response).to be_successful
     end
   end
 
@@ -36,11 +35,6 @@ RSpec.describe 'Restaurants', type: :request, js: true do
       it 'リクエストが成功すること' do
         post restaurants_path, params: { restaurant: param_restaurant }
         expect(response).to have_http_status(200)
-      end
-
-      it '接続に成功すること' do
-        post restaurants_path, params: { restaurant: param_restaurant }
-        expect(response).to be_successful
       end
 
       it '店舗登録が成功すること' do

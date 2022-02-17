@@ -20,7 +20,7 @@ RSpec.describe 'Reviews', type: :request, js: true do
       sign_in @user
     end
     let(:test_review) { FactoryBot.build(:review) }
-    let!(:param_review) { { restaurant_id: @restaurant.id, user_id: @user.id, commnet: test_review.commnet, rate: test_review.rate } }
+    let!(:param_review) { { restaurant_id: @restaurant.id, user_id: @user.id, comment: test_review.comment, rate: test_review.rate } }
     it 'レビュー投稿画面の表示に成功すること' do
       post reviews_path, params: { review: param_review }
       expect(response).to have_http_status(200)
