@@ -26,6 +26,10 @@ RSpec.describe 'Restaurants', type: :request, js: true do
   end
 
   describe 'POST #create' do
+    before do
+      @user = FactoryBot.create(:user)
+      sign_in @user
+    end
     let!(:create_restaurant) { FactoryBot.build(:restaurant) }
     let!(:param_restaurant) { { restaurant_name: create_restaurant.restaurant_name, tel: create_restaurant.tel, zipcode: create_restaurant.zipcode, address: create_restaurant.address, registered_user_id: create_restaurant.registered_user_id } }
     context 'すべてのパラメータが揃っている場合' do
