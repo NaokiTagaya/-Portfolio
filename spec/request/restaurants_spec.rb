@@ -18,6 +18,7 @@ RSpec.describe 'Restaurants', type: :request, js: true do
       @user = FactoryBot.create(:user)
       sign_in @user
     end
+
     it '店舗登録画面の表示に成功すること' do
       get new_restaurant_path
       expect(response).to have_http_status(200)
@@ -25,19 +26,18 @@ RSpec.describe 'Restaurants', type: :request, js: true do
   end
 
   describe 'POST #create' do
-    before do
-      @user = FactoryBot.create(:user)
-      sign_in @user
-    end
+    let(:profile_user) { FactoryBot.create :profile_user }
     let!(:create_restaurant) { FactoryBot.build(:restaurant) }
     let!(:param_restaurant) { { restaurant_name: create_restaurant.restaurant_name, tel: create_restaurant.tel, zipcode: create_restaurant.zipcode, address: create_restaurant.address, registered_user_id: create_restaurant.registered_user_id } }
     context 'すべてのパラメータが揃っている場合' do
       it 'リクエストが成功すること' do
+        sign_in profile_user
         post restaurants_path, params: { restaurant: param_restaurant }
         expect(response).to have_http_status(200)
       end
 
       it '店舗登録が成功すること' do
+        sign_in profile_user
         expect do
           post restaurants_path, params: { restaurant: param_restaurant }
         end.to change(Restaurant, :count).by 1
