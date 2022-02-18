@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User', type: :system do
+RSpec.describe 'User', type: :feature do
   describe 'トップページ' do
     before do
       @user = FactoryBot.create(:regi_user)
