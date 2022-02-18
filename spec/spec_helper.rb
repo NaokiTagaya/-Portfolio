@@ -13,11 +13,12 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'capybara/spec'
+require 'capybara/rspec'
 
-config.before(:each, type: :system) do
-  driven_by :selenium_chrome_headless
-end
+RSpec.configure do |system| do
+  config.before(:each, type: :system) do
+  driven_by :selenium_chorme_headless
+  end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
