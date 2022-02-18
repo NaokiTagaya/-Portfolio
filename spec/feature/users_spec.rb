@@ -12,7 +12,5 @@ RSpec.describe 'User', type: :feature do
     click_button 'ログイン'
 
     expect(page).to have_link 'ホーム', href: root_path
-    
-    end
   end
 end
