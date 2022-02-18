@@ -15,9 +15,6 @@ RSpec.describe 'User', type: :system do
 
     it 'ログイン後のトップページが表示されている' do
       expect(page).to have_link 'ホーム', href: root_path
-      expect(page).to have_link 'マイページ', href: users_profile_path
-      expect(page).to have_link '店舗登録', href: new_restaurant_path
-      expect(page).to have_link 'ログアウト', href: destroy_user_session_path
     end
   end
 end
