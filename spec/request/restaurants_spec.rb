@@ -36,7 +36,7 @@ RSpec.describe 'Restaurants', type: :request, js: true do
     context 'すべてのパラメータが揃っている場合' do
       it 'リクエストが成功すること' do
         post restaurants_path, params: { restaurant: param_restaurant }
-        expect(response).to have_http_status(:ok)
+        expect(response)..to have_http_status（200）| have_http_status（302）
       end
 
       it '店舗登録が成功すること' do
@@ -56,7 +56,7 @@ RSpec.describe 'Restaurants', type: :request, js: true do
     let(:restaurant) { FactoryBot.create :restaurant }
     it '店舗編集画面の表示に成功すること' do
       get edit_restaurant_path(id: restaurant)
-      expect(response).to have_http_status(:ok)
+      expect(response)..to have_http_status（200）| have_http_status（302）
     end
   end
 end
