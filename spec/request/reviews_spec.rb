@@ -24,7 +24,7 @@ RSpec.describe 'Reviews', type: :request, js: true do
     let!(:param_review) { { restaurant_id: @restaurant.id, user_id: @user.id, comment: test_review.comment, rate: test_review.rate } }
     it 'レビュー投稿画面の表示に成功すること' do
       post reviews_path, params: { review: param_review }
-      expect(response).to .to have_http_status(200) | have_http_status(302)
+      expect(response).to have_http_status(200) | have_http_status(302)
     end
 
     it 'レビュー投稿が成功すること' do
