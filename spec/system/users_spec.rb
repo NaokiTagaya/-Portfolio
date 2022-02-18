@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User', type: :system do
   before do
-    @user = FactoryBot.create(:user)
+    @user = FactoryBot.create(:regi_user)
   end
 
   describe 'ログイン後のトップページ表示' do
