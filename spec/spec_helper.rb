@@ -15,10 +15,8 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
 
-RSpec.configure do |system| do
-  config.before(:each, type: :system) do
-    driven_by :selenium_chrome_headless
-  end
+config.before(:each, type: :system) do
+  driven_by :selenium_chrome_headless
 end
 
 RSpec.configure do |config|
