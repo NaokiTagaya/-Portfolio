@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'User', type: :system do
-  describe 'top.html.erb' do
+  describe 'トップページ' do
     before do
       @user = FactoryBot.create(:regi_user)
     end
     
-    context 'User log in' do
+    context 'ユーザーログイン時' do
       before do
         visit new_user_session_path
         fill_in 'メールアドレス', with: "jiro_potepan@test.com"
