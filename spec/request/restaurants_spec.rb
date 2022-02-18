@@ -28,7 +28,6 @@ RSpec.describe 'Restaurants', type: :request, js: true do
   describe 'POST #create' do
     before do
       @user = FactoryBot.create(:login_user)
-      @user.confirm
       sign_in @user
     end
 
@@ -51,7 +50,6 @@ RSpec.describe 'Restaurants', type: :request, js: true do
   describe 'GET /restaurants/:id/edit' do
     before do
       @user = FactoryBot.create(:login_user)
-      @user.confirm
       sign_in @user
     end
 
