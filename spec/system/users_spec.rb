@@ -8,7 +8,7 @@ RSpec.describe 'User', type: :system do
     
     context 'ユーザーログイン時' do
       before do
-        visit new_user_session_path
+        get new_user_session_path
         fill_in 'メールアドレス', with: "jiro_potepan@test.com"
         fill_in 'パスワード', with: "potepote1234"
         click_button 'ログイン'
