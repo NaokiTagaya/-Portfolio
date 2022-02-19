@@ -81,8 +81,7 @@ RSpec.describe 'User', type: :feature do
     fill_in 'メールアドレス', with: 'hanako_test@rspec.com'
     fill_in '新しいパスワード（半角英数字6文字以上）', with: 'rspectest6789'
     fill_in '新しいパスワード（確認用）', with: 'rspectest6789'
-    image_path = File.join(Rails.root, "spec/factories/images/image.png")
-    page.('#file_input').set(image_path)
+    attach_file 'file_input', "#{Rails.root}/spec/factories/images/image.png"
     click_button '更新'
 
     # コンテンツ表示（マイページ）
