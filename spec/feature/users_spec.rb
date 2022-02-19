@@ -77,7 +77,7 @@ RSpec.describe 'User', type: :feature do
     # 項目をそれぞれ入力して更新
     fill_in '名前', with: 'テスト花子'
     fill_in '年齢', with: 31
-    choose 'user_sex_female'
+    choose 'user-sex-female'
     fill_in 'メールアドレス', with: 'hanako_test@rspec.com'
     fill_in '新しいパスワード（半角英数字6文字以上）', with: 'rspectest6789'
     fill_in '新しいパスワード（確認用）', with: 'rspectest6789'
