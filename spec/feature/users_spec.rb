@@ -34,7 +34,7 @@ RSpec.describe 'User', type: :feature do
   scenario '会員登録後、マイページ表示' do
     # トップページ遷移後、新規登録ボタンをクリック
     visit root_url
-    click_button '新規登録'
+    click_link '新規登録'
 
     # ユーザー情報を入力して登録する
     fill_in '名前', with: "テスト太郎"
