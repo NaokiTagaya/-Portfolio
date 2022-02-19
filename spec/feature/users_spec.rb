@@ -46,7 +46,6 @@ RSpec.describe 'User', type: :feature do
     click_button 'アカウント登録'
 
     # コンテンツ表示（ナビゲーションバー）
-    expect(page).to have_content 'アカウント登録が完了しました。'
     expect(page).to have_link 'ホーム', href: root_path
     expect(page).to have_link 'マイページ', href: users_profile_path
     expect(page).to have_link '店舗登録', href: new_restaurant_path
