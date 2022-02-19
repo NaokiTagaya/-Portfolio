@@ -39,7 +39,7 @@ RSpec.describe 'User', type: :feature do
     # ユーザー情報を入力して登録する
     fill_in '名前', with: "テスト太郎"
     fill_in '年齢', with: 30
-    choose 'user_sex_male'
+    choose '男性'
     fill_in 'メールアドレス', with: 'taro_test@rspec.com'
     fill_in 'パスワード（半角英数字6文字以上）', with: 'rspectest1234'
     fill_in 'パスワード（確認用）', with: 'rspectest1234'
@@ -77,7 +77,7 @@ RSpec.describe 'User', type: :feature do
     # 項目をそれぞれ入力して更新
     fill_in '名前', with: 'テスト花子'
     fill_in '年齢', with: 31
-    choose 'user_sex_female'
+    choose '女性'
     fill_in 'メールアドレス', with: 'hanako_test@rspec.com'
     fill_in '新しいパスワード（半角英数字6文字以上）', with: 'rspectest6789'
     fill_in '新しいパスワード（確認用）', with: 'rspectest6789'
