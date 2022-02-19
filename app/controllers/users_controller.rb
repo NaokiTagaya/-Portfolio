@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(current_user.id)
     @restaurants = Restaurant.where(registered_user_id: @user.id)
     @reviews = Review.where(user_id: current_user.id)
     favorites = Favorite.where(user_id: current_user.id).order(created_at: :desc).pluck(:restaurant_id)

@@ -40,7 +40,7 @@
             <div class="row profile-margin">
               <div class="col profile-col">
                 <label class="text-left mx-auto float-left">性別：</label>
-                <% if @user.sex = 0 %>
+                <% if @user.male? %>
                   <span class="text-left mx-auto float-left">男性</span>
                 <% else %>
                   <span class="text-left mx-auto float-left">女性</span>
