@@ -31,7 +31,7 @@ RSpec.describe 'User', type: :feature do
     expect(page).to_not have_link '今すぐ登録', href: new_user_registration_path
   end
 
-  scenario '会員登録後、マイページ表示' do
+  scenario 'アカウント登録後、マイページ表示' do
     # トップページ遷移後、新規登録ボタンをクリック
     visit root_url
     click_link '新規登録'
@@ -94,5 +94,30 @@ RSpec.describe 'User', type: :feature do
     # コンテンツ表示（ナビゲーションバー）
     expect(page).to have_selector '.navbar-user-name', text: 'テスト花子'
     expect(page).to have_selector("img[src$='image.png']")
+  end
+
+  scenario 'アカウントを削除' do
+    # ログイン処理
+    @user = FactoryBot.create(:regi_user)
+    visit new_user_session_path
+    fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
+    fill_in 'パスワード', with: 'potepote1234'
+    click_button 'ログイン'
+
+    # マイページへ遷移
+    click_link 'マイページ'
+
+    # プロフィール編集画面へ遷移
+    click_link 'プロフィール編集'
+
+    # アカウントを削除
+    click_button 'アカウント削除'
+
+    # コンテンツ表示
+    expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
+    expect(page).to have_link 'ホーム', href: root_path
+    expect(page).to have_link 'ログイン', href: new_user_session_path
+    expect(page).to have_link '新規登録', href: new_user_registration_path
+    expect(page).to have_link '今すぐ登録', href: new_user_registration_path
   end
 end
