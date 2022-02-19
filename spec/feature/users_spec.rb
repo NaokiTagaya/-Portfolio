@@ -59,4 +59,41 @@ RSpec.describe 'User', type: :feature do
     expect(page).to have_content '男性'
     expect(page).to have_content 'taro_test@rspec.com'
   end
+
+  scenario 'プロフィールを更新' do
+    # ログイン処理
+    @user = FactoryBot.create(:regi_user)
+    visit new_user_session_path
+    fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
+    fill_in 'パスワード', with: 'potepote1234'
+    click_button 'ログイン'
+
+    # マイページへ遷移
+    click_link 'マイページ'
+
+    # プロフィール編集画面へ遷移
+    click_link 'プロフィール編集'
+
+    # 項目をそれぞれ入力して更新
+    fill_in '名前', with: "テスト花子"
+    fill_in '年齢', with: 31
+    choose "user_sex_female"
+    fill_in 'メールアドレス', with: 'hanako_test@rspec.com'
+    fill_in '新しいパスワード（半角英数字6文字以上）', with: 'rspectest6789'
+    fill_in '新しいパスワード（確認用）', with: 'rspectest6789'
+    image_path = File.join(Rails.root, "spec/factories/images/image.png")
+    page.('#file_input').set(image_path)
+    click_button '更新'
+
+    # コンテンツ表示（マイページ）
+    expect(page).to have_content 'テスト花子'
+    expect(page).to have_content '31'
+    expect(page).to have_content '女性'
+    expect(page).to have_content 'hanako_test@rspec.com'
+    expect(page).to have_selector("img[src$='image.png']")
+
+    # コンテンツ表示（ナビゲーションバー）
+    expect(page).to have_selector '.navbar-user-name', text: 'テスト花子'
+    expect(page).to have_selector("img[src$='image.png']")
+  end
 end
