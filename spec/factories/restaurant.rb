@@ -14,4 +14,20 @@ FactoryBot.define do
     address { "東京都渋谷区渋谷２丁目" }
     registered_user_id { 1 }
   end
+
+  factory :kanagawa_restaurant, class: Restaurant do
+    restaurant_name { "Rspecレストラン" }
+    tel { "045-682-1000" }
+    zipcode { "220-0012" }
+    address { "神奈川県横浜市西区みなとみらい２丁目３" }
+    registered_user_id { 1 }
+  end
+
+  factory :gunma_restaurant, class: Restaurant do
+    restaurant_name { "群馬レストラン" }
+    tel { "0270-32-0000" }
+    zipcode { "372-0851" }
+    address { "群馬県伊勢崎市上蓮町６５７" }
+    registered_user_id { 1 }
+  end
 end
