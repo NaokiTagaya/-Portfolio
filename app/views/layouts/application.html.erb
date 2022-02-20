@@ -26,12 +26,12 @@
           <div class="collapse navbar-collapse">
             <form class="d-flex">
               <div class="input-group-sm">
-                <%= r.text_field :area, placeholder: "エリア", class: "form-control me-2 input-sm" %>
+                <%= r.text_field :area, placeholder: "エリア", class: "form-control me-2 input-sm", id: "small-area" %>
               </div>
               <div class="input-group-sm">
-                <%= r.text_field :keyword, placeholder: "キーワード", class: "form-control me-2 input-sm" %>
+                <%= r.text_field :keyword, placeholder: "キーワード", class: "form-control me-2 input-sm", id: "small-keyword" %>
               </div>
-              <%= submit_tag '検索', class: "btn btn-color btn-sm" %>
+              <%= submit_tag '検索', class: "btn btn-color btn-sm", id: "small-search" %>
             </form>
           </div>
         <% end %>

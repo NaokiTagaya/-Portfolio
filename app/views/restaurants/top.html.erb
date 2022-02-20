@@ -6,12 +6,12 @@
 <%= form_with url: restaurants_search_path, class: 'form-inline', method: :get, local: true do |r| %>
   <div class="row mx-auto">
     <div class="col pd-right0 input-group-lg">
-      <%= r.text_field :area, placeholder: "エリア", class: "form-control" %>
+      <%= r.text_field :area, placeholder: "エリア", class: "form-control", id: "large-area" %>
     </div>
     <div class="col pd-left0 pd-right0 input-group-lg">
-      <%= r.text_field :keyword, placeholder: "キーワード", class: "form-control" %>
+      <%= r.text_field :keyword, placeholder: "キーワード", class: "form-control", id: "large-keyword" %>
     </div>
-    <%= submit_tag '検索', class: "btn btn-color btn-lg" %>
+    <%= submit_tag '検索', class: "btn btn-color btn-lg", id: "large-search" %>
   </div>
 <% end %>
 </div>
