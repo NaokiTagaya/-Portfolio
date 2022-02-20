@@ -29,8 +29,8 @@ RSpec.describe 'Restaurant', type: :feature do
     visit root_url
 
     # 何も入力せずに検索
-    fill_in 'エリア', with: '群馬', match: :first
-    find('input.btn-sm').click
+    fill_in 'large-area', with: '群馬'
+    find('input#large-search').click
 
     # コンテンツ表示
     expect(page).to have_content '検索結果：1件'
@@ -43,8 +43,8 @@ RSpec.describe 'Restaurant', type: :feature do
     visit root_url
 
     # 何も入力せずに検索
-    fill_in 'キーワード', with: 'Rspec', match: :first
-    find('input.btn-sm').click
+    fill_in 'large-keyword', with: 'Rspec', match: :first
+    find('input#large-search').click
 
     # コンテンツ表示
     expect(page).to have_content '検索結果：2件'
@@ -59,9 +59,9 @@ RSpec.describe 'Restaurant', type: :feature do
     visit root_url
 
     # 何も入力せずに検索
-    fill_in 'エリア', with: '神奈川', match: :first
-    fill_in 'キーワード', with: 'Rspec', match: :first
-    find('input.btn-sm').click
+    fill_in 'large-area', with: '神奈川', match: :first
+    fill_in 'large-keyword', with: 'Rspec', match: :first
+    find('input#large-search').click
 
     # コンテンツ表示
     expect(page).to have_content '検索結果：1件'
