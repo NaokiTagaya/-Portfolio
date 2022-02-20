@@ -12,7 +12,7 @@ RSpec.describe 'Restaurant', type: :feature do
     visit root_url
 
     # 何も入力せずに検索
-    click_button '検索'
+    find('input.btn-lg').click
 
     # コンテンツ表示
     expect(page).to have_content '検索結果：3件'
