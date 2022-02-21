@@ -153,7 +153,7 @@
                 <% @restaurants.each do |r| %>
                   <tr>
                     <th class="text-left"><%= r.restaurant_name %></th>
-                    <td class="text-left"><%= r.zipcode %></td>
+                    <td class="text-left">〒<%= r.zipcode %></td>
                     <td class="text-left"><%= r.address %></td>
                     <td>
                       <%= link_to "詳細", restaurant_path(r.id), class: "btn btn-color btn-sm" %>
