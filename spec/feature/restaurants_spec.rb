@@ -106,8 +106,8 @@ RSpec.describe 'Restaurant', type: :feature do
     find('#detail-button').click
 
     # 詳細画面表示
-    expect(page).to have_content 'Rspecレストラン'
-    expect(page).to have_content 'Rspecレストラン 基本情報'
+    expect(page).to have_content 'レストランRspec'
+    expect(page).to have_content 'レストランRspec 基本情報'
     expect(page).to have_content '03-1234-5678'
     expect(page).to have_content '〒150-0000 神奈川県横浜市西区みなとみらい２丁目３'
     expect(page).to_not have_content 'レビュー投稿は会員のみご利用できます。'
