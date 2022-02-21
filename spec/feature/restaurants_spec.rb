@@ -154,12 +154,12 @@ RSpec.describe 'Restaurant', type: :feature do
 
     # ログイン処理
     visit new_user_session_path
-    fill_in 'メールアドレス', with: 'edit_potepan@test.com'
+    fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
     fill_in 'パスワード', with: 'potepote1234'
     click_button 'ログイン'
 
     # 条件を入力して検索
-    fill_in 'large-area', with: '神宮前'
+    fill_in 'large-keyword', with: '神宮前'
     find('input#large-search').click
 
     # 検索画面の詳細ボタンを押下
