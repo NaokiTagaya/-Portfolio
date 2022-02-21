@@ -52,4 +52,14 @@ FactoryBot.define do
     password { "potepote1234" }
     password_confirmation { "potepote1234" }
   end
+
+  factory :edit_user, class: User do
+    id { 1 }
+    user_name { "編集ユーザー" }
+    age { 27 }
+    sex { 0 }
+    email { "edit_potepan@test.com" }
+    password { "potepote1234" }
+    password_confirmation { "potepote1234" }
+  end
 end
