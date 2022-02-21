@@ -19,19 +19,19 @@
       <div class="border-line pd-bottom30"></div>
       <div class="restaurant-info-parts martop-30">
         <div class="row">
-          <label class="col-md-3">店舗名</label>
+          <%= r.label :restaurant_name, '店舗名', class: "col-md-3" %>
           <%= r.text_field :restaurant_name, class: "form-control mb-4 col-md-7" %>
         </div>
         <div class="row">
-          <label class="col-md-3">郵便番号</label>
+          <%= r.label :zipcode, '郵便番号', class: "col-md-3" %>
           <%= r.text_field :zipcode, class: "form-control mb-4 col-md-2" %>
         </div>
         <div class="row">
-          <label class="col-md-3">所在地</label>
+          <%= r.label :address, '所在地', class: "col-md-3" %>
           <%= r.text_field :address, class: "form-control mb-4 col-md-7" %>
         </div>
         <div class="row">
-          <label class="col-md-3">電話番号</label>
+          <%= r.label :tel, '電話番号', class: "col-md-3" %>
           <%= r.text_field :tel, class: "form-control mb-md-5 col-md-3" %>
         </div>
         <%= r.hidden_field :registered_user_id, value: current_user.id %>
