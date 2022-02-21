@@ -78,7 +78,7 @@ RSpec.describe 'Restaurant', type: :feature do
     find('input#large-search').click
 
     # 検索画面の詳細ボタンを押下
-    
+    find('#detail-button').click
 
     # 詳細画面表示
     expect(page).to have_content 'Rspecレストラン'
@@ -87,5 +87,31 @@ RSpec.describe 'Restaurant', type: :feature do
     expect(page).to have_content '〒150-0000 神奈川県横浜市西区みなとみらい２丁目３'
     expect(page).to have_content 'レビュー投稿は会員のみご利用できます。'
     expect(page).to have_content '会員登録はこちら'
+    expect(page).to_not have_content 'お気に入り登録'
+  end
+
+  scenario 'ログイン時の店舗詳細画面表示' do
+    # ログイン処理
+    @user = FactoryBot.create(:regi_user)
+    visit new_user_session_path
+    fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
+    fill_in 'パスワード', with: 'potepote1234'
+    click_button 'ログイン'
+
+    # 条件を入力して検索
+    fill_in 'large-area', with: '渋谷'
+    find('input#large-search').click
+
+    # 検索画面の詳細ボタンを押下
+    find('#detail-button').click
+
+    # 詳細画面表示
+    expect(page).to have_content 'Rspecレストラン'
+    expect(page).to have_content 'Rspecレストラン 基本情報'
+    expect(page).to have_content '03-1234-5678'
+    expect(page).to have_content '〒150-0000 神奈川県横浜市西区みなとみらい２丁目３'
+    expect(page).to_not have_content 'レビュー投稿は会員のみご利用できます。'
+    expect(page).to_not have_content '会員登録はこちら'
+    expect(page).to have_content 'お気に入り登録'
   end
 end
