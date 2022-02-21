@@ -81,13 +81,13 @@ RSpec.describe 'Restaurant', type: :feature do
     find('#detail-button').click
 
     # 詳細画面表示
-    expect(page).to have_content 'Rspecレストラン'
-    expect(page).to have_content 'Rspecレストラン 基本情報'
+    expect(page).to have_content 'レストランRspec'
+    expect(page).to have_content 'レストランRspec 基本情報'
     expect(page).to have_content '03-1234-5678'
     expect(page).to have_content '〒150-0000 東京都渋谷区渋谷２丁目'
     expect(page).to have_content 'レビュー投稿は会員のみご利用できます。'
     expect(page).to have_content '会員登録はこちら'
-    expect(page).to_not have_content 'お気に入り登録'
+    expect(page).to_not include('お気に入り登録')
   end
 
   scenario 'ログイン時の店舗詳細画面表示' do
@@ -112,6 +112,6 @@ RSpec.describe 'Restaurant', type: :feature do
     expect(page).to have_content '〒150-0000 東京都渋谷区渋谷２丁目'
     expect(page).to_not have_content 'レビュー投稿は会員のみご利用できます。'
     expect(page).to_not have_content '会員登録はこちら'
-    expect(page).to have_content 'お気に入り登録'
+    expect(page).to include('お気に入り登録')
   end
 end
