@@ -191,4 +191,34 @@ RSpec.describe 'Restaurant', type: :feature do
     expect(page).to have_content '〒194-0000'
     expect(page).to have_content '東京都町田市鶴間４丁目'
   end
+
+  scenario '登録された店舗を削除' do
+    # データ作成
+    @restaurant4 = FactoryBot.create(:edit_restaurant, registered_user_id: @user.id)
+
+    # ログイン処理
+    visit new_user_session_path
+    fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
+    fill_in 'パスワード', with: 'potepote1234'
+    click_button 'ログイン'
+
+    # 条件を入力して検索
+    fill_in 'large-keyword', with: '神宮前'
+    find('input#large-search').click
+
+    # 検索画面の詳細ボタンを押下
+    find('#detail-button').click
+
+    # 詳細画面内の編集ボタンを押下
+    click_link '店舗を削除する'
+
+    # フラッシュメッセージ
+    expect(page).to have_content '店舗情報の削除が完了しました'
+
+    # マイページ内の投稿店舗一覧に無いことを確認
+    click_link 'マイページ'
+    expect(page).to_not have_content 'テスト店舗原宿'
+    expect(page).to_not have_content '〒372-0851'
+    expect(page).to_not have_content '東京都渋谷区神宮前1'
+  end
 end
