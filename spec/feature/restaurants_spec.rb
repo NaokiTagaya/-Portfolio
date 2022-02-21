@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Restaurant', type: :feature do
   before do
+    @user = FactoryBot.create(:regi_user)
     @restaurant1 = FactoryBot.create(:test_restaurant)
     @restaurant2 = FactoryBot.create(:kanagawa_restaurant)
     @restaurant3 = FactoryBot.create(:gunma_restaurant)
@@ -92,7 +93,6 @@ RSpec.describe 'Restaurant', type: :feature do
 
   scenario 'ログイン時の店舗詳細画面表示' do
     # ログイン処理
-    @user = FactoryBot.create(:regi_user)
     visit new_user_session_path
     fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
     fill_in 'パスワード', with: 'potepote1234'
@@ -117,7 +117,6 @@ RSpec.describe 'Restaurant', type: :feature do
 
   scenario '店舗登録と表示' do
     # ログイン処理
-    @user = FactoryBot.create(:regi_user)
     visit new_user_session_path
     fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
     fill_in 'パスワード', with: 'potepote1234'
@@ -150,8 +149,8 @@ RSpec.describe 'Restaurant', type: :feature do
   end
 
   scenario '店舗情報を更新後、詳細画面と投稿店舗一覧にて反映を確認' do
+
     # ログイン処理
-    @user = FactoryBot.create(:regi_user)
     visit new_user_session_path
     fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
     fill_in 'パスワード', with: 'potepote1234'
