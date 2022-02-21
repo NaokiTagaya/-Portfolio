@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Restaurant', type: :feature do
   before do
     @user = FactoryBot.create(:regi_user)
-    @edit_user = FactoryBot.create(:edit_user)
     @restaurant1 = FactoryBot.create(:test_restaurant)
     @restaurant2 = FactoryBot.create(:kanagawa_restaurant)
     @restaurant3 = FactoryBot.create(:gunma_restaurant)
