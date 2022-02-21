@@ -87,7 +87,6 @@ RSpec.describe 'Restaurant', type: :feature do
     expect(page).to have_content '〒150-0000 東京都渋谷区渋谷２丁目'
     expect(page).to have_content 'レビュー投稿は会員のみご利用できます。'
     expect(page).to have_content '会員登録はこちら'
-    expect(page).to_not include 'お気に入り登録'
   end
 
   scenario 'ログイン時の店舗詳細画面表示' do
@@ -112,6 +111,5 @@ RSpec.describe 'Restaurant', type: :feature do
     expect(page).to have_content '〒150-0000 東京都渋谷区渋谷２丁目'
     expect(page).to_not have_content 'レビュー投稿は会員のみご利用できます。'
     expect(page).to_not have_content '会員登録はこちら'
-    expect(page).to include 'お気に入り登録'
   end
 end
