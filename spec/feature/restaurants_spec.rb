@@ -150,6 +150,9 @@ RSpec.describe 'Restaurant', type: :feature do
   end
 
   scenario '店舗情報を更新後、詳細画面と投稿店舗一覧にて反映を確認' do
+    # データ作成
+    @restaurant4 = FactoryBot.create(:edit_restaurant, registered_user_id: @user.id)
+
     # ログイン処理
     visit new_user_session_path
     fill_in 'メールアドレス', with: 'edit_potepan@test.com'
@@ -157,7 +160,7 @@ RSpec.describe 'Restaurant', type: :feature do
     click_button 'ログイン'
 
     # 条件を入力して検索
-    fill_in 'large-area', with: '渋谷'
+    fill_in 'large-keyword', with: '原宿'
     find('input#large-search').click
 
     # 検索画面の詳細ボタンを押下
