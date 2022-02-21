@@ -159,7 +159,7 @@ RSpec.describe 'Restaurant', type: :feature do
     click_button 'ログイン'
 
     # 条件を入力して検索
-    fill_in 'large-keyword', with: '原宿'
+    fill_in 'large-area', with: '神宮前'
     find('input#large-search').click
 
     # 検索画面の詳細ボタンを押下
