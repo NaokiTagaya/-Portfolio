@@ -23,11 +23,6 @@ RSpec.describe 'Review', type: :feature do
     # コンテンツ表示
     expect(page).to have_selector("img[src$='default_icon.png']")
     expect(page).to have_content 'ポテパン次郎'
-    expect(page).to have_selector("img[alt=1]")
-    expect(page).to have_selector("img[alt=2]")
-    expect(page).to have_selector("img[alt=3]")
-    expect(page).to have_selector("img[alt=4]")
-    expect(page).to have_selector("img[alt=5]")
     expect(page).to have_selector("img[src$='star-on-88233ad1abcd2282b53edb9465a6bef42fd32de319f014e4059353e4fd8a7e0a.png']")
     expect(page).to have_selector("img[src$='star-on-88233ad1abcd2282b53edb9465a6bef42fd32de319f014e4059353e4fd8a7e0a.png']")
     expect(page).to have_selector("img[src$='star-on-88233ad1abcd2282b53edb9465a6bef42fd32de319f014e4059353e4fd8a7e0a.png']")
