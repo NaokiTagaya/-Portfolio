@@ -29,10 +29,8 @@ RSpec.describe 'Review', type: :feature do
   end
 
   scenario 'マイページ内の投稿レビュー一覧を閲表示' do
-    
   end
 
   scenario 'レビュー投稿' do
-
   end
 end
