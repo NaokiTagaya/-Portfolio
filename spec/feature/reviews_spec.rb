@@ -22,6 +22,8 @@ RSpec.describe 'Review', type: :feature do
     find('#detail-button').click
 
     # コンテンツ表示
+    expect(page).to have_selector '.customer-rate-label', text: '4.0'
+    expect(page).to have_content '1件のレビュー'
     expect(page).to have_selector("img[src$='default_icon.png']")
     expect(page).to have_content 'ポテパン次郎'
     expect(page).to have_content '4.0'

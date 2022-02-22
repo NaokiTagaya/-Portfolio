@@ -143,7 +143,7 @@ RSpec.describe 'Restaurant', type: :feature do
 
     # マイページ内の投稿店舗一覧表示
     click_link 'マイページ'
-    expect(page).to have_content 'テイクアウト店舗'
+    expect(page).to have_selector '.post-rest-head', text: 'テイクアウト店舗'
     expect(page).to have_content '〒194-8589'
     expect(page).to have_content '東京都町田市鶴間３丁目'
   end
@@ -187,7 +187,7 @@ RSpec.describe 'Restaurant', type: :feature do
 
     # マイページ内の投稿店舗一覧表示
     click_link 'マイページ'
-    expect(page).to have_content 'テストラーメン屋'
+    expect(page).to have_selector '.post-rest-head', text: 'テストラーメン屋'
     expect(page).to have_content '〒194-0000'
     expect(page).to have_content '東京都町田市鶴間４丁目'
   end
@@ -217,7 +217,7 @@ RSpec.describe 'Restaurant', type: :feature do
 
     # マイページ内の投稿店舗一覧に無いことを確認
     click_link 'マイページ'
-    expect(page).to_not have_content 'テスト店舗原宿'
+    expect(page).to have_selector '.post-rest-head', text: 'テスト店舗原宿'
     expect(page).to_not have_content '〒372-0851'
     expect(page).to_not have_content '東京都渋谷区神宮前1'
   end
