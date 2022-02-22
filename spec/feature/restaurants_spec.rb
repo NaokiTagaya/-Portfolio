@@ -217,7 +217,7 @@ RSpec.describe 'Restaurant', type: :feature do
 
     # マイページ内の投稿店舗一覧に無いことを確認
     click_link 'マイページ'
-    expect(page).to have_selector '.post-rest-head', text: 'テスト店舗原宿'
+    expect(page).to_not have_selector '.post-rest-head', text: 'テスト店舗原宿'
     expect(page).to_not have_content '〒372-0851'
     expect(page).to_not have_content '東京都渋谷区神宮前1'
   end
