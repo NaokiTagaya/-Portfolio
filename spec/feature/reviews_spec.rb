@@ -68,8 +68,8 @@ RSpec.describe 'Review', type: :feature do
     expect(page).to have_content '投稿したレビューはありません'
 
     # 検索後、詳細画面のレビュー投稿するボタンを押下
-    fill_in 'large-area', with: '群馬'
-    find('input#large-search').click
+    fill_in 'small-area', with: '群馬'
+    find('input#small-search').click
     find('#detail-button').click
     click_link 'レビュー投稿する'
 
