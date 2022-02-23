@@ -132,11 +132,16 @@ RSpec.describe 'Review', type: :feature do
     expect(page).to have_content '投稿したレビューを削除しました'
     click_link 'マイページ'
 
-    #削除後の投稿レビュー一覧コンテンツ表示
+    # 削除後の投稿レビュー一覧コンテンツ表示
     expect(page).to have_selector '.post-rest-head', text: '群馬レストラン'
     expect(page).to have_content '2.5'
     expect(page).to have_content '良くも悪くも2.5点ですね。'
     expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant2.id)
     expect(page).to have_link 'レビューを削除', href: review_path(@two_point_five_rate.id)
+    expect(page).to_not have_selector '.post-rest-head', text: 'Rspecレストラン'
+    expect(page).to_not have_content '4.0'
+    expect(page).to_not have_content '評価は4点です。'
+    expect(page).to_not have_link '店舗詳細', href: restaurant_path(@restaurant1.id)
+    expect(page).to_not have_link 'レビューを削除', href: review_path(@four_rate.id)
   end
 end
