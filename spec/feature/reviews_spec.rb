@@ -84,7 +84,7 @@ RSpec.describe 'Review', type: :feature do
 
     # 店舗詳細画面内のレビュー一覧に反映されていることを確認
     expect(page).to have_content 'レビューを投稿しました'
-    expect(page).to have_selector '.customer-rate-label', text: '3.75'
+    expect(page).to have_selector '.customer-rate-label', text: '3.8'
     expect(page).to have_content '2件のレビュー'
     expect(page).to have_selector("img[src$='default_icon.png']")
     expect(page).to have_content 'ポテパン次郎'
@@ -102,7 +102,7 @@ RSpec.describe 'Review', type: :feature do
     expect(page).to have_content '5.0'
     expect(page).to have_content 'とても良かったです！また利用したいと思います。'
     expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant2.id)
-    expect(page).to have_link 'レビューを削除', href: 'レビューを削除'
+    expect(page).to have_link 'レビューを削除'
   end
 
   scenario 'レビュー削除' do
