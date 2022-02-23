@@ -85,7 +85,11 @@ RSpec.describe 'Review', type: :feature do
     # 店舗詳細画面内のレビュー一覧に反映されていることを確認
     expect(page).to have_content 'レビューを投稿しました'
     expect(page).to have_selector '.customer-rate-label', text: '3.75'
-    expect(page).to have_content '1件のレビュー'
+    expect(page).to have_content '2件のレビュー'
+    expect(page).to have_selector("img[src$='default_icon.png']")
+    expect(page).to have_content 'ポテパン次郎'
+    expect(page).to have_content '2.5'
+    expect(page).to have_content '良くも悪くも2.5点ですね。'
     expect(page).to have_selector("img[src$='default_icon.png']")
     expect(page).to have_content 'Rspecプロフィールユーザー'
     expect(page).to have_content '5.0'
