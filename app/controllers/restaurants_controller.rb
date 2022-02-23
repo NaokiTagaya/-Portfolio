@@ -47,7 +47,7 @@ class RestaurantsController < ApplicationController
     if @reviews.blank?
       @average_rate = 0
     else
-      @average_rate = @reviews.average(:rate).round(2)
+      @average_rate = @reviews.average(:rate).round(1)
     end
     @reviews_count = Review.where(restaurant_id: @restaurant.id).count
   end
