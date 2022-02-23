@@ -30,7 +30,7 @@ RSpec.describe 'Review', type: :feature do
     expect(page).to have_content '評価は4点です。'
   end
 
-  scenario 'マイページ内の投稿レビュー一覧を閲表示' do
+  scenario 'マイページ内の投稿レビュー一覧を表示' do
     # ログイン処理
     visit new_user_session_path
     fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
@@ -44,13 +44,13 @@ RSpec.describe 'Review', type: :feature do
     expect(page).to have_selector '.post-rest-head', text: 'Rspecレストラン'
     expect(page).to have_content '4.0'
     expect(page).to have_content '評価は4点です。'
-    expect(page).to have_link '店舗詳細', href: restaurant_path
-    expect(page).to have_link 'レビューを削除', href: review_path
+    expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant1.id)
+    expect(page).to have_link 'レビューを削除', href: review_path(@four_rate.id)
     expect(page).to have_selector '.post-rest-head', text: '群馬レストラン'
     expect(page).to have_content '2.5'
     expect(page).to have_content '良くも悪くも2.5点ですね。'
-    expect(page).to have_link '店舗詳細', href: restaurant_path
-    expect(page).to have_link 'レビューを削除', href: review_path
+    expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant2.id)
+    expect(page).to have_link 'レビューを削除', href: review_path(@two_point_five_rate.id)
   end
 
   scenario 'レビュー投稿' do
