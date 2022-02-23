@@ -106,5 +106,36 @@ RSpec.describe 'Review', type: :feature do
   end
 
   scenario 'レビュー削除' do
+    # ログイン処理
+    visit new_user_session_path
+    fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
+    fill_in 'パスワード', with: 'potepote1234'
+    click_button 'ログイン'
+
+    # マイページへ遷移
+    click_link 'マイページ'
+
+    # 削除前の投稿レビュー一覧コンテンツ表示
+    expect(page).to have_selector '.post-rest-head', text: 'Rspecレストラン'
+    expect(page).to have_content '4.0'
+    expect(page).to have_content '評価は4点です。'
+    expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant1.id)
+    expect(page).to have_link 'レビューを削除', href: review_path(@four_rate.id)
+    expect(page).to have_selector '.post-rest-head', text: '群馬レストラン'
+    expect(page).to have_content '2.5'
+    expect(page).to have_content '良くも悪くも2.5点ですね。'
+    expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant2.id)
+    expect(page).to have_link 'レビューを削除', href: review_path(@two_point_five_rate.id)
+
+    # レビューを削除する
+    click_link 'レビューを削除', match: :first
+    expect(page).to have_content '投稿したレビューを削除しました'
+
+    #削除後の投稿レビュー一覧コンテンツ表示
+    expect(page).to have_selector '.post-rest-head', text: '群馬レストラン'
+    expect(page).to have_content '2.5'
+    expect(page).to have_content '良くも悪くも2.5点ですね。'
+    expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant2.id)
+    expect(page).to have_link 'レビューを削除', href: review_path(@two_point_five_rate.id)
   end
 end
