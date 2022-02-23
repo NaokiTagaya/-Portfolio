@@ -78,7 +78,7 @@ RSpec.describe 'Review', type: :feature do
     expect(page).to have_content 'レビュー投稿'
     expect(page).to have_selector("img[src$='no_image.jpg']")
     expect(page).to have_content '群馬レストラン'
-    click_on '5'
+    find('#star').find("img[alt='5']").click
     fill_in 'コメント', with: 'とても良かったです！また利用したいと思います。'
     click_button '投稿する'
 
