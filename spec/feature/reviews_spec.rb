@@ -130,6 +130,7 @@ RSpec.describe 'Review', type: :feature do
     # レビューを削除する
     click_link 'レビューを削除', match: :first
     expect(page).to have_content '投稿したレビューを削除しました'
+    click_link 'マイページ'
 
     #削除後の投稿レビュー一覧コンテンツ表示
     expect(page).to have_selector '.post-rest-head', text: '群馬レストラン'
