@@ -102,7 +102,7 @@ RSpec.describe 'Review', type: :feature do
     expect(page).to have_content '5.0'
     expect(page).to have_content 'とても良かったです！また利用したいと思います。'
     expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant2.id)
-    expect(page).to have_link 'レビューを削除', href: review_path(id)
+    expect(page).to have_link 'レビューを削除', href: 'レビューを削除'
   end
 
   scenario 'レビュー削除' do
