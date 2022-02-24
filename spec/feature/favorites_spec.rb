@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe 'Restaurant', type: :feature do
+RSpec.describe 'Favorite', type: :feature do
   before do
     @user = FactoryBot.create(:regi_user)
     @user1 = FactoryBot.create(:profile_user)
     @restaurant1 = FactoryBot.create(:kanagawa_restaurant)
     @restaurant2 = FactoryBot.create(:gunma_restaurant)
-    @favorite_b1 = FactoryBot.create(:favorite_1, user_id: @user.id, restaurant_id: restaurant1.id)
-    @favorite_b2 = FactoryBot.create(:favorite_2, user_id: @user.id, restaurant_id: restaurant2.id)
+    @favorite_b1 = FactoryBot.create(:favorite_1, user_id: @user.id, restaurant_id: @restaurant1.id)
+    @favorite_b2 = FactoryBot.create(:favorite_2, user_id: @user.id, restaurant_id: @restaurant2.id)
   end
 
   scenario 'マイページ内のお気に入り一覧を表示' do
