@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Review', type: :feature do
   before do
     @user = FactoryBot.create(:regi_user)
-    @user1 = FactoryBot.create(:profile_user,)
+    @user1 = FactoryBot.create(:profile_user)
     @restaurant1 = FactoryBot.create(:kanagawa_restaurant)
     @restaurant2 = FactoryBot.create(:gunma_restaurant)
     @four_rate = FactoryBot.create(:four_rate, restaurant_id: @restaurant1.id, user_id: @user.id)
