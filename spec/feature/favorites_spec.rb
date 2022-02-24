@@ -41,7 +41,7 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     click_button 'ログイン'
 
     # エリア検索を行い、店舗詳細画面に遷移
-    click_button 'ホーム'
+    click_link 'ホーム'
     fill_in 'large-area', with: '群馬'
     find('input#large-search').click
     find('#detail-button').click
