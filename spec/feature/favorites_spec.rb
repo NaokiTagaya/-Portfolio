@@ -48,7 +48,7 @@ RSpec.describe 'Favorite', type: :feature, js: true do
 
     # お気に入り登録を押下
     expect do
-      restaurant_favorites_path(restaurant_id: @restaurant2.id), xhr: true
+      post :create, restaurant_favorites_path(restaurant_id: @restaurant2.id), xhr: true
     end.to change(Favorite, :count).by(1)
 
     # マイページコンテンツ表示
