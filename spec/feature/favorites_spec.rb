@@ -47,7 +47,7 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     find('#detail-button').click
 
     # お気に入り登録を押下
-    xhr :post, find('.far').click
+    find('.far').click
     expect(page).to have_css '.fas'
     expect(page).to have_content 'お気に入り解除'
     expect(page).to have_css '.star-count1', text: '2'
