@@ -47,9 +47,9 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     find('#detail-button').click
 
     # お気に入り登録を押下
-    expect do
-      post restaurant_favorites_path(restaurant_id: @restaurant2.id), xhr: true
-    end.to change(Favorite, :count).by(1)
+    click_link 'お気に入り登録'
+    expect(page).to have_content 'お気に入り解除'
+    expect(page).to have_content '：2'
 
     # マイページコンテンツ表示
     click_link 'マイページ'
@@ -65,5 +65,12 @@ RSpec.describe 'Favorite', type: :feature, js: true do
   end
 
   scenario '自身で登録した店舗はお気に入りボタン非表示' do
+    # ログイン処理
+    visit new_user_session_path
+    fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
+    fill_in 'パスワード', with: 'potepote1234'
+    click_button 'ログイン'
+
+    # 
   end
 end
