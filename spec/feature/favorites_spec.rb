@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Favorite', type: :feature, js: true do
+RSpec.describe 'Favorite', type: :feature do
   before do
     @user = FactoryBot.create(:regi_user)
     @user1 = FactoryBot.create(:login_user)
@@ -33,7 +33,7 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     expect(page).to have_link '店舗詳細', href: restaurant_path(@restaurant2.id)
   end
 
-  scenario 'お気に入り登録後、マイページ内のお気に入り一覧に反映されているか確認' do
+  scenario 'お気に入り登録後、マイページ内のお気に入り一覧に反映されているか確認', js: true do
     # ログイン処理
     visit new_user_session_path
     fill_in 'メールアドレス', with: 'rspeclogin@test.com'
