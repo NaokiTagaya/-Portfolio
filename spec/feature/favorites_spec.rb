@@ -47,10 +47,10 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     find('#detail-button').click
 
     # お気に入り登録を押下
-    find('.far').click
+    xhr :post, find('.far').click
     expect(page).to have_css '.fas'
     expect(page).to have_content 'お気に入り解除'
-    expect(page).to have_content '：2'
+    expect(page).to have_css '.star-count1', text: '2'
 
     # マイページコンテンツ表示
     click_link 'マイページ'
@@ -71,7 +71,5 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
     fill_in 'パスワード', with: 'potepote1234'
     click_button 'ログイン'
-
-    # 
   end
 end
