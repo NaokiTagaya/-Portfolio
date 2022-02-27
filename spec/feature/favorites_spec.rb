@@ -64,7 +64,7 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     #お気に入り解除押下後
     find('.fas').click
     expect(page).to have_css '.far'
-    expect(page).to have_css '.star-count1', text: '0'
+    expect(page).to have_css '.star-count2', text: '0'
   end
 
   scenario '自身で登録した店舗はお気に入りボタン非表示' do
