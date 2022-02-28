@@ -99,8 +99,8 @@ RSpec.describe 'Favorite', type: :feature, js: true do
   scenario '自身で登録した店舗はお気に入りボタン非表示' do
     # ログイン処理
     visit new_user_session_path
-    fill_in 'メールアドレス', with: 'jiro_potepan@test.com'
-    fill_in 'パスワード', with: 'potepote1234'
+    fill_in 'メールアドレス', with: 'rspeclogin@test.com'
+    fill_in 'パスワード', with: 'hogohoge1234'
     click_button 'ログイン'
 
     # エリア検索を行い、店舗詳細画面に遷移
