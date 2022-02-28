@@ -79,13 +79,13 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     find('#detail-button').click
 
     # お気に入り解除前
-    expect(page).to have_css '.fas'
-    expect(page).to have_css '.star-count2', text: '1'
+    expect(page).to have_selector '.fas'
+    expect(page).to have_selector '.star-count2', text: '1'
 
     #お気に入り解除押下後
     find('.fas').click
-    expect(page).to have_css '.far'
-    expect(page).to have_css '.star-count1', text: '0'
+    expect(page).to have_selector '.far'
+    expect(page).to have_selector '.star-count1', text: '0'
 
     # マイページコンテンツ表示
     click_link 'マイページ'
@@ -109,6 +109,6 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     find('#detail-button').click
 
     # お気に入りボタン部分が非表示
-    expect(page).to_not have_css '.favorite-btn-part'
+    expect(page).to_not have_selector '.favorite-btn-part'
   end
 end
