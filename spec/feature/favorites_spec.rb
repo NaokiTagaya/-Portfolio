@@ -53,6 +53,7 @@ RSpec.describe 'Favorite', type: :feature, js: true do
 
     # お気に入り登録押下後
     find('.far').click
+    wait_for_ajax
     expect(page).to have_css '.fas'
     expect(page).to have_css '.star-count2', text: '1'
 
