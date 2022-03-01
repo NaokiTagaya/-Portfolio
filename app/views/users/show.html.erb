@@ -97,13 +97,13 @@
           </li>
           <li v-else-if="isActive === 3">
           <% if @reviews.present? %>
-            <table class="table table-striped v-align-mid">
+            <table class="table table-striped v-align-mid fixed">
               <thead>
                 <tr>
                   <th scope="col">店舗名</th>
                   <th scope="col">評価</th>
                   <th scope="col">レビューコメント</th>
-                  <th scope="col"></th>
+                  <th scope="col" class="user-detail-th"></th>
                 </tr>
               </thead>
               <tbody>
@@ -127,8 +127,8 @@
                     </td>
                     <td><%= rv.comment %></td>
                     <td>
-                      <%= link_to "店舗詳細", restaurant_path(rv.restaurant_id), class: "btn btn-color btn-sm" %>
-                      <%= link_to 'レビューを削除', review_path(rv.id), method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: "こちらのレビューを削除しますか？"} %>
+                      <%= link_to "店舗詳細", restaurant_path(rv.restaurant_id), class: "btn btn-color btn-sm vertical-link margbot-5" %>
+                      <%= link_to 'レビューを削除', review_path(rv.id), method: :delete, class: "btn btn-outline-danger btn-sm vertical-link", data: { confirm: "こちらのレビューを削除しますか？"} %>
                     </td>
                   </tr>
                 <% end %>
@@ -146,7 +146,7 @@
                   <th scope="col">店舗名</th>
                   <th scope="col">郵便番号</th>
                   <th scope="col">住所</th>
-                  <th scope="col"></th>
+                  <th scope="col" class="user-post-detail-th"></th>
                 </tr>
               </thead>
               <tbody>
@@ -156,8 +156,8 @@
                     <td class="text-center">〒<%= r.zipcode %></td>
                     <td class="text-center"><%= r.address %></td>
                     <td>
-                      <%= link_to "詳細", restaurant_path(r.id), class: "btn btn-color btn-sm" %>
-                      <%= link_to '削除', restaurant_path(r.id), method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: "投稿されたレビューを含めてこちらの店舗情報を削除します。本当によろしいですか？"} %>
+                      <%= link_to "詳細", restaurant_path(r.id), class: "btn btn-color btn-sm vertical-link margbot-5" %>
+                      <%= link_to '削除', restaurant_path(r.id), method: :delete, class: "btn btn-outline-danger btn-sm vertical-link", data: { confirm: "投稿されたレビューを含めてこちらの店舗情報を削除します。本当によろしいですか？"} %>
                     </td>
                   </tr>
                 <% end %>
