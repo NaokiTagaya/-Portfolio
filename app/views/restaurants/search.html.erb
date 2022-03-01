@@ -1,0 +1,35 @@
+<div class="container margin-top-20">
+  <div class="txt-center form-square-search page-label">
+    <div class="search-result">
+      <p>検索結果：<%= @recordcount %>件</p>
+      <% if @recordcount == 0 %>
+        <p class="text-center">該当するお店が見つかりませんでした。</p>
+        <p class="text-center">検索条件をご確認の上、再度お試しください。</p>
+      <% end %>
+    </div>
+    <table class="table fixed">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">店舗名</th>
+          <th scope="col">所在地</th>
+          <th scope="col" class="search-detail-th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @restaurants.each do |r| %>
+          <tr>
+            <% if r.restaurant_image? %>
+              <th class="text-left"><%= image_tag r.restaurant_image.url, class: "search-image" %></th>
+            <% else %>
+              <th class="text-left"><%= image_tag "/assets/no_image.jpg", class: "search-image" %></th>
+            <% end %>
+            <td class="text-left"><%= r.restaurant_name %></td>
+            <td class="text-left">〒<%= r.zipcode %>  <%= r.address %></td>
+            <td><%= link_to "詳細", restaurant_path(r.id), class: "btn btn-color btn-sm", id: "detail-button" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

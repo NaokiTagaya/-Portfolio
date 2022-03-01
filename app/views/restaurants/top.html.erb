@@ -1,0 +1,64 @@
+<%= render partial: 'layouts/notifications' %>
+<div class="main-visual">
+  <h5>テイクアウトショップ共有サイト</h5>
+  <%= image_tag 'topmain_logo.png', :class=>"img-fluid", :alt => 'トップ画面のメインロゴ' %>
+  <h6>エリア・キーワードからテイクアウトのお店を探してみましょう。</h6>
+<%= form_with url: restaurants_search_path, class: 'form-inline', method: :get, local: true do |r| %>
+  <div class="row mx-auto">
+    <div class="col pd-right0 input-group-lg">
+      <%= r.text_field :area, placeholder: "エリア", class: "form-control", id: "large-area" %>
+    </div>
+    <div class="col pd-left0 pd-right0 input-group-lg">
+      <%= r.text_field :keyword, placeholder: "キーワード", class: "form-control", id: "large-keyword" %>
+    </div>
+    <%= submit_tag '検索', class: "btn btn-color btn-lg", id: "large-search" %>
+  </div>
+<% end %>
+</div>
+<div class="container">
+  <div class="container-square square-parts">
+    <h4>「フジノキ」とは？</h4>
+    <br>
+     <div class="row mx-auto margbot-30">
+      <div class="col">
+        <%= image_tag 'food_takeout_woman.png', :class=>"square-parts-img img-fluid d-block mx-auto", :alt => 'テイクアウトイラスト' %>
+      </div>
+    </div>
+    <p>
+      昨今新型コロナウイルスが蔓延する中、人との接触を控えるようになりました。
+      <br>
+      そのため、外食よりテイクアウトによる食事の需要が高まっております。
+      <br>
+      「フジノキ」ではテイクアウトが可能のお店がどこにあるのか、
+      <br>
+      そのお店の評判はどういったものか等といった方に向けて、共有頂けるよう、
+      <br>
+      こちらのサイトを作成致しました。
+    </p>
+  </div>
+</div>
+<div class="container">
+  <div class="container-square square-parts">
+    <h4>会員登録を行うと？</h4>
+    <br>
+    <div class="row mx-auto margbot-30">
+      <div class="col">
+        <%= image_tag 'review_man_star5.png', :class=>"square-parts-img img-fluid d-block float-right", :alt => '星5男性イラスト' %>
+      </div>
+      <div class="col">
+        <%= image_tag 'review_woman_star5.png', :class=>"square-parts-img img-fluid d-block float-left", :alt => '星5女性イラスト' %>
+      </div>
+    </div>
+    <p>
+      会員登録を行うと店舗検索の他、店舗の登録やレビューの投稿といった機能がご利用できます。
+      <br>
+      是非会員登録して頂き、店舗の情報やレビューを他の方に共有してみましょう!
+      <br>
+    </p>
+    <% unless user_signed_in? %>
+    <div class="martop-30 txt-center">
+      <%= link_to "今すぐ登録", new_user_registration_path, class: "btn btn-color btn-lg" %>
+    </div>
+    <% end %>
+  </div>
+</div>

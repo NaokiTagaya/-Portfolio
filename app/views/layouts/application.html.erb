@@ -6,42 +6,72 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'hello_vue' %>
-    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <%= javascript_pack_tag 'tab_vue' %>
+    <%= javascript_pack_tag 'image_preview_vue' %>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
     <header class="header-menu">
-      <nav class="navbar navbar-expand-lg navbar-light navbar-color">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-color">
         <%= link_to image_tag("header_logo.png", class:"header-logo", alt:"ヘッダーロゴ"), "/" %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <form class="d-flex">
-            <div class="input-group-sm">
-              <input class="form-control me-2 input-sm" type="search" placeholder="エリア" aria-label="Search">
-            </div>
-            <div class="input-group-sm">
-              <input class="form-control me-2 input-sm" type="search" placeholder="キーワード" aria-label="Search">
-            </div>
-            <button class="btn btn-color btn-sm" type="submit">検索</button>
-          </form>
-        </div>
-        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarTogglerDemo01">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item marginlg-5">
-              <a class="nav-link active" aria-current="page" href="#">ホーム</a>
-            </li>
-            <li class="nav-item marginlg-5">
-              <button type="button" class="btn btn-primary btn-color">ログイン</button>
-            </li>
-            <li class="nav-item marginlg-5">
-              <button type="button" class="btn btn-primary btn-color">新規登録</button>
-            </li>
-          </ul>
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" v-on:click="open=!open">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <%= form_with url: restaurants_search_path, method: :get, local: true do |r| %>
+          <div class="collapse navbar-collapse">
+            <form class="d-flex">
+              <div class="input-group-sm">
+                <%= r.text_field :area, placeholder: "エリア", class: "form-control me-2 input-sm", id: "small-area" %>
+              </div>
+              <div class="input-group-sm">
+                <%= r.text_field :keyword, placeholder: "キーワード", class: "form-control me-2 input-sm", id: "small-keyword" %>
+              </div>
+              <%= submit_tag '検索', class: "btn btn-color btn-sm", id: "small-search" %>
+            </form>
+          </div>
+        <% end %>
+        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNav">
+          <% if user_signed_in? %>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+              <li class="nav-item marginlg-5">
+                <%= link_to "ホーム", "/", class: "nav-link active fnt-size-16" %>
+              </li>
+              <li class="nav-item marginlg-5">
+                <%= link_to "マイページ", users_profile_path, class: "nav-link active fnt-size-16" %>
+              </li>
+              <li class="nav-item marginlg-5">
+                <%= link_to "店舗登録", new_restaurant_path, class: "nav-link active fnt-size-16" %>
+              </li>
+              <li class="nav-item marginlg-5">
+                <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link active fnt-size-16" %>
+              </li>
+              <li class="nav-item marginlg-5">
+              <% if current_user.image? %>
+                <%= image_tag current_user.image.url, alt: "ヘッダーアイコン", class: "mxｰ3 p-1 host-icon" %>
+              <% else %>
+                <img src="/assets/default_icon.png" class="mxｰ3 p-1 host-icon" alt="ヘッダーアイコン">
+              <% end %>
+                <span class="navbar-user-name"><%= current_user.user_name %></span>
+              </li>
+            </ul>
+          <% else %>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+              <li class="nav-item marginlg-5">
+                <%= link_to "ホーム", "/", class: "nav-link active fnt-size-16" %>
+              </li>
+              <li class="nav-item marginlg-5">
+                <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-color" %>
+              </li>
+              <li class="nav-item marginlg-5">
+                <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-color" %>
+              </li>
+            </ul>
+          <% end %>
         </div>
       </nav>
     </header>

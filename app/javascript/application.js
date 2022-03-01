@@ -13,3 +13,6 @@
 //
 // const images = require.context('./images', true)
 // const imagePath = (name) => images(name, true)
+
+require('./packs/tab_vue.js')
+require('./packs/image_preview_vue.js')

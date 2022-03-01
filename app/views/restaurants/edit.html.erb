@@ -1,0 +1,45 @@
+<div class="container margin-top-20">
+  <div class="txt-center form-square page-label">
+    <h3>店舗情報更新</h3>
+    <%= render "shared/error", obj: @restaurant %>
+    <%= form_with model: @restaurant, local: true do |r| %>
+      <div class="field martop-30" id="img_field" @change="onFileChange($event)">
+        <label class="restaurant-top-label">店舗画像</label>
+        <div class="restaurant-img-parts">
+          <% if @restaurant.restaurant_image? %>
+            <img :src="imageData" v-if="imageData" class="restaurant-img d-block mx-auto">
+            <img src=<%= @restaurant.restaurant_image.url %> v-else class="restaurant-img d-block mx-auto">
+          <% else %>
+            <img :src="imageData" v-if="imageData" class="restaurant-img d-block mx-auto">
+            <img src="/assets/no_image.jpg" v-else class="restaurant-img d-block mx-auto">
+          <% end %>
+        </div>
+        <%= r.file_field :restaurant_image, id: "file-input", accept: 'image/jpeg,image/gif,image/png', class: "mbｰ4", placeholder: "店舗画像をアップロード" %>
+      </div>
+      <div class="border-line pd-bottom30"></div>
+      <div class="restaurant-info-parts martop-30">
+        <div class="row">
+          <%= r.label :restaurant_name, '店舗名', class: "col-md-3" %>
+          <%= r.text_field :restaurant_name, class: "form-control mb-4 col-md-7" %>
+        </div>
+        <div class="row">
+          <%= r.label :zipcode, '郵便番号', class: "col-md-3" %>
+          <%= r.text_field :zipcode, class: "form-control mb-4 col-md-2" %>
+        </div>
+        <div class="row">
+          <%= r.label :address, '所在地', class: "col-md-3" %>
+          <%= r.text_field :address, class: "form-control mb-4 col-md-7" %>
+        </div>
+        <div class="row">
+          <%= r.label :tel, '電話番号', class: "col-md-3" %>
+          <%= r.text_field :tel, class: "form-control mb-md-5 col-md-3" %>
+        </div>
+        <%= r.hidden_field :registered_user_id, value: current_user.id %>
+        <div class="row justify-content-center">
+            <%= r.submit "更新", class: "btn btn-color btn-lg marginlg-5p width-15" %>
+            <%= link_to "戻る", :back, class: "btn btn-outline-color btn-lg marginlg-5p width-15" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

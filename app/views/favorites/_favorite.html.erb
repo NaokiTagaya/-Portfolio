@@ -1,0 +1,15 @@
+<% if !Favorite.exists?(user_id: current_user.id, restaurant_id: restaurant.id) %>
+<div class="favorite-btn-part">
+  <%= link_to restaurant_favorites_path(restaurant.id), method: :post, remote: true, class:"favorite-btn" do %>
+    <i class="far fa-star"></i>
+  <% end %>
+  <span class="star-count1">：<%= restaurant.favorites.count %></span>
+</div>
+<% else %>
+<div class="favorite-btn-part">
+  <%= link_to restaurant_favorite_path(restaurant_id: restaurant.id, id: restaurant.favorites[0].id), method: :delete, remote: true, class:"favorite-btn" do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+  <span class="star-count2">：<%= restaurant.favorites.count %></span>
+</div>
+<% end %>

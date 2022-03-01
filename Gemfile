@@ -40,10 +40,21 @@ gem 'carrierwave'
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'webpacker', '~> 5.0'
+gem 'rails-i18n'
+gem 'pry-rails'
+gem 'dotenv-rails'
+gem 'geocoder'
+gem 'data-confirm-modal'
+gem 'jquery-rails'
+gem 'http'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
+  gem 'rspec-rails', '~>3.8'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -61,7 +72,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec-rails', '~>3.8'
   gem "rspec_junit_formatter"
 end
 
