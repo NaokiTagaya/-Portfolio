@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users', to: redirect("/users/sign_up")
     get '/users/sign_out' => 'devise/sessions#destroy'
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   get 'restaurants/top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
