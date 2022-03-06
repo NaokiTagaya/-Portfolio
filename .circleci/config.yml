@@ -99,7 +99,7 @@ jobs:
 
   deploy:
     machine:
-      image: circleci/classic:edge
+      enabled: true
     steps:
       - add_ssh_keys:
           fingerprints:
