@@ -52,5 +52,4 @@ test:
 production:
   <<: *default
   database: portfolioec_production
-  username: portfolioec
-  password: <%= ENV['PORTFOLIOEC_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
