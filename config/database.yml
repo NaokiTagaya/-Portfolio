@@ -51,5 +51,6 @@ test:
 #
 production:
   <<: *default
-  database: portfolioec_production
-  url: <%= ENV['DATABASE_URL'] %>
+  database: heroku_6dd6ba8d3be1399
+  username: b60829af364b4a
+  password: <%= ENV['DATABASE_PASSWORD'] %>
