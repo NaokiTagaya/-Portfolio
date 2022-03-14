@@ -97,7 +97,7 @@ jobs:
           name: Rubocop
           command: bundle exec rubocop
 
-  heroku_deploy:
+  deploy:
     docker:
     - image: buildpack-deps:trusty
     steps:
@@ -108,13 +108,13 @@ jobs:
 
 workflows:
     version: 2
-    heroku_deploy:
+    deploy:
       jobs:
         - build
         - rubocop:
             requires:
               - build
-        - heroku_deploy:
+        - deploy:
             requires:
               - rubocop
               - build
