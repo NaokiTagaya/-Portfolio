@@ -19,3 +19,5 @@ COPY ./Gemfile $APP_ROOT/Gemfile
 COPY ./Gemfile.lock $APP_ROOT/Gemfile.lock
 RUN bundle install
 COPY . $APP_ROOT
+EXPOSE 3001
+CMD ["rails", "server", "-b", "0.0.0.0"]
