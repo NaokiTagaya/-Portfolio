@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'webpacker', '~> 5.0'
