@@ -98,6 +98,7 @@ jobs:
           command: bundle exec rubocop
 
   deploy:
+    working_directory: ~/portfolioec
     docker:
       - image: buildpack-deps:trusty
     steps:
