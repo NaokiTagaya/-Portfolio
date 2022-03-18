@@ -22,6 +22,7 @@ vendor/
 /node_modules
 /yarn-error.log
 
+/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
@@ -29,6 +30,7 @@ vendor/
 
 .DS_Store
 app/.DS_Store
+/public/packs
 /public/packs-test
 /node_modules
 /yarn-error.log
