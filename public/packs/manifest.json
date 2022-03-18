@@ -1,0 +1,44 @@
+{
+  "entrypoints": {
+    "hello_vue": {
+      "js": [
+        "/packs/js/hello_vue-8ba8b30cafe26edbb599.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_vue-8ba8b30cafe26edbb599.js.map"
+      ]
+    },
+    "image_preview_vue": {
+      "js": [
+        "/packs/js/image_preview_vue-ae9ec820e33636c52e44.js"
+      ],
+      "js.map": [
+        "/packs/js/image_preview_vue-ae9ec820e33636c52e44.js.map"
+      ]
+    },
+    "tab_vue": {
+      "js": [
+        "/packs/js/tab_vue-226c007c0b6d2a756709.js"
+      ],
+      "js.map": [
+        "/packs/js/tab_vue-226c007c0b6d2a756709.js.map"
+      ]
+    },
+    "top_vue": {
+      "js": [
+        "/packs/js/top_vue-d770ed3a3894dc83a16f.js"
+      ],
+      "js.map": [
+        "/packs/js/top_vue-d770ed3a3894dc83a16f.js.map"
+      ]
+    }
+  },
+  "hello_vue.js": "/packs/js/hello_vue-8ba8b30cafe26edbb599.js",
+  "hello_vue.js.map": "/packs/js/hello_vue-8ba8b30cafe26edbb599.js.map",
+  "image_preview_vue.js": "/packs/js/image_preview_vue-ae9ec820e33636c52e44.js",
+  "image_preview_vue.js.map": "/packs/js/image_preview_vue-ae9ec820e33636c52e44.js.map",
+  "tab_vue.js": "/packs/js/tab_vue-226c007c0b6d2a756709.js",
+  "tab_vue.js.map": "/packs/js/tab_vue-226c007c0b6d2a756709.js.map",
+  "top_vue.js": "/packs/js/top_vue-d770ed3a3894dc83a16f.js",
+  "top_vue.js.map": "/packs/js/top_vue-d770ed3a3894dc83a16f.js.map"
+}
