@@ -105,7 +105,7 @@ jobs:
       - checkout
       - run:
           name: Precompile assets
-          command: assets:precompile RAILS_ENV=production
+          command: bundle exec rake assets:precompile RAILS_ENV=production
       - run:
           name: Deploy Master to Heroku
           command: |
