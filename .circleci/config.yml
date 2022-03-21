@@ -35,18 +35,11 @@ jobs:
           command: mv ./config/database.yml.ci ./config/database.yml
 
       - run:
-          name: "Push docker image"
-          command: heroku container:push web --app ${HEROKU_APP_NAME}
-
-      - run:
-          name: "Restart app"
-          command: heroku container:release web --app ${HEROKU_APP_NAME}
-
-      - run:
           name: Databasesetup
           command: |
             bin/rails db:create
             bin/rails db:migrate
+
       - run:
           name: yarn Install
           command: yarn install
