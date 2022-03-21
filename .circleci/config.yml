@@ -35,6 +35,14 @@ jobs:
           command: mv ./config/database.yml.ci ./config/database.yml
 
       - run:
+          name: "Push docker image"
+          command: heroku container:push web --app ${HEROKU_APP_NAME}
+
+      - run:
+          name: "Restart app"
+          command: heroku container:release web --app ${HEROKU_APP_NAME}
+
+      - run:
           name: Databasesetup
           command: |
             bin/rails db:create
@@ -48,10 +56,6 @@ jobs:
       - run:
           name: Precompile assets
           command: bundle exec rake assets:precompile RAILS_ENV=production
-
-      - run:
-          name: Compile webpacker
-          command: bundle exec rake webpacker:compile
 
       - run:
           name: Run rspec
