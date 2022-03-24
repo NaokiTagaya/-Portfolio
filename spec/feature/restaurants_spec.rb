@@ -32,7 +32,7 @@ RSpec.describe 'Restaurant', type: :feature do
     fill_in 'large-area', with: '群馬'
     find('input#large-search').click
 
-    # コンテンツ表示  
+    # コンテンツ表示
     expect(page).to have_content '群馬レストラン'
     expect(page).to have_content '群馬県伊勢崎市上蓮町６５７'
   end
