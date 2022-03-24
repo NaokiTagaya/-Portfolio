@@ -69,7 +69,7 @@ RSpec.describe 'Review', type: :feature do
 
     # 検索後、詳細画面のレビュー投稿するボタンを押下
     visit root_url
-    fill_in 'large-area', with: '群馬'
+    fill_in 'large-keyword', with: '群馬レストラン'
     find('input#large-search').click
     find('#detail-button').click
     click_link 'レビュー投稿する'

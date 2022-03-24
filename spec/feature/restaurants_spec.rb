@@ -16,7 +16,6 @@ RSpec.describe 'Restaurant', type: :feature do
     find('input#large-search').click
 
     # コンテンツ表示
-    expect(page).to have_content '検索結果：3件'
     expect(page).to have_content 'レストランRspec'
     expect(page).to have_content '東京都渋谷区渋谷２丁目'
     expect(page).to have_content 'Rspecレストラン'
@@ -33,8 +32,7 @@ RSpec.describe 'Restaurant', type: :feature do
     fill_in 'large-area', with: '群馬'
     find('input#large-search').click
 
-    # コンテンツ表示
-    expect(page).to have_content '検索結果：1件'
+    # コンテンツ表示  
     expect(page).to have_content '群馬レストラン'
     expect(page).to have_content '群馬県伊勢崎市上蓮町６５７'
   end
