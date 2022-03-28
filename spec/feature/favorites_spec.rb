@@ -42,7 +42,7 @@ RSpec.describe 'Favorite', type: :feature, js: true do
     click_button 'ログイン'
 
     # エリア検索を行い、店舗詳細画面に遷移
-    fill_in 'large-keyword', with: '原宿'
+    fill_in 'large-keyword', with: 'テスト店舗原宿'
     find('input#large-search').click
     find('#detail-button').click
 
