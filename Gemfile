@@ -38,7 +38,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'fog-aws'
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'webpacker', '~> 5.0'
@@ -79,6 +78,7 @@ end
 
 group :production do
   gem 'unicorn', '5.4.1'
+  gem 'fog-aws'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
