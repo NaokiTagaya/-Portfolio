@@ -73,6 +73,7 @@ RSpec.describe 'Restaurant', type: :feature do
     visit root_url
 
     # 条件を入力して検索
+    fill_in 'large-keyword', with: 'レストランRspec'
     fill_in 'large-area', with: '渋谷'
     find('input#large-search').click
 
@@ -97,6 +98,7 @@ RSpec.describe 'Restaurant', type: :feature do
     click_button 'ログイン'
 
     # 条件を入力して検索
+    fill_in 'large-keyword', with: 'レストランRspec'
     fill_in 'large-area', with: '渋谷'
     find('input#large-search').click
 
@@ -157,7 +159,7 @@ RSpec.describe 'Restaurant', type: :feature do
     click_button 'ログイン'
 
     # 条件を入力して検索
-    fill_in 'large-keyword', with: '神宮前'
+    fill_in 'large-keyword', with: 'テスト店舗原宿'
     find('input#large-search').click
 
     # 検索画面の詳細ボタンを押下
@@ -201,7 +203,7 @@ RSpec.describe 'Restaurant', type: :feature do
     click_button 'ログイン'
 
     # 条件を入力して検索
-    fill_in 'large-keyword', with: '神宮前'
+    fill_in 'large-keyword', with: 'テスト店舗原宿'
     find('input#large-search').click
 
     # 検索画面の詳細ボタンを押下
